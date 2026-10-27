@@ -73,7 +73,7 @@ def emit(page, module_page, modules, pills):
     <div>
       <p class="eyebrow"><span>University of Kansas</span> · University of Florida · Florida International University</p>
       <h1>Hardware security, taught inside the courses students already take.</h1>
-      <p class="lede">Cybersecurity courses still treat the chip as a root of trust. These modules do not add a new elective. Each one uses a security problem to exercise a design idea the host course already has to teach.</p>
+      <p class="lede">Most cybersecurity courses still treat the processor and the board as a root of trust. These modules do not add a hardware-security elective. Each one is a lab on a topic the host course already teaches: the instruction set, the stack, the timer, CMOS switching, the adder, the state machine, or the cache.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="catalog.html">Open the nine modules</a>
         <a class="btn btn-ghost" href="framework.html">Read the design rules</a>
@@ -99,7 +99,7 @@ def emit(page, module_page, modules, pills):
       <article class="card">
         <p class="num">Limited reach</p>
         <h3>The elective is taken by a few.</h3>
-        <p>At the University of Florida, fewer than 7% of undergraduate electrical and computer engineering students register for the introductory hardware security course in a given year. Students who never planned a security career do not see the material, and the students missing from that room are missing from the workforce that follows.</p>
+        <p>At the University of Florida, fewer than 7% of undergraduate electrical and computer engineering students register for the introductory hardware security course in a given year. Students who never enroll in that elective do not see reverse engineering, side-channel analysis, or logic locking.</p>
       </article>
       <article class="card">
         <p class="num">Cost</p>
@@ -108,8 +108,8 @@ def emit(page, module_page, modules, pills):
       </article>
       <article class="card">
         <p class="num">Fragmented view</p>
-        <h3>The attack gets separated from the design choice.</h3>
-        <p>Many of these failures start in implementation. A side channel is a property of how a gate switches, not a story told later in a security elective. A student who meets the attack apart from the circuit learns a fragment.</p>
+        <h3>The attack is taught apart from the circuit.</h3>
+        <p>Many of these failures start in the implementation. A timing leak comes from data-dependent control flow. A power leak comes from CMOS switching current. Both are properties of the circuit the student is already designing, not topics to postpone until a later elective.</p>
       </article>
     </div>
   </div>
@@ -117,7 +117,7 @@ def emit(page, module_page, modules, pills):
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="principle">
-      <p>A security concept earns its place when it gives the student a reason to use a design concept the course already has to teach. Performing the attack is how the student works the design topic.</p>
+      <p>A security topic belongs in a core course when the lab requires a design concept already on the syllabus. Running the attack, or building the countermeasure, is how the student practices that concept.</p>
       <span>The selection principle</span>
     </div>
   </div>
@@ -135,7 +135,7 @@ def emit(page, module_page, modules, pills):
   <div class="wrap">
     <div class="section-head">
       <h2>Where they sit</h2>
-      <p>The module enters in the week the host course already covers the underlying idea. It reuses the debugger, the vendor tools, and the bench instruments the lab already owns.</p>
+      <p>Each module is scheduled in the week the host course covers the design topic it uses. The lab keeps the debugger, the vendor tools, and the bench instruments the course already has.</p>
     </div>
     <div class="course-grid">
       <article class="course-card">
@@ -179,7 +179,7 @@ def emit(page, module_page, modules, pills):
   <div class="wrap page-intro">
     <p class="kicker">Method</p>
     <h1>The contextual learning framework</h1>
-    <p class="lede">Security content stays in a core course only when it makes the student use something that course already teaches. A topic that needs new machinery is a new course in disguise.</p>
+    <p class="lede">A security module stays in a core course only when the lab requires a concept that course already teaches. A topic that needs a new instrument, a new instruction set, or a cipher the course does not cover belongs in a separate course.</p>
   </div>
   <div class="wrap">
     <figure class="framework-fig">
@@ -190,17 +190,17 @@ def emit(page, module_page, modules, pills):
     <h2>Why integrate, instead of adding an elective</h2>
     <div class="cards-3">
       <article class="card"><p class="num">A1</p><h3>Security education for all</h3><p>Core design courses are required. The material reaches students who would never enroll in a hardware security elective, and it trains the faculty who already teach those courses.</p></article>
-      <article class="card"><p class="num">A2</p><h3>One picture, not two</h3><p>Attacks that begin in implementation make more sense next to the circuit or the calling convention that produced them.</p></article>
-      <article class="card"><p class="num">A3</p><h3>A cost a department can keep</h3><p>There is no new course to staff, equip, and defend at curriculum committee. The same pattern can later carry other topics a program needs, such as machine learning at the edge.</p></article>
+      <article class="card"><p class="num">A2</p><h3>The attack next to the implementation</h3><p>An implementation attack is clearer beside the circuit, the instruction set, or the calling convention that produces it.</p></article>
+      <article class="card"><p class="num">A3</p><h3>A cost a department can keep</h3><p>There is no new course to staff, equip, and defend in a curriculum committee. The same placement rules can later carry other topics a program needs, such as machine learning at the edge.</p></article>
     </div>
 
     <h2>Five rules a module has to meet</h2>
     <div class="rule-list">
-      <article class="rule"><b>C1</b><div><h3>Concept coupling</h3><p>The security topic is chosen because it exercises a design concept already on the syllabus. Its fame in the research literature does not decide the question.</p></div></article>
-      <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor environment, a logic analyzer, a multimeter. New equipment is the cost that stops a module from traveling.</p></div></article>
-      <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space randomization. M3 re-measures a constant-time comparison on the same analyzer. M6 and M8 have the student build the protection. M1, M4, and M5 close without a defense, and the materials say so.</p></div></article>
-      <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept it exercises. A security lab that arrives after that unit’s exam has lost the coupling.</p></div></article>
-      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than the slot allows. The bench work stays in the lab. Identification, trace reading, and waveform interpretation can finish outside it. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
+      <article class="rule"><b>C1</b><div><h3>Concept coupling</h3><p>The security topic is chosen because the lab requires a design concept already on the syllabus. How well known the attack is in the research literature does not decide the choice.</p></div></article>
+      <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor IDE, a logic analyzer, a multimeter. A new instrument is what keeps another department from adopting the module.</p></div></article>
+      <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space layout randomization. M3 measures a constant-time comparison again on the same logic analyzer. M6 and M8 have the student build the lock. M1, M4, and M5 end with no countermeasure, and the materials say so.</p></div></article>
+      <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept the lab uses. A security lab that comes after that unit’s exam no longer reinforces the design topic.</p></div></article>
+      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period allows. The measurement stays at the bench. Part identification, trace reading, and waveform interpretation can finish outside the lab. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
     </div>
 
     <h2>What the nine modules cover</h2>
@@ -212,14 +212,14 @@ def emit(page, module_page, modules, pills):
           <tr><td>Side-channel analysis</td><td>Field</td><td>M3, M5, M9</td></tr>
           <tr><td>IP protection and obfuscation</td><td>Supply chain</td><td>M6, M8</td></tr>
           <tr><td>Hardware Trojan</td><td>Supply chain</td><td>M7</td></tr>
-          <tr><td>Memory safety</td><td>Field, outside that split</td><td>M2</td></tr>
+          <tr><td>Memory safety</td><td>Field, outside the field / supply-chain split</td><td>M2</td></tr>
         </tbody>
       </table>
     </div>
-    <p>The suite does not yet reach fabrication-stage threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. The last of those needs decapsulation and imaging, which the instrument-reuse rule rules out. Breadth is not the goal. A course has room for a few modules, so a catalog is a menu.</p>
+    <p>The suite does not yet cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging, which the instrument-reuse rule excludes. A semester has room for at most three modules, so the catalog is a set of choices, not a syllabus.</p>
 
     <h2>A topic that fails the test</h2>
-    <p>Fault injection on a cryptographic core needs a clock glitcher, a target with a crypto accelerator, and a treatment of the cipher. None of that is in a first embedded systems course, so the topic does not transfer. The same test rejected any module that would require a new instrument.</p>
+    <p>Fault injection on a cryptographic core needs a clock glitcher, a device with a crypto accelerator, and a lecture on the cipher. None of that is in a first embedded-systems course, so the topic stays out of these modules. The same test rejected any module that would require a new instrument.</p>
     <p><a class="btn btn-primary" href="catalog.html">Browse the catalog</a></p>
   </div>
 </div>
@@ -283,8 +283,8 @@ def emit(page, module_page, modules, pills):
 <div class="page">
   <div class="wrap page-intro">
     <p class="kicker">Host courses</p>
-    <h1>The modules are a component of a course, not a course of their own.</h1>
-    <p class="lede">Each host course keeps its syllabus, exams, and grading. The security work replaces an assignment the course would have given anyway, in the week that assignment belongs.</p>
+    <h1>Each module belongs inside a course the department already teaches.</h1>
+    <p class="lede">The host course keeps its syllabus, exams, and grading. The security lab replaces an assignment that course would have given anyway, in the week that design topic is taught.</p>
   </div>
   <div class="wrap">
     <div class="course-grid">
@@ -302,7 +302,7 @@ def emit(page, module_page, modules, pills):
       <article class="course-card">
         <p class="where">Digital logic design</p>
         <h3>From gates to a UART</h3>
-        <p>M5 has an earlier life as a simulator homework. M6, M7, and M8 are VHDL laboratories adapted from hardware-security lab material and from a published tutorial on obfuscation and logic locking. They introduce a register-transfer flow the microcontroller modules never reach. They have not yet been surveyed.</p>
+        <p>M5 began as a circuit-simulator homework. M6, M7, and M8 are VHDL labs adapted from hardware-security lab material and from a published tutorial on obfuscation and logic locking. They use a register-transfer design flow that the microcontroller modules do not. They have not yet been surveyed.</p>
         <ol>
           <li><a href="modules/m5.html">M5 Power side channel</a></li>
           <li><a href="modules/m6.html">M6 Combinational locking</a></li>
@@ -329,8 +329,8 @@ def emit(page, module_page, modules, pills):
       <article class="time"><b>Prepared</b><p>Board reverse engineering, both locking labs, and the Trojan lab. Written, not yet surveyed.</p></article>
     </div>
     <h2>What changed in the grade book</h2>
-    <p>In Spring 2023 the reverse-engineering homework carried 10.5 points and the overflow bonus carried 20. In Spring 2024 each of the three assignments carried 2 points. One student skipped the bonus and was surprised to meet the material on the final. A module chosen because it exercises a core concept is examinable by construction. Leaving it optional sends two signals at once.</p>
-    <p>The cap is three modules in a semester, so the security work does not become a second course hiding inside the first.</p>
+    <p>In Spring 2023 the reverse-engineering homework was worth 10.5 points and the buffer-overflow bonus was worth 20. In Spring 2024 each of the three assignments was worth 2 points. One student skipped the bonus and then met the calling convention on the final. A module that practices a syllabus topic can be on the exam. Making it optional tells students both that it matters and that they can skip it.</p>
+    <p>The cap is three modules in a semester, so the security work does not turn into a second course inside the first.</p>
   </div>
 </div>
 ''')
@@ -358,7 +358,7 @@ def emit(page, module_page, modules, pills):
     <p class="note">The instrument changed between the 2024 offerings, so the cohorts are not directly comparable. A response rate is known only for Spring 2024. Spring 2024 respondents were 63% male and 38% female, and 75% identified as Hispanic or Latino. Fall 2024 respondents were all male.</p>
 
     <h2>Self-reported knowledge, Fall 2024</h2>
-    <p>Four-point scale. One is no knowledge and four is strong knowledge. The gain is a perception of gain. There is no validated concept inventory behind it.</p>
+    <p>Four-point scale. One is no knowledge and four is strong knowledge. These are self-reported ratings. There is no concept inventory behind them.</p>
     <div class="legend"><span><i class="swatch before"></i>Before</span><span><i class="swatch after"></i>After</span></div>
     <div class="bars">
       <div class="bar-row"><span>Binary reverse engineering</span><div class="track"><i class="before" style="--w:32.5"></i><i class="after" style="--w:62.5"></i></div></div>
@@ -400,7 +400,7 @@ def emit(page, module_page, modules, pills):
         </tbody>
       </table>
     </div>
-    <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported not attempting the assignments. The number is small, and it is not a reason to average the two cohorts into one success story.</p>
+    <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported that they did not attempt the assignments. The sample is small. The two cohorts should not be averaged into one success rate.</p>
 
     <h2>Barriers they named</h2>
     <p>The closed item offered worked examples, lecture, study materials, time, and teaching-assistant support. It did not offer equipment. Within those options, students pointed at instructional support.</p>
@@ -420,10 +420,10 @@ def emit(page, module_page, modules, pills):
 
     <h2>Four lessons for the next offering</h2>
     <div class="rule-list">
-      <article class="rule"><b>1</b><div><h3>The repair is where the comments get specific.</h3><p>One Spring 2023 student called the overflow assignment among the most interesting and rewarding work in the program, and described working out where execution had to go so that further secrets would return. M1, which has no defense, drew requests for context: a good introduction that did not say what the technique is for.</p></div></article>
-      <article class="rule"><b>2</b><div><h3>A desktop mitigation does not survive the move to an 8051.</h3><p>The lecture names stack canaries and address-space layout randomization. Neither exists on this target. The repair the student writes has to hold on the bare machine. A mitigation is a property of a platform.</p></div></article>
-      <article class="rule"><b>3</b><div><h3>Scaffolding binds harder than equipment.</h3><p>The 2024 overflow handout adds a partial-credit ladder and procedural hints. Both are cheaper than a second course, and both answer the barrier the surveys actually recorded.</p></div></article>
-      <article class="rule"><b>4</b><div><h3>The toolchain has to run on the machines students have.</h3><p>Free responses include a student who could not run the vendor tools on a personal machine. The three deployed embedded modules share one 8-bit target and one vendor environment. Whether the same ideas carry to a 32-bit core is untested.</p></div></article>
+      <article class="rule"><b>1</b><div><h3>Students wrote most clearly about the repair.</h3><p>One Spring 2023 student called the buffer-overflow assignment among the most interesting work in the program, and described finding where execution had to resume so that later secrets would return in R7. M1 has no countermeasure. Students asked what binary reverse engineering is for.</p></div></article>
+      <article class="rule"><b>2</b><div><h3>A desktop mitigation is not on the 8051.</h3><p>The lecture names stack canaries and address-space layout randomization. Neither exists on the AT89C51. The repair has to be in the program, because the platform does not provide one.</p></div></article>
+      <article class="rule"><b>3</b><div><h3>Worked examples mattered more than new equipment.</h3><p>The 2024 overflow handout adds partial credit by how far the leak gets, and it adds step-by-step hints. Both match the barrier the surveys recorded: examples, lecture, and time, not instruments.</p></div></article>
+      <article class="rule"><b>4</b><div><h3>The toolchain has to run on the machines students have.</h3><p>Free responses include a student who could not run the vendor tools on a personal machine. The three deployed embedded modules share one 8-bit target, the AT89C51, and one vendor IDE, Keil. Whether the same labs carry to a 32-bit core is untested.</p></div></article>
     </div>
   </div>
 </div>
@@ -473,7 +473,7 @@ def emit(page, module_page, modules, pills):
   <div class="wrap page-intro">
     <p class="kicker">Project</p>
     <h1>Hardware Security Education for All</h1>
-    <p class="lede">A collaborative curriculum project. The modules were built so that a department can teach hardware security without standing up a dedicated course, and so that the students who never elect that course still meet the ideas.</p>
+    <p class="lede">A collaborative curriculum project. The modules let a department teach hardware security inside required design courses, so students who never enroll in a hardware-security elective still meet reverse engineering, side channels, logic locking, and hardware Trojans.</p>
   </div>
   <div class="wrap">
     <h2>People</h2>
@@ -490,7 +490,7 @@ def emit(page, module_page, modules, pills):
 
     <h2>The paper this site follows</h2>
     <p>The structure of the site is the structure of the paper <em>Bringing Hardware Security Education to All: A Seamless Curriculum Integration Approach</em>, prepared for ISQED 2027. The paper states the three obstacles, the five design rules, the nine-module catalog, the deployment record, and the limits of the evidence. Where a lab manual and the paper disagree on a detail of procedure, the manual is what a student follows, and the paper is what this site uses for status, scope, and assessment.</p>
-    <p>The workforce context in the paper is worth keeping next to the curriculum claim. An industry analysis projects growth in the U.S. semiconductor workforce from about 345,000 to about 460,000 positions by 2030, with a large share of new technical roles at risk of going unfilled. Employment of information security analysts is projected to grow much faster than employment overall. The graduates who can work across hardware and security come from the same programs whose required courses still skip the security of the hardware.</p>
+    <p>The paper also states the workforce context. An industry analysis projects growth in the U.S. semiconductor workforce from about 345,000 to about 460,000 positions by 2030, with a large share of new technical roles at risk of going unfilled. Employment of information security analysts is projected to grow much faster than employment overall. The required courses in the programs that train those graduates still skip hardware security.</p>
 
     <h2>What a department can take</h2>
     <ul>
@@ -504,7 +504,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M1"], intro(
-        "Students learn how to figure out what a program does when they have the compiled file and not the source. Many small devices are shipped that way.",
+        "Binary reverse engineering recovers what a program does from the machine code when the C source is not available. Many embedded devices ship as a firmware binary only.",
         "<strong>Course:</strong> Embedded systems. At KU this was EECS 388.<br><strong>Teach this after:</strong> compilation, the instruction set, addressing modes, and the difference between code memory and data memory. The last question also uses the stack pointer.",
         '''<p>Use the two slide decks as the class lectures. Then assign the homework and the binary. Older lecture recordings are not posted here.</p>
 <ul>
@@ -545,11 +545,11 @@ def emit(page, module_page, modules, pills):
   <li>Whether that signal is actually driven from the temperatures found in memory.</li>
   <li>At <code>C:0x034D</code> the program returns to <code>START</code> with <code>JNZ</code>. What happens if that opcode is replaced by <code>ACALL</code>.</li>
 </ol>
-<p>The last question is the stack. A call pushes a return address and this loop never executes a return, so return addresses accumulate until they disturb the rest of internal memory. The module stops there. It does not teach a countermeasure.</p>
+<p>The last question is about the stack. <code>ACALL</code> pushes a return address. This loop never executes a return, so return addresses accumulate in internal RAM until they overwrite other data. The module stops there. It does not teach a countermeasure.</p>
 ''')
 
     module_page(by_id["M2"], intro(
-        "Students see what happens when a program writes past the end of a buffer. On this chip, that write can change nearby memory, including the return address.",
+        "A buffer overflow writes past the end of a fixed buffer. On the AT89C51 that write can change adjacent internal RAM, including a saved return address.",
         "<strong>Course:</strong> Embedded systems. At KU this was EECS 388, after binary reverse engineering.<br><strong>Teach this after:</strong> the stack frame and the calling convention. Count the homework as required work, not extra credit.",
         '''<p>Use the two slide decks as the class lectures. Then assign the homework. Students build the C file in Keil.</p>
 <ul>
@@ -575,7 +575,7 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The exercise</h2>
-<p>A lookup program returns a stored secret when a supplied date matches a record. The copy into the input buffer does not stop at the end of the buffer. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the entire internal data memory is 256 bytes, the register banks sit low in that map, and constants are copied out of code memory at startup. The standard named defenses do not exist here.</p>
+<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the internal data memory is 256 bytes, the register banks occupy the low addresses, and constants are copied out of code memory at startup. Stack canaries and address-space layout randomization are not on this target.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student leaks successive secrets through R7, then rewrites the copy so it cannot leave the buffer, and explains why that rewrite holds on this processor.</p></div>
 <h2>What the student does</h2>
 <ol class="steps">
@@ -583,12 +583,12 @@ def emit(page, module_page, modules, pills):
   <li>Build an input long enough to disturb neighboring memory, and watch the debugger. The handout scores the length of that input, then whether the first secret appears in R7, then the first and second, then more than two.</li>
   <li>Repair the program so data cannot be written past the buffer, and explain in writing how the change prevents the overflow.</li>
 </ol>
-<p>The lecture names stack canaries and address-space layout randomization, then the lab takes both away. The repair has to be a property of this program, because the platform will not supply one. Partial credit follows how far the leak gets, so a student who understands the layout but does not finish every secret still has something to show.</p>
+<p>The lecture names stack canaries and address-space layout randomization, then the lab removes both. The repair has to be a bounds check in this program. Partial credit follows how far the leak gets, so a student who can read the memory map but does not recover every secret still has a score.</p>
 <p>In Spring 2023 this assignment was a bonus. From Spring 2024 it is required. Treat it as required if you adopt it. Students who skip a bonus still meet the calling convention on the exam.</p>
 ''')
 
     module_page(by_id["M3"], intro(
-        "Students measure a password check that stops at the first wrong character. A wrong first character finishes sooner, so the running time gives away information about the secret.",
+        "A timing side channel leaks the secret through execution time. This password check returns at the first mismatch, so a wrong first character finishes in fewer cycles than a wrong later character.",
         "<strong>Course:</strong> Embedded systems. At KU this was the third module in EECS 388.<br><strong>Teach this after:</strong> the timer, cycle counting, and the serial port.",
         '''<p>Use the two slide decks as the class lectures. Then assign the homework. Students time the check with the logic analyzer in Keil.</p>
 <ul>
@@ -613,7 +613,7 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The exercise</h2>
-<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so a wrong first character finishes sooner than a wrong later character. The lecture derives that dependence from CMOS switching energy, names five emissions an attacker can use, and reduces Kocher’s timing attack on exponentiation to this string comparison. The lab then measures the comparison the course can actually instrument.</p>
+<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so the cycle count grows with the length of the correct prefix. The lecture ties that dependence to data-dependent execution, names five emissions an attacker can measure, and reduces Kocher’s timing attack on modular exponentiation to this string comparison. The lab measures the comparison with the timer and the logic analyzer.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
 <h2>How the time is taken</h2>
 <ol class="steps">
@@ -641,7 +641,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M4"], intro(
-        "Students take a board that has no schematic and name the parts. From those parts they write a bill of materials and draw a block diagram.",
+        "Board-level reverse engineering starts from a populated printed circuit board with no schematic. Students identify the parts, write a bill of materials, and draw a block diagram.",
         "<strong>Course:</strong> Embedded systems.<br><strong>Teach this after:</strong> microcontroller interfacing, serial protocols, power distribution, and reading a datasheet. The lab is written and has not been assigned yet. The bench needs a multimeter.",
         '''<p>There is no slide deck. The lab specification is the handout. Read the safety notes before students power the board. The required work fits one lab period.</p>
 <ul>
@@ -662,7 +662,7 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The exercise</h2>
-<p>The student receives a populated board and no schematic. The required work is the first thing a cloner produces: a bill of materials and a reasoned guess at what each region of the board is for. Optional work moves from identification to measurement.</p>
+<p>The student receives a populated board and no schematic. The required work is identification: a bill of materials and a functional hypothesis for each region of the board. Optional work moves from identification to measurement of the power rails and the serial links.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>A bill of materials with part numbers, a high-level block diagram, and a functional hypothesis for each section of the board. The lab specifies no defensive deliverable.</p></div>
 <h2>Required</h2>
 <ol class="steps">
@@ -683,7 +683,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M5"], intro(
-        "Students watch the supply current of a gate. A spike shows that the output changed. It does not show whether the output went high or low.",
+        "A power side channel reads information from the supply current. In CMOS, a current spike shows that the output switched. The trace does not show whether the output went high or low.",
         "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> CMOS switching and truth tables. An earlier version was homework in embedded systems in Spring 2022.",
         '''<p>There is no slide deck and no file to download. After the CMOS lecture, students open the unknown circuit in the exercise below. Leave the labeled gates closed until they have an answer.</p>
 <ul>
@@ -700,8 +700,8 @@ def emit(page, module_page, modules, pills):
         ],
     ) + f'''
 <h2>The exercise</h2>
-<p>An unknown two-input gate sits in a box. The attacker can see inputs A and B and the supply pin. The output is hidden. A resistor between the supply pin and the source turns switching current into a voltage. A large change means the output changed. A small bump does not. The direction of the change is not in the trace.</p>
-<div class="outcome"><p class="outcome-title">Outcome</p><p>The transient reports that an output transition happened and not which way it went. A gate and its complement produce the same transition table. The student names both candidates and explains why the measurement cannot separate them. The module asks for no defense. That ambiguity is the entrance to masking.</p></div>
+<p>An unknown two-input gate is in a black box. The attacker can see inputs A and B and the supply pin. The output is hidden. A sense resistor between the supply and the source turns switching current into a voltage. A large spike means the output transitioned. A small bump does not. The trace does not encode the direction of the transition.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The transient shows that an output transition happened, not whether it was a rising or a falling edge. A gate and its complement produce the same transition table. The student names both truth tables and explains why the measurement cannot separate them. The module asks for no countermeasure. That ambiguity is the starting point for masking.</p></div>
 <h2>The work</h2>
 <ol class="steps">
   <li>Open the unknown circuit and step the inputs. Capture the voltage plot for the sequence 00, then 01, then 11, and mark the moments the inputs change.</li>
@@ -718,7 +718,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M6"], intro(
-        "Students add a key to a ripple-carry adder. The adder is correct only for that key. A wrong key flips a carry, and the mistake shows up in the higher bits.",
+        "Combinational logic locking inserts key gates into a ripple-carry adder. The sum is correct only for the right key. A wrong key inverts a carry, and the error propagates into the higher bits.",
         "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> the ripple-carry adder, and after students can build a larger circuit from a smaller VHDL part. They should be able to simulate an adder before they add the lock. The lab is written and has not been graded yet.",
         '''<p>There is no slide deck. Give students the manual and the full-adder file after the adder lectures. Use the VHDL tool the course already teaches. The manual is written for Vivado.</p>
 <ul>
@@ -749,13 +749,13 @@ def emit(page, module_page, modules, pills):
 </ol>
 <h2>Part II. Lock the carry chain</h2>
 <p>Insert key-controlled logic between carry stages. Use either XOR and XNOR gates or multiplexers. Add a 3-bit key input. The design must add correctly for the key the student declares, and it must fail for other keys. The student chooses and documents that key. A reference convention used when this lab is discussed in the paper: a key bit of 0 passes a signal through an XOR and a key bit of 1 passes it through an XNOR.</p>
-<h2>Part III. Show both worlds</h2>
+<h2>Part III. Correct key and wrong key</h2>
 <p>Sweep the inputs under the correct key and under at least one incorrect key. Capture A, B, the sum, and carry-out only. The report holds the unlocked sources and schematic, the locked sources and schematic, the testbench, both waveforms, and the discussion questions in the manual. Those questions ask why a carry is a useful place to lock, how the two styles differ, and what would make the key space larger.</p>
 <p>Software assumed by the manual is Vivado. Any VHDL simulator that can show a waveform will serve if the course already uses it. The instrument-reuse rule prefers the tool the course already teaches.</p>
 ''')
 
     module_page(by_id["M7"], intro(
-        "Students add a small circuit that stays quiet on almost every input and changes the sum on one input they choose. The circuit has two parts: a trigger and a payload.",
+        "A hardware Trojan is extra logic that stays dormant on almost every input and changes the function on a rare trigger. Students add a combinational trigger and a payload to a locked adder.",
         "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> detecting one input value and writing a conditional assignment. If you also assign the locking lab, do this lab second. The starter file is already locked. The lab is written and has not been graded yet.",
         '''<p>There is no slide deck. The manual is the assignment. Students change only the marked region of the locked adder.</p>
 <ul>
@@ -794,7 +794,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M8"], intro(
-        "Students lock a UART transmitter inside its state machine. The key arrives one byte per clock. A wrong byte sends the machine to a state it can leave only by reset.",
+        "Sequential logic locking hides the correct behavior in the state machine. The key is applied one byte per clock. A wrong byte sends the UART transmitter into a locked state that it can leave only by reset.",
         "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> finite-state machines and the UART frame. Students should already be able to simulate a state machine. This lab does not need the adder labs. It is written and has not been graded yet.",
         '''<p>There is no slide deck. The manual is the assignment. Students simulate the transmitter first, then add the lock.</p>
 <ul>
@@ -818,7 +818,7 @@ def emit(page, module_page, modules, pills):
     ) + '''
 <h2>The exercise</h2>
 <p>The starter is a working UART transmitter. Its state machine has idle, start bit, data bits, and stop bit. The line idles high, the start bit pulls it low, eight data bits leave least-significant bit first, and a stop bit returns the line high. There is no parity bit in this lab. Students simulate that machine first. They then add a lock in front of it.</p>
-<div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value on the way enters a locked state that holds the transmit line high and has no exit except reset. The student can say why a key spread over several clocks is a different object from the single combinational key in the adder lab, and why the locked state is a black hole.</p></div>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value enters a locked state that holds the transmit line high and has no exit except reset. The student explains why a key applied over several clocks is different from the single combinational key in the adder lab, and why the locked state has no outgoing transition except reset.</p></div>
 <h2>Part I. The unlocked transmitter</h2>
 <p>Identify the states, simulate with the provided testbench, and produce a timing diagram of <code>tx_start</code>, <code>tx</code>, <code>state_track</code>, and <code>data_in</code>. Be able to answer why idle is high, why start is low, the order of the data bits, and what makes the machine leave idle.</p>
 <h2>Part II. The lock</h2>
@@ -834,7 +834,7 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M9"], intro(
-        "Students treat the cache as a way to observe another program. A hit and a miss take different numbers of cycles, and that gap can be measured.",
+        "A cache side channel uses the cycle gap between a hit and a miss. On a shared last-level cache, that gap lets one process observe which lines another process touched.",
         "<strong>Course:</strong> Computer architecture. No course number is attached here.<br><strong>Teach this after:</strong> the cache lecture, including hierarchy, associativity, line size, and set indexing. Part 1 can be given in that same week. Part 2 waits until students can explain a hit and a miss. At KU this lecture was given in Fall 2024.",
         '''<p>Use the two slide decks as the class lectures. There is no homework file. Part 2 includes a measurement you can show in class. Students do not turn that measurement in.</p>
 <ul>
@@ -857,7 +857,7 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The lecture</h2>
-<p>The course has already taught the cache as a performance structure. This module teaches the same structure as a channel. A hit and a miss on a shared last-level line take different numbers of cycles, and the gap is wide enough to read another process.</p>
+<p>The course has already taught the cache as a performance structure: hierarchy, associativity, line size, and set indexing. This module uses the same structure as a side channel. A hit and a miss on a shared last-level line take different numbers of cycles, and that gap is wide enough to observe another process.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The lecture closes on a recorded probe-time series. Across 90 probes, hits fall between 96 and 104 cycles and misses fall between 144 and 168. A threshold at 110 sits in a gap of about 40 cycles. No graded assignment is stated in the materials, and no survey was given.</p></div>
 <h2>Part 1. The cache as the course already draws it</h2>
 <p>Hierarchy from registers to main memory, the parameters that define a cache, and the three associativity arrangements. Students read the sizes, associativity, and line size of their own machine from the operating system and from a topology tool.</p>

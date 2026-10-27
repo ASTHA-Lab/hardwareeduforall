@@ -58,7 +58,7 @@ MODULES = [
         "concept": "Microcontroller interfacing, serial protocols, power distribution, datasheets",
         "platform": "Undocumented board and a digital multimeter",
         "evidence": "Bill of materials and block diagram; a schematic and a protocol if time allows",
-        "defense": "None specified. The deliverable is the first artifact a cloner produces.",
+        "defense": "None. The deliverable is a bill of materials and a block diagram.",
     },
     {
         "slug": "m5", "id": "M5", "title": "Power side channel",
@@ -69,7 +69,7 @@ MODULES = [
         "concept": "CMOS switching, output transitions, charge transfer, truth tables",
         "platform": "Browser circuit simulator and a sense resistor",
         "evidence": "Voltage plot, transition table, and the candidate truth tables",
-        "defense": "None. The module ends on the ambiguity the measurement leaves.",
+        "defense": "None. The trace cannot separate a gate from its complement.",
     },
     {
         "slug": "m6", "id": "M6", "title": "Combinational logic locking",
@@ -109,11 +109,11 @@ MODULES = [
         "course": "ca", "course_label": "Computer architecture",
         "status": "taught", "status_label": "Delivered, no survey",
         "origin": "field", "origin_label": "Field",
-        "blurb": "Treat the cache the course already teaches as a channel another process can read.",
+        "blurb": "Read another process from the hit and miss timing of a shared last-level cache.",
         "concept": "Hierarchy, associativity, line size, set indexing, cycle-accurate timing",
         "platform": "A commodity x86 machine and its cycle counter",
         "evidence": "A recorded probe-time series. No graded assignment was stated.",
-        "defense": "None in the delivered lecture. The point is that the hit-miss gap is readable.",
+        "defense": "None in the delivered lecture. The point is that the hit and miss gap can be read.",
     },
 ]
 

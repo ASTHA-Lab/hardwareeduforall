@@ -29,7 +29,7 @@
   <div class="wrap page-intro">
     <p class="kicker">Method</p>
     <h1>The contextual learning framework</h1>
-    <p class="lede">Security content stays in a core course only when it makes the student use something that course already teaches. A topic that needs new machinery is a new course in disguise.</p>
+    <p class="lede">A security module stays in a core course only when the lab requires a concept that course already teaches. A topic that needs a new instrument, a new instruction set, or a cipher the course does not cover belongs in a separate course.</p>
   </div>
   <div class="wrap">
     <figure class="framework-fig">
@@ -40,17 +40,17 @@
     <h2>Why integrate, instead of adding an elective</h2>
     <div class="cards-3">
       <article class="card"><p class="num">A1</p><h3>Security education for all</h3><p>Core design courses are required. The material reaches students who would never enroll in a hardware security elective, and it trains the faculty who already teach those courses.</p></article>
-      <article class="card"><p class="num">A2</p><h3>One picture, not two</h3><p>Attacks that begin in implementation make more sense next to the circuit or the calling convention that produced them.</p></article>
-      <article class="card"><p class="num">A3</p><h3>A cost a department can keep</h3><p>There is no new course to staff, equip, and defend at curriculum committee. The same pattern can later carry other topics a program needs, such as machine learning at the edge.</p></article>
+      <article class="card"><p class="num">A2</p><h3>The attack next to the implementation</h3><p>An implementation attack is clearer beside the circuit, the instruction set, or the calling convention that produces it.</p></article>
+      <article class="card"><p class="num">A3</p><h3>A cost a department can keep</h3><p>There is no new course to staff, equip, and defend in a curriculum committee. The same placement rules can later carry other topics a program needs, such as machine learning at the edge.</p></article>
     </div>
 
     <h2>Five rules a module has to meet</h2>
     <div class="rule-list">
-      <article class="rule"><b>C1</b><div><h3>Concept coupling</h3><p>The security topic is chosen because it exercises a design concept already on the syllabus. Its fame in the research literature does not decide the question.</p></div></article>
-      <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor environment, a logic analyzer, a multimeter. New equipment is the cost that stops a module from traveling.</p></div></article>
-      <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space randomization. M3 re-measures a constant-time comparison on the same analyzer. M6 and M8 have the student build the protection. M1, M4, and M5 close without a defense, and the materials say so.</p></div></article>
-      <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept it exercises. A security lab that arrives after that unit’s exam has lost the coupling.</p></div></article>
-      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than the slot allows. The bench work stays in the lab. Identification, trace reading, and waveform interpretation can finish outside it. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
+      <article class="rule"><b>C1</b><div><h3>Concept coupling</h3><p>The security topic is chosen because the lab requires a design concept already on the syllabus. How well known the attack is in the research literature does not decide the choice.</p></div></article>
+      <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor IDE, a logic analyzer, a multimeter. A new instrument is what keeps another department from adopting the module.</p></div></article>
+      <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space layout randomization. M3 measures a constant-time comparison again on the same logic analyzer. M6 and M8 have the student build the lock. M1, M4, and M5 end with no countermeasure, and the materials say so.</p></div></article>
+      <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept the lab uses. A security lab that comes after that unit’s exam no longer reinforces the design topic.</p></div></article>
+      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period allows. The measurement stays at the bench. Part identification, trace reading, and waveform interpretation can finish outside the lab. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
     </div>
 
     <h2>What the nine modules cover</h2>
@@ -62,14 +62,14 @@
           <tr><td>Side-channel analysis</td><td>Field</td><td>M3, M5, M9</td></tr>
           <tr><td>IP protection and obfuscation</td><td>Supply chain</td><td>M6, M8</td></tr>
           <tr><td>Hardware Trojan</td><td>Supply chain</td><td>M7</td></tr>
-          <tr><td>Memory safety</td><td>Field, outside that split</td><td>M2</td></tr>
+          <tr><td>Memory safety</td><td>Field, outside the field / supply-chain split</td><td>M2</td></tr>
         </tbody>
       </table>
     </div>
-    <p>The suite does not yet reach fabrication-stage threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. The last of those needs decapsulation and imaging, which the instrument-reuse rule rules out. Breadth is not the goal. A course has room for a few modules, so a catalog is a menu.</p>
+    <p>The suite does not yet cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging, which the instrument-reuse rule excludes. A semester has room for at most three modules, so the catalog is a set of choices, not a syllabus.</p>
 
     <h2>A topic that fails the test</h2>
-    <p>Fault injection on a cryptographic core needs a clock glitcher, a target with a crypto accelerator, and a treatment of the cipher. None of that is in a first embedded systems course, so the topic does not transfer. The same test rejected any module that would require a new instrument.</p>
+    <p>Fault injection on a cryptographic core needs a clock glitcher, a device with a crypto accelerator, and a lecture on the cipher. None of that is in a first embedded-systems course, so the topic stays out of these modules. The same test rejected any module that would require a new instrument.</p>
     <p><a class="btn btn-primary" href="catalog.html">Browse the catalog</a></p>
   </div>
 </div>

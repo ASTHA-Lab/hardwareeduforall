@@ -45,7 +45,7 @@
     <p class="note">The instrument changed between the 2024 offerings, so the cohorts are not directly comparable. A response rate is known only for Spring 2024. Spring 2024 respondents were 63% male and 38% female, and 75% identified as Hispanic or Latino. Fall 2024 respondents were all male.</p>
 
     <h2>Self-reported knowledge, Fall 2024</h2>
-    <p>Four-point scale. One is no knowledge and four is strong knowledge. The gain is a perception of gain. There is no validated concept inventory behind it.</p>
+    <p>Four-point scale. One is no knowledge and four is strong knowledge. These are self-reported ratings. There is no concept inventory behind them.</p>
     <div class="legend"><span><i class="swatch before"></i>Before</span><span><i class="swatch after"></i>After</span></div>
     <div class="bars">
       <div class="bar-row"><span>Binary reverse engineering</span><div class="track"><i class="before" style="--w:32.5"></i><i class="after" style="--w:62.5"></i></div></div>
@@ -87,7 +87,7 @@
         </tbody>
       </table>
     </div>
-    <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported not attempting the assignments. The number is small, and it is not a reason to average the two cohorts into one success story.</p>
+    <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported that they did not attempt the assignments. The sample is small. The two cohorts should not be averaged into one success rate.</p>
 
     <h2>Barriers they named</h2>
     <p>The closed item offered worked examples, lecture, study materials, time, and teaching-assistant support. It did not offer equipment. Within those options, students pointed at instructional support.</p>
@@ -107,10 +107,10 @@
 
     <h2>Four lessons for the next offering</h2>
     <div class="rule-list">
-      <article class="rule"><b>1</b><div><h3>The repair is where the comments get specific.</h3><p>One Spring 2023 student called the overflow assignment among the most interesting and rewarding work in the program, and described working out where execution had to go so that further secrets would return. M1, which has no defense, drew requests for context: a good introduction that did not say what the technique is for.</p></div></article>
-      <article class="rule"><b>2</b><div><h3>A desktop mitigation does not survive the move to an 8051.</h3><p>The lecture names stack canaries and address-space layout randomization. Neither exists on this target. The repair the student writes has to hold on the bare machine. A mitigation is a property of a platform.</p></div></article>
-      <article class="rule"><b>3</b><div><h3>Scaffolding binds harder than equipment.</h3><p>The 2024 overflow handout adds a partial-credit ladder and procedural hints. Both are cheaper than a second course, and both answer the barrier the surveys actually recorded.</p></div></article>
-      <article class="rule"><b>4</b><div><h3>The toolchain has to run on the machines students have.</h3><p>Free responses include a student who could not run the vendor tools on a personal machine. The three deployed embedded modules share one 8-bit target and one vendor environment. Whether the same ideas carry to a 32-bit core is untested.</p></div></article>
+      <article class="rule"><b>1</b><div><h3>Students wrote most clearly about the repair.</h3><p>One Spring 2023 student called the buffer-overflow assignment among the most interesting work in the program, and described finding where execution had to resume so that later secrets would return in R7. M1 has no countermeasure. Students asked what binary reverse engineering is for.</p></div></article>
+      <article class="rule"><b>2</b><div><h3>A desktop mitigation is not on the 8051.</h3><p>The lecture names stack canaries and address-space layout randomization. Neither exists on the AT89C51. The repair has to be in the program, because the platform does not provide one.</p></div></article>
+      <article class="rule"><b>3</b><div><h3>Worked examples mattered more than new equipment.</h3><p>The 2024 overflow handout adds partial credit by how far the leak gets, and it adds step-by-step hints. Both match the barrier the surveys recorded: examples, lecture, and time, not instruments.</p></div></article>
+      <article class="rule"><b>4</b><div><h3>The toolchain has to run on the machines students have.</h3><p>Free responses include a student who could not run the vendor tools on a personal machine. The three deployed embedded modules share one 8-bit target, the AT89C51, and one vendor IDE, Keil. Whether the same labs carry to a 32-bit core is untested.</p></div></article>
     </div>
   </div>
 </div>

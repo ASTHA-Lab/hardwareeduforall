@@ -31,7 +31,7 @@
     <h1>Binary reverse engineering</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students learn how to figure out what a program does when they have the compiled file and not the source. Many small devices are shipped that way.</p>
+<p>Binary reverse engineering recovers what a program does from the machine code when the C source is not available. Many embedded devices ship as a firmware binary only.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Embedded systems. At KU this was EECS 388.<br><strong>Teach this after:</strong> compilation, the instruction set, addressing modes, and the difference between code memory and data memory. The last question also uses the stack pointer.</p></div>
 <h2>Files and how to use them</h2>
@@ -78,7 +78,7 @@
   <li>Whether that signal is actually driven from the temperatures found in memory.</li>
   <li>At <code>C:0x034D</code> the program returns to <code>START</code> with <code>JNZ</code>. What happens if that opcode is replaced by <code>ACALL</code>.</li>
 </ol>
-<p>The last question is the stack. A call pushes a return address and this loop never executes a return, so return addresses accumulate until they disturb the rest of internal memory. The module stops there. It does not teach a countermeasure.</p>
+<p>The last question is about the stack. <code>ACALL</code> pushes a return address. This loop never executes a return, so return addresses accumulate in internal RAM until they overwrite other data. The module stops there. It does not teach a countermeasure.</p>
 </article>
       <aside class="rail">
   <dl class="facts">

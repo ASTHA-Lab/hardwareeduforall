@@ -30,7 +30,7 @@
     <div>
       <p class="eyebrow"><span>University of Kansas</span> · University of Florida · Florida International University</p>
       <h1>Hardware security, taught inside the courses students already take.</h1>
-      <p class="lede">Cybersecurity courses still treat the chip as a root of trust. These modules do not add a new elective. Each one uses a security problem to exercise a design idea the host course already has to teach.</p>
+      <p class="lede">Most cybersecurity courses still treat the processor and the board as a root of trust. These modules do not add a hardware-security elective. Each one is a lab on a topic the host course already teaches: the instruction set, the stack, the timer, CMOS switching, the adder, the state machine, or the cache.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="catalog.html">Open the nine modules</a>
         <a class="btn btn-ghost" href="framework.html">Read the design rules</a>
@@ -64,7 +64,7 @@
       <article class="card">
         <p class="num">Limited reach</p>
         <h3>The elective is taken by a few.</h3>
-        <p>At the University of Florida, fewer than 7% of undergraduate electrical and computer engineering students register for the introductory hardware security course in a given year. Students who never planned a security career do not see the material, and the students missing from that room are missing from the workforce that follows.</p>
+        <p>At the University of Florida, fewer than 7% of undergraduate electrical and computer engineering students register for the introductory hardware security course in a given year. Students who never enroll in that elective do not see reverse engineering, side-channel analysis, or logic locking.</p>
       </article>
       <article class="card">
         <p class="num">Cost</p>
@@ -73,8 +73,8 @@
       </article>
       <article class="card">
         <p class="num">Fragmented view</p>
-        <h3>The attack gets separated from the design choice.</h3>
-        <p>Many of these failures start in implementation. A side channel is a property of how a gate switches, not a story told later in a security elective. A student who meets the attack apart from the circuit learns a fragment.</p>
+        <h3>The attack is taught apart from the circuit.</h3>
+        <p>Many of these failures start in the implementation. A timing leak comes from data-dependent control flow. A power leak comes from CMOS switching current. Both are properties of the circuit the student is already designing, not topics to postpone until a later elective.</p>
       </article>
     </div>
   </div>
@@ -82,7 +82,7 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="principle">
-      <p>A security concept earns its place when it gives the student a reason to use a design concept the course already has to teach. Performing the attack is how the student works the design topic.</p>
+      <p>A security topic belongs in a core course when the lab requires a design concept already on the syllabus. Running the attack, or building the countermeasure, is how the student practices that concept.</p>
       <span>The selection principle</span>
     </div>
   </div>
@@ -144,7 +144,7 @@
 <a class="mod-card" href="modules/m9.html">
           <span class="id">M9</span>
           <h3>Cache side channel</h3>
-          <p>Treat the cache the course already teaches as a channel another process can read.</p>
+          <p>Read another process from the hit and miss timing of a shared last-level cache.</p>
           <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Computer architecture</span><span class="pill pill-taught">Delivered, no survey</span></div>
         </a></div>
   </div>
@@ -153,7 +153,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Where they sit</h2>
-      <p>The module enters in the week the host course already covers the underlying idea. It reuses the debugger, the vendor tools, and the bench instruments the lab already owns.</p>
+      <p>Each module is scheduled in the week the host course covers the design topic it uses. The lab keeps the debugger, the vendor tools, and the bench instruments the course already has.</p>
     </div>
     <div class="course-grid">
       <article class="course-card">

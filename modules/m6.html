@@ -31,7 +31,7 @@
     <h1>Combinational logic locking</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students add a key to a ripple-carry adder. The adder is correct only for that key. A wrong key flips a carry, and the mistake shows up in the higher bits.</p>
+<p>Combinational logic locking inserts key gates into a ripple-carry adder. The sum is correct only for the right key. A wrong key inverts a carry, and the error propagates into the higher bits.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> the ripple-carry adder, and after students can build a larger circuit from a smaller VHDL part. They should be able to simulate an adder before they add the lock. The lab is written and has not been graded yet.</p></div>
 <h2>Files and how to use them</h2>
@@ -68,7 +68,7 @@
 </ol>
 <h2>Part II. Lock the carry chain</h2>
 <p>Insert key-controlled logic between carry stages. Use either XOR and XNOR gates or multiplexers. Add a 3-bit key input. The design must add correctly for the key the student declares, and it must fail for other keys. The student chooses and documents that key. A reference convention used when this lab is discussed in the paper: a key bit of 0 passes a signal through an XOR and a key bit of 1 passes it through an XNOR.</p>
-<h2>Part III. Show both worlds</h2>
+<h2>Part III. Correct key and wrong key</h2>
 <p>Sweep the inputs under the correct key and under at least one incorrect key. Capture A, B, the sum, and carry-out only. The report holds the unlocked sources and schematic, the locked sources and schematic, the testbench, both waveforms, and the discussion questions in the manual. Those questions ask why a carry is a useful place to lock, how the two styles differ, and what would make the key space larger.</p>
 <p>Software assumed by the manual is Vivado. Any VHDL simulator that can show a waveform will serve if the course already uses it. The instrument-reuse rule prefers the tool the course already teaches.</p>
 </article>

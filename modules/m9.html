@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>M9 Cache side channel · Hardware Security for All</title>
-<meta name="description" content="Treat the cache the course already teaches as a channel another process can read.">
+<meta name="description" content="Read another process from the hit and miss timing of a shared last-level cache.">
 <link rel="icon" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/nhc5fun.css" media="print" onload="this.media='all'">
@@ -31,7 +31,7 @@
     <h1>Cache side channel</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students treat the cache as a way to observe another program. A hit and a miss take different numbers of cycles, and that gap can be measured.</p>
+<p>A cache side channel uses the cycle gap between a hit and a miss. On a shared last-level cache, that gap lets one process observe which lines another process touched.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Computer architecture. No course number is attached here.<br><strong>Teach this after:</strong> the cache lecture, including hierarchy, associativity, line size, and set indexing. Part 1 can be given in that same week. Part 2 waits until students can explain a hit and a miss. At KU this lecture was given in Fall 2024.</p></div>
 <h2>Files and how to use them</h2>
@@ -60,7 +60,7 @@
 </ul>
 
 <h2>The lecture</h2>
-<p>The course has already taught the cache as a performance structure. This module teaches the same structure as a channel. A hit and a miss on a shared last-level line take different numbers of cycles, and the gap is wide enough to read another process.</p>
+<p>The course has already taught the cache as a performance structure: hierarchy, associativity, line size, and set indexing. This module uses the same structure as a side channel. A hit and a miss on a shared last-level line take different numbers of cycles, and that gap is wide enough to observe another process.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The lecture closes on a recorded probe-time series. Across 90 probes, hits fall between 96 and 104 cycles and misses fall between 144 and 168. A threshold at 110 sits in a gap of about 40 cycles. No graded assignment is stated in the materials, and no survey was given.</p></div>
 <h2>Part 1. The cache as the course already draws it</h2>
 <p>Hierarchy from registers to main memory, the parameters that define a cache, and the three associativity arrangements. Students read the sizes, associativity, and line size of their own machine from the operating system and from a topology tool.</p>
@@ -76,7 +76,7 @@
     <div><dt>Platform</dt><dd>A commodity x86 machine and its cycle counter</dd></div>
     <div><dt>Design concept</dt><dd>Hierarchy, associativity, line size, set indexing, cycle-accurate timing</dd></div>
     <div><dt>Graded evidence</dt><dd>A recorded probe-time series. No graded assignment was stated.</dd></div>
-    <div><dt>Countermeasure</dt><dd>None in the delivered lecture. The point is that the hit-miss gap is readable.</dd></div>
+    <div><dt>Countermeasure</dt><dd>None in the delivered lecture. The point is that the hit and miss gap can be read.</dd></div>
   </dl>
   <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html" aria-current="page"><strong>M9</strong> Cache side channel</a></nav>
 </aside>

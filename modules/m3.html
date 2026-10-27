@@ -31,7 +31,7 @@
     <h1>Timing side channel</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students measure a password check that stops at the first wrong character. A wrong first character finishes sooner, so the running time gives away information about the secret.</p>
+<p>A timing side channel leaks the secret through execution time. This password check returns at the first mismatch, so a wrong first character finishes in fewer cycles than a wrong later character.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Embedded systems. At KU this was the third module in EECS 388.<br><strong>Teach this after:</strong> the timer, cycle counting, and the serial port.</p></div>
 <h2>Files and how to use them</h2>
@@ -62,7 +62,7 @@
 </ul>
 
 <h2>The exercise</h2>
-<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so a wrong first character finishes sooner than a wrong later character. The lecture derives that dependence from CMOS switching energy, names five emissions an attacker can use, and reduces Kocher’s timing attack on exponentiation to this string comparison. The lab then measures the comparison the course can actually instrument.</p>
+<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so the cycle count grows with the length of the correct prefix. The lecture ties that dependence to data-dependent execution, names five emissions an attacker can measure, and reduces Kocher’s timing attack on modular exponentiation to this string comparison. The lab measures the comparison with the timer and the logic analyzer.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
 <h2>How the time is taken</h2>
 <ol class="steps">

@@ -31,7 +31,7 @@
     <h1>Buffer overflow</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students see what happens when a program writes past the end of a buffer. On this chip, that write can change nearby memory, including the return address.</p>
+<p>A buffer overflow writes past the end of a fixed buffer. On the AT89C51 that write can change adjacent internal RAM, including a saved return address.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Embedded systems. At KU this was EECS 388, after binary reverse engineering.<br><strong>Teach this after:</strong> the stack frame and the calling convention. Count the homework as required work, not extra credit.</p></div>
 <h2>Files and how to use them</h2>
@@ -63,7 +63,7 @@
 </ul>
 
 <h2>The exercise</h2>
-<p>A lookup program returns a stored secret when a supplied date matches a record. The copy into the input buffer does not stop at the end of the buffer. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the entire internal data memory is 256 bytes, the register banks sit low in that map, and constants are copied out of code memory at startup. The standard named defenses do not exist here.</p>
+<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the internal data memory is 256 bytes, the register banks occupy the low addresses, and constants are copied out of code memory at startup. Stack canaries and address-space layout randomization are not on this target.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student leaks successive secrets through R7, then rewrites the copy so it cannot leave the buffer, and explains why that rewrite holds on this processor.</p></div>
 <h2>What the student does</h2>
 <ol class="steps">
@@ -71,7 +71,7 @@
   <li>Build an input long enough to disturb neighboring memory, and watch the debugger. The handout scores the length of that input, then whether the first secret appears in R7, then the first and second, then more than two.</li>
   <li>Repair the program so data cannot be written past the buffer, and explain in writing how the change prevents the overflow.</li>
 </ol>
-<p>The lecture names stack canaries and address-space layout randomization, then the lab takes both away. The repair has to be a property of this program, because the platform will not supply one. Partial credit follows how far the leak gets, so a student who understands the layout but does not finish every secret still has something to show.</p>
+<p>The lecture names stack canaries and address-space layout randomization, then the lab removes both. The repair has to be a bounds check in this program. Partial credit follows how far the leak gets, so a student who can read the memory map but does not recover every secret still has a score.</p>
 <p>In Spring 2023 this assignment was a bonus. From Spring 2024 it is required. Treat it as required if you adopt it. Students who skip a bonus still meet the calling convention on the exam.</p>
 </article>
       <aside class="rail">

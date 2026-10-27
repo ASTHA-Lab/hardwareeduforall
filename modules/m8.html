@@ -31,7 +31,7 @@
     <h1>Sequential logic locking</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students lock a UART transmitter inside its state machine. The key arrives one byte per clock. A wrong byte sends the machine to a state it can leave only by reset.</p>
+<p>Sequential logic locking hides the correct behavior in the state machine. The key is applied one byte per clock. A wrong byte sends the UART transmitter into a locked state that it can leave only by reset.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> finite-state machines and the UART frame. Students should already be able to simulate a state machine. This lab does not need the adder labs. It is written and has not been graded yet.</p></div>
 <h2>Files and how to use them</h2>
@@ -61,7 +61,7 @@
 
 <h2>The exercise</h2>
 <p>The starter is a working UART transmitter. Its state machine has idle, start bit, data bits, and stop bit. The line idles high, the start bit pulls it low, eight data bits leave least-significant bit first, and a stop bit returns the line high. There is no parity bit in this lab. Students simulate that machine first. They then add a lock in front of it.</p>
-<div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value on the way enters a locked state that holds the transmit line high and has no exit except reset. The student can say why a key spread over several clocks is a different object from the single combinational key in the adder lab, and why the locked state is a black hole.</p></div>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value enters a locked state that holds the transmit line high and has no exit except reset. The student explains why a key applied over several clocks is different from the single combinational key in the adder lab, and why the locked state has no outgoing transition except reset.</p></div>
 <h2>Part I. The unlocked transmitter</h2>
 <p>Identify the states, simulate with the provided testbench, and produce a timing diagram of <code>tx_start</code>, <code>tx</code>, <code>state_track</code>, and <code>data_in</code>. Be able to answer why idle is high, why start is low, the order of the data bits, and what makes the machine leave idle.</p>
 <h2>Part II. The lock</h2>

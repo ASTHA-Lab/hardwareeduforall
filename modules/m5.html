@@ -31,7 +31,7 @@
     <h1>Power side channel</h1>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Students watch the supply current of a gate. A spike shows that the output changed. It does not show whether the output went high or low.</p>
+<p>A power side channel reads information from the supply current. In CMOS, a current spike shows that the output switched. The trace does not show whether the output went high or low.</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p><strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> CMOS switching and truth tables. An earlier version was homework in embedded systems in Spring 2022.</p></div>
 <h2>Files and how to use them</h2>
@@ -54,8 +54,8 @@
 </ul>
 
 <h2>The exercise</h2>
-<p>An unknown two-input gate sits in a box. The attacker can see inputs A and B and the supply pin. The output is hidden. A resistor between the supply pin and the source turns switching current into a voltage. A large change means the output changed. A small bump does not. The direction of the change is not in the trace.</p>
-<div class="outcome"><p class="outcome-title">Outcome</p><p>The transient reports that an output transition happened and not which way it went. A gate and its complement produce the same transition table. The student names both candidates and explains why the measurement cannot separate them. The module asks for no defense. That ambiguity is the entrance to masking.</p></div>
+<p>An unknown two-input gate is in a black box. The attacker can see inputs A and B and the supply pin. The output is hidden. A sense resistor between the supply and the source turns switching current into a voltage. A large spike means the output transitioned. A small bump does not. The trace does not encode the direction of the transition.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The transient shows that an output transition happened, not whether it was a rising or a falling edge. A gate and its complement produce the same transition table. The student names both truth tables and explains why the measurement cannot separate them. The module asks for no countermeasure. That ambiguity is the starting point for masking.</p></div>
 <h2>The work</h2>
 <ol class="steps">
   <li>Open the unknown circuit and step the inputs. Capture the voltage plot for the sequence 00, then 01, then 11, and mark the moments the inputs change.</li>
@@ -89,7 +89,7 @@
     <div><dt>Platform</dt><dd>Browser circuit simulator and a sense resistor</dd></div>
     <div><dt>Design concept</dt><dd>CMOS switching, output transitions, charge transfer, truth tables</dd></div>
     <div><dt>Graded evidence</dt><dd>Voltage plot, transition table, and the candidate truth tables</dd></div>
-    <div><dt>Countermeasure</dt><dd>None. The module ends on the ambiguity the measurement leaves.</dd></div>
+    <div><dt>Countermeasure</dt><dd>None. The trace cannot separate a gate from its complement.</dd></div>
   </dl>
   <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html" aria-current="page"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
 </aside>
