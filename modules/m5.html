@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../index.html">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg></span>
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -26,29 +26,28 @@
     <p class="crumb"><a href="../catalog.html">Modules</a> / M5</p>
     <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Digital logic</span><span class="pill pill-taught">Delivered, no survey</span></p>
     <h1>Power side channel</h1>
-    <p class="lede">Infer an unknown gate from supply-current spikes, and see what the measurement cannot tell you.</p>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>A power side channel is the supply current of a gate when its output switches. The spike can show that the output changed. It does not show which way the output went.</p>
+<p>Students watch the supply current of a gate. A spike shows that the output changed. It does not show whether the output went high or low.</p>
 <h2>Where it belongs</h2>
-<div class="callout"><p>Digital logic. Assign this after the class has covered CMOS switching, output transitions, and truth tables. An early form ran as embedded-systems homework in Spring 2022. The catalog places it in digital logic, after the switching lecture. The module asks for no defense.</p></div>
-<h2>Materials and how to use them</h2>
-<p>This bundle has no lecture deck, no handout file, and no overview video. The instrument is a browser circuit simulator the course can open in class.</p>
+<div class="callout"><p><strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> CMOS switching and truth tables. An earlier version was homework in embedded systems in Spring 2022.</p></div>
+<h2>Files and how to use them</h2>
+<p>There is no slide deck and no file to download. After the CMOS lecture, students open the unknown circuit in the exercise below. Leave the labeled gates closed until they have an answer.</p>
 <ul>
   <li><strong>Unknown circuit.</strong> Use this in class, after the CMOS lecture. Students step the inputs, record the voltage plot, and build the transition table. The link sits with the steps below.</li>
   <li><strong>Labeled gates.</strong> Leave these closed until students have committed to an answer. They are for the discussion afterward.</li>
 </ul>
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+<a class="download" href="https://www.youtube.com/watch?v=OlX-p4AGhWs"><span><b>Introduction to Side-Channel Power Analysis</b><span>(Colin O’Flynn). What a supply-current measurement can reveal, and the equipment a research lab uses. This module needs only the browser simulator.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=UhEOC3RRBhw"><span><b>Lecture 48: Side Channel Attacks (Part II)</b><span>(NPTEL, IIT Kharagpur). A course lecture on side-channel attacks, for an instructor preparing the session.</span></span><i>Video</i></a>
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 <li>Kocher, Jaffe, and Jun, “Differential Power Analysis,” Advances in Cryptology (CRYPTO), pp. 388–397, 1999.</li>
 <li>Mangard, Oswald, and Popp, <em>Power Analysis Attacks: Revealing the Secrets of Smart Cards</em>, Springer, 2007. The book-length treatment. This lab is one gate and one sense resistor.</li>
-</ul>
-<h3>Videos</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=OlX-p4AGhWs">Introduction to Side-Channel Power Analysis</a> (Colin O’Flynn). What a supply-current measurement can reveal, and the equipment a research lab uses. This module needs only the browser simulator.</li>
-<li><a href="https://www.youtube.com/watch?v=UhEOC3RRBhw">Lecture 48: Side Channel Attacks (Part II)</a> (NPTEL, IIT Kharagpur). A course lecture on side-channel attacks, for an instructor preparing the session.</li>
 </ul>
 
 <h2>The exercise</h2>
@@ -111,7 +110,7 @@
       <a href="../about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>
 <script src="../js/site.js"></script>
 </body>

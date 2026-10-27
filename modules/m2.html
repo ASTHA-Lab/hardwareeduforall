@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../index.html">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg></span>
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -26,14 +26,13 @@
     <p class="crumb"><a href="../catalog.html">Modules</a> / M2</p>
     <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></p>
     <h1>Buffer overflow</h1>
-    <p class="lede">Overrun a fixed buffer on an 8051, watch a secret return through R7, then repair the copy.</p>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>A buffer overflow writes past the end of a buffer into neighboring memory. On this microcontroller the calling convention and the saved return address become visible, because the desktop defenses students may have heard of are not on the chip.</p>
+<p>Students see what happens when a program writes past the end of a buffer. On this chip, that write can change nearby memory, including the return address.</p>
 <h2>Where it belongs</h2>
-<div class="callout"><p>Embedded systems. Assign this after the class has covered the stack frame, the calling convention, and where a return address is saved. At the University of Kansas it followed binary reverse engineering in EECS 388. From Spring 2024 the homework is required. Treat it as required if you adopt it.</p></div>
-<h2>Materials and how to use them</h2>
-<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students build and debug the starter in Keil.</p>
+<div class="callout"><p><strong>Course:</strong> Embedded systems. At KU this was EECS 388, after binary reverse engineering.<br><strong>Teach this after:</strong> the stack frame and the calling convention. Count the homework as required work, not extra credit.</p></div>
+<h2>Files and how to use them</h2>
+<p>Use the two slide decks as the class lectures. Then assign the homework. Students build the C file in Keil.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use in class after the calling-convention lecture. The stack, the saved return address, and how an overrun reaches them.</li>
   <li><strong>Lecture, part 2.</strong> Use in class before the homework. The 8051 memory map, and how the lab is scored.</li>
@@ -46,18 +45,18 @@
   <a class="download" href="../materials/m2/Module1_Homework_BOA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
   <a class="download" href="../materials/m2/vulnerable_program.c"><span><b>Starter program</b><span>8051 C, Keil</span></span><i>C</i></a>
 </div>
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+<a class="download" href="https://www.youtube.com/watch?v=1S0aBV-Waeo"><span><b>Running a Buffer Overflow Attack</b><span>(Computerphile). A desktop demonstration of an overrun. The repair in this module has to be a property of the program, because the AT89C51 supplies neither a stack canary nor address-space randomization.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=ldq8ZMjoXpM"><span><b>Buffer overflow: how do cybercriminals take over your computer?</b><span>(Frank Stajano, security@cambridge). A short classroom explanation of the same idea.</span></span><i>Video</i></a>
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 <li><a href="https://phrack.org/issues/49/14.html">Smashing the Stack for Fun and Profit</a>, Aleph One, <em>Phrack</em>, vol. 7, no. 49, 1996. The classic account of a stack overrun on a desktop. This lab is the same idea on a machine with 256 bytes of internal data memory.</li>
 <li>Cowan, Pu, Maier, and others, “StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks,” USENIX Security Symposium, pp. 63–78, 1998.</li>
 <li>Szekeres, Payer, Wei, and Song, “SoK: Eternal War in Memory,” IEEE Symposium on Security and Privacy, pp. 48–62, 2013.</li>
-</ul>
-<h3>Videos</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=1S0aBV-Waeo">Running a Buffer Overflow Attack</a> (Computerphile). A desktop demonstration of an overrun. The repair in this module has to be a property of the program, because the AT89C51 supplies neither a stack canary nor address-space randomization.</li>
-<li><a href="https://www.youtube.com/watch?v=ldq8ZMjoXpM">Buffer overflow: how do cybercriminals take over your computer?</a> (Frank Stajano, security@cambridge). A short classroom explanation of the same idea.</li>
 </ul>
 
 <h2>The exercise</h2>
@@ -104,7 +103,7 @@
       <a href="../about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>
 <script src="../js/site.js"></script>
 </body>

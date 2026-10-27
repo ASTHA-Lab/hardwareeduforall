@@ -125,7 +125,7 @@ PILL = {
     "ready": "pill-ready",
 }
 
-MARK = '''<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg>'''
+MARK = '''<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg>'''
 
 
 def pills(m):
@@ -171,7 +171,7 @@ def footer(base):
       <a href="{base}about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>'''
 
 
@@ -229,7 +229,6 @@ def module_page(m, body):
     <p class="crumb"><a href="../catalog.html">Modules</a> / {m["id"]}</p>
     <p class="pills">{pills(m)}</p>
     <h1>{m["title"]}</h1>
-    <p class="lede">{m["blurb"]}</p>
     <div class="layout">
       <article class="prose">{body}</article>
       {rail(m["slug"])}

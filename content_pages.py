@@ -7,22 +7,33 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def intro(topic, place, materials, papers, videos):
     paper_items = "\n".join(f"<li>{item}</li>" for item in papers)
-    video_items = "\n".join(f"<li>{item}</li>" for item in videos)
+    cards = []
+    for item in videos:
+        match = re.search(r'href="([^"]+)"[^>]*>(.*?)</a>(.*)', item, re.S)
+        if not match:
+            cards.append(item)
+            continue
+        url, title, rest = match.group(1), match.group(2).strip(), match.group(3).strip()
+        rest = re.sub(r"^\.\s*", "", rest).strip()
+        cards.append(
+            f'<a class="download" href="{url}"><span><b>{title}</b><span>{rest}</span></span><i>Video</i></a>'
+        )
+    video_cards = "\n".join(cards)
     return f'''<h2>The topic</h2>
 <p>{topic}</p>
 <h2>Where it belongs</h2>
 <div class="callout"><p>{place}</p></div>
-<h2>Materials and how to use them</h2>
+<h2>Files and how to use them</h2>
 {materials}
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+{video_cards}
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 {paper_items}
-</ul>
-<h3>Videos</h3>
-<ul>
-{video_items}
 </ul>
 '''
 
@@ -447,7 +458,7 @@ def emit(page, module_page, modules, pills):
     <p>Student handouts, slide decks, starter VHDL, the C sources for the embedded labs, and the binary used in the reverse-engineering homework. Lab manuals for the three VHDL experiments are included as documents because they carry the figures.</p>
     <div class="callout">
       <strong>Solution archives are not in this bundle.</strong>
-      <p>Instructor guides, reference VHDL with completed Trojans and completed locks, and the solved homework from earlier offerings stay in the project archive. Lecture recordings from Spring 2023 are there too, and they are large enough that copying them into a site meant for later hosting would be the wrong default. Ask the KU group for the instructor packet.</p>
+      <p>Instructor guides, reference VHDL with completed Trojans and completed locks, and the solved homework from earlier offerings stay in the project archive. Lecture recordings from Spring 2023 are in that archive too. Ask the KU group for the instructor packet.</p>
     </div>
     <p>Two further exclusions. The published tutorial on obfuscation and logic locking is cited from the VHDL labs and is not redistributed here. A gem5 cache configuration script that ships beside the cache slides is third-party teaching code and is not copied onto this site.</p>
     <p><a class="btn btn-primary" href="about.html">Contact the project</a></p>
@@ -487,15 +498,15 @@ def emit(page, module_page, modules, pills):
       <li>The <a href="catalog.html">catalog</a>, if you want to drop an existing module into a course you already teach.</li>
       <li>The <a href="assessment.html">evidence page</a>, if you need to know what has been tried and what is still only written down.</li>
     </ul>
-    <p>This copy runs locally. Hosting is a later step. Nothing here assumes a server-side application.</p>
+    <p>The site is a set of static pages. Nothing here needs a server-side application.</p>
   </div>
 </div>
 ''')
 
     module_page(by_id["M1"], intro(
-        "Binary reverse engineering recovers what a compiled program does when the source is gone. On a small microcontroller, that work is how a student shows they can read the instruction set, the memory map, and a disassembly.",
-        "Embedded systems. Assign this after the class has covered the compilation flow, the instruction set, addressing modes, and the split between code memory and data memory. The last homework question also uses the stack pointer. At the University of Kansas this module ran in EECS 388.",
-        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes across the two sittings, then assign the homework. Lecture recordings from Spring 2023 stay in the instructor packet.</p>
+        "Students learn how to figure out what a program does when they have the compiled file and not the source. Many small devices are shipped that way.",
+        "<strong>Course:</strong> Embedded systems. At KU this was EECS 388.<br><strong>Teach this after:</strong> compilation, the instruction set, addressing modes, and the difference between code memory and data memory. The last question also uses the stack pointer.",
+        '''<p>Use the two slide decks as the class lectures. Then assign the homework and the binary. Older lecture recordings are not posted here.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use in class before anyone opens the binary. Motivation, the 8051 instruction set and registers, and a Keil walkthrough.</li>
   <li><strong>Lecture, part 2.</strong> Use in class after part 1 and still before the homework. The memory map, addressing modes, and the disassembly and memory windows.</li>
@@ -520,8 +531,6 @@ def emit(page, module_page, modules, pills):
 <h2>The exercise</h2>
 <p>The program behind the binary keeps a hospital room at a stable temperature. It reads a sensor value from external memory six times an hour, folds each sample into a running average with the previous average, compares that average with a threshold, and drives a port pin from the result. Students receive the binary and the part number, the Microchip AT89C51. They do not receive the source.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student recovers the sampling rate, the stored temperatures and their addresses, the threshold, and the output port, and explains what happens if the conditional jump that returns to the start of the program is replaced by a call.</p></div>
-<h2>What the lecture sets up</h2>
-<p>Two decks. The first is why reverse engineering shows up in embedded work, a short tour of the 8051 instruction set and registers, and a Keil walkthrough. The second is the memory map: internal memory, special-function registers, addressing modes, and the disassembly and memory windows the homework depends on.</p>
 <h2>The ten questions</h2>
 <p>The Spring 2024 handout, worth two points, asks the student to work only from the disassembly window.</p>
 <ol>
@@ -540,9 +549,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M2"], intro(
-        "A buffer overflow writes past the end of a buffer into neighboring memory. On this microcontroller the calling convention and the saved return address become visible, because the desktop defenses students may have heard of are not on the chip.",
-        "Embedded systems. Assign this after the class has covered the stack frame, the calling convention, and where a return address is saved. At the University of Kansas it followed binary reverse engineering in EECS 388. From Spring 2024 the homework is required. Treat it as required if you adopt it.",
-        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students build and debug the starter in Keil.</p>
+        "Students see what happens when a program writes past the end of a buffer. On this chip, that write can change nearby memory, including the return address.",
+        "<strong>Course:</strong> Embedded systems. At KU this was EECS 388, after binary reverse engineering.<br><strong>Teach this after:</strong> the stack frame and the calling convention. Count the homework as required work, not extra credit.",
+        '''<p>Use the two slide decks as the class lectures. Then assign the homework. Students build the C file in Keil.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use in class after the calling-convention lecture. The stack, the saved return address, and how an overrun reaches them.</li>
   <li><strong>Lecture, part 2.</strong> Use in class before the homework. The 8051 memory map, and how the lab is scored.</li>
@@ -579,9 +588,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M3"], intro(
-        "A timing side channel leaks information through how long a program runs. An early-exit password check is the case this course can measure: a wrong first character finishes sooner than a wrong later character.",
-        "Embedded systems. Assign this after the class has covered the timer peripheral, cycle counting, and serial-port setup. The comparison uses the data-dependent branch the course already teaches. At the University of Kansas this was the third EECS 388 module.",
-        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students time the check on the logic analyzer built into the Keil debugger.</p>
+        "Students measure a password check that stops at the first wrong character. A wrong first character finishes sooner, so the running time gives away information about the secret.",
+        "<strong>Course:</strong> Embedded systems. At KU this was the third module in EECS 388.<br><strong>Teach this after:</strong> the timer, cycle counting, and the serial port.",
+        '''<p>Use the two slide decks as the class lectures. Then assign the homework. Students time the check with the logic analyzer in Keil.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use in class after the timer lecture. Five emissions an attacker can measure, the data dependence of CMOS switching energy, and Kocher’s timing attack reduced to a string comparison.</li>
   <li><strong>Lecture, part 2.</strong> Use in class before the homework. How the lab instruments the comparison, and the demonstration cycle counts below.</li>
@@ -632,9 +641,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M4"], intro(
-        "Board reverse engineering rebuilds an undocumented circuit from the parts soldered to it. A bill of materials and a block diagram are the first artifacts someone produces before they can copy the board or trust it.",
-        "Embedded systems. Assign this after the class has covered microcontroller interfacing, serial protocols, power distribution, and how to read a datasheet against a board. The lab is written for that course and has not yet been assigned. Run it in a period that already has a multimeter.",
-        '''<p>This bundle has no lecture deck and no overview video. The lab specification is the class handout. Walk the safety notes in it before any powered measurement. Required work fits one lab period. Optional work needs a second sitting or a longer period.</p>
+        "Students take a board that has no schematic and name the parts. From those parts they write a bill of materials and draw a block diagram.",
+        "<strong>Course:</strong> Embedded systems.<br><strong>Teach this after:</strong> microcontroller interfacing, serial protocols, power distribution, and reading a datasheet. The lab is written and has not been assigned yet. The bench needs a multimeter.",
+        '''<p>There is no slide deck. The lab specification is the handout. Read the safety notes before students power the board. The required work fits one lab period.</p>
 <ul>
   <li><strong>Lab specification.</strong> Give this to students at the start of the period. It states the required identification work, the optional measurement work, the deliverables, and the evaluation.</li>
   <li>Students need a populated board with no schematic, and a digital multimeter. A logic analyzer is optional and is used only if the course already has one.</li>
@@ -674,9 +683,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M5"], intro(
-        "A power side channel is the supply current of a gate when its output switches. The spike can show that the output changed. It does not show which way the output went.",
-        "Digital logic. Assign this after the class has covered CMOS switching, output transitions, and truth tables. An early form ran as embedded-systems homework in Spring 2022. The catalog places it in digital logic, after the switching lecture. The module asks for no defense.",
-        '''<p>This bundle has no lecture deck, no handout file, and no overview video. The instrument is a browser circuit simulator the course can open in class.</p>
+        "Students watch the supply current of a gate. A spike shows that the output changed. It does not show whether the output went high or low.",
+        "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> CMOS switching and truth tables. An earlier version was homework in embedded systems in Spring 2022.",
+        '''<p>There is no slide deck and no file to download. After the CMOS lecture, students open the unknown circuit in the exercise below. Leave the labeled gates closed until they have an answer.</p>
 <ul>
   <li><strong>Unknown circuit.</strong> Use this in class, after the CMOS lecture. Students step the inputs, record the voltage plot, and build the transition table. The link sits with the steps below.</li>
   <li><strong>Labeled gates.</strong> Leave these closed until students have committed to an answer. They are for the discussion afterward.</li>
@@ -709,9 +718,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M6"], intro(
-        "Logic locking makes a circuit produce the right result only for a secret key. On a ripple-carry adder, locking the carries shows why a wrong key does not stay in one bit: the error propagates.",
-        "Digital logic. Assign this after the class has covered the ripple-carry adder, carry propagation, and hierarchical design by instantiating a component. Students should already be able to simulate a VHDL adder before they insert the lock. The lab is written and has not yet been run for a grade.",
-        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Give students the manual and the full-adder file together, after the adder lectures. Any VHDL simulator that can show a waveform will do. The manual assumes Vivado. Use the simulator the course already teaches.</p>
+        "Students add a key to a ripple-carry adder. The adder is correct only for that key. A wrong key flips a carry, and the mistake shows up in the higher bits.",
+        "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> the ripple-carry adder, and after students can build a larger circuit from a smaller VHDL part. They should be able to simulate an adder before they add the lock. The lab is written and has not been graded yet.",
+        '''<p>There is no slide deck. Give students the manual and the full-adder file after the adder lectures. Use the VHDL tool the course already teaches. The manual is written for Vivado.</p>
 <ul>
   <li><strong>Lab manual.</strong> Objectives, figures, and the report checklist. A short in-class introduction can come from those figures, about 30 to 40 minutes, once the unlocked adder works.</li>
   <li><strong>FullAdder.vhdl.</strong> The only source students receive. They build the 4-bit adder from it, simulate, then add the lock.</li>
@@ -746,9 +755,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M7"], intro(
-        "A hardware Trojan is extra logic that stays quiet on ordinary inputs and changes the result on one chosen input. The lab makes the student write that logic as two pieces: a trigger, and a payload.",
-        "Digital logic. Assign this after the class has covered decoding one input combination, conditional assignment, and behavioral simulation. If combinational locking is in the same term, run this lab after that one. The starter is already a locked adder. The lab is written and has not yet been graded.",
-        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students leave the full adder and the locking equations alone and write only in the marked region of the locked adder.</p>
+        "Students add a small circuit that stays quiet on almost every input and changes the sum on one input they choose. The circuit has two parts: a trigger and a payload.",
+        "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> detecting one input value and writing a conditional assignment. If you also assign the locking lab, do this lab second. The starter file is already locked. The lab is written and has not been graded yet.",
+        '''<p>There is no slide deck. The manual is the assignment. Students change only the marked region of the locked adder.</p>
 <ul>
   <li><strong>Lab manual.</strong> The five parts of the report and the questions. Use it as the in-class handout.</li>
   <li><strong>FullAdder.vhdl.</strong> Provided so the design compiles. Students do not modify it.</li>
@@ -785,9 +794,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M8"], intro(
-        "Sequential locking hides the key in the state machine, so the secret arrives over several clocks instead of as one combinational input. A wrong value sends the machine into a state that does not return to the transmitter.",
-        "Digital logic. Assign this after the class has covered finite-state machines, reset and next-state behavior, and the UART frame. Students should already be able to simulate a state machine. This lab does not require the adder labs. It is written and has not yet been graded.",
-        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students simulate the unlocked transmitter first, then add the lock where the starter leaves task markers.</p>
+        "Students lock a UART transmitter inside its state machine. The key arrives one byte per clock. A wrong byte sends the machine to a state it can leave only by reset.",
+        "<strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> finite-state machines and the UART frame. Students should already be able to simulate a state machine. This lab does not need the adder labs. It is written and has not been graded yet.",
+        '''<p>There is no slide deck. The manual is the assignment. Students simulate the transmitter first, then add the lock.</p>
 <ul>
   <li><strong>Lab manual.</strong> The frame figure, the report checklist, and the discussion questions. Use it as the in-class handout. It states the verification sequence the testbench has to cover.</li>
   <li><strong>UART.vhdl.</strong> A working transmitter. Idle, start bit, data bits, and stop bit are already there.</li>
@@ -825,9 +834,9 @@ def emit(page, module_page, modules, pills):
 ''')
 
     module_page(by_id["M9"], intro(
-        "A cache side channel reads another program from the timing of a hit and a miss. The hierarchy a computer-architecture course already teaches for speed is shared, and the cycle gap is wide enough to tell the two cases apart.",
-        "Computer architecture. Assign the second lecture only after the class has covered the cache hierarchy, associativity, line size, and set indexing, and students can already explain a hit and a miss. Part 1 can sit in that same week. No course number is fixed here. At Kansas the lecture ran in Fall 2024, with no survey.",
-        '''<p>This bundle has no overview video and no graded write-up. The two decks are the class lectures. Plan about 30 to 40 minutes of new material in part 2. The probe series in that deck is a recorded demonstration, not a student deliverable.</p>
+        "Students treat the cache as a way to observe another program. A hit and a miss take different numbers of cycles, and that gap can be measured.",
+        "<strong>Course:</strong> Computer architecture. No course number is attached here.<br><strong>Teach this after:</strong> the cache lecture, including hierarchy, associativity, line size, and set indexing. Part 1 can be given in that same week. Part 2 waits until students can explain a hit and a miss. At KU this lecture was given in Fall 2024.",
+        '''<p>Use the two slide decks as the class lectures. There is no homework file. Part 2 includes a measurement you can show in class. Students do not turn that measurement in.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use with the cache unit, or immediately after it. Hierarchy, the parameters that define a cache, and the geometry of the student’s own machine.</li>
   <li><strong>Lecture, part 2.</strong> Use only after part 1. Flush and reload, prime and probe, and the recorded hit and miss times.</li>

@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../index.html">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg></span>
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -26,14 +26,13 @@
     <p class="crumb"><a href="../catalog.html">Modules</a> / M4</p>
     <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ready">Written material</span></p>
     <h1>Board reverse engineering</h1>
-    <p class="lede">Take a populated board with no schematic and produce a bill of materials and a block diagram.</p>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Board reverse engineering rebuilds an undocumented circuit from the parts soldered to it. A bill of materials and a block diagram are the first artifacts someone produces before they can copy the board or trust it.</p>
+<p>Students take a board that has no schematic and name the parts. From those parts they write a bill of materials and draw a block diagram.</p>
 <h2>Where it belongs</h2>
-<div class="callout"><p>Embedded systems. Assign this after the class has covered microcontroller interfacing, serial protocols, power distribution, and how to read a datasheet against a board. The lab is written for that course and has not yet been assigned. Run it in a period that already has a multimeter.</p></div>
-<h2>Materials and how to use them</h2>
-<p>This bundle has no lecture deck and no overview video. The lab specification is the class handout. Walk the safety notes in it before any powered measurement. Required work fits one lab period. Optional work needs a second sitting or a longer period.</p>
+<div class="callout"><p><strong>Course:</strong> Embedded systems.<br><strong>Teach this after:</strong> microcontroller interfacing, serial protocols, power distribution, and reading a datasheet. The lab is written and has not been assigned yet. The bench needs a multimeter.</p></div>
+<h2>Files and how to use them</h2>
+<p>There is no slide deck. The lab specification is the handout. Read the safety notes before students power the board. The required work fits one lab period.</p>
 <ul>
   <li><strong>Lab specification.</strong> Give this to students at the start of the period. It states the required identification work, the optional measurement work, the deliverables, and the evaluation.</li>
   <li>Students need a populated board with no schematic, and a digital multimeter. A logic analyzer is optional and is used only if the course already has one.</li>
@@ -41,18 +40,18 @@
 <div class="downloads">
   <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
 </div>
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+<a class="download" href="https://www.youtube.com/watch?v=BsftxTbs7MA"><span><b>PCB Reverse Engineering: Eric Schlaepfer</b><span>(Hackaday). A working engineer walking a board with no schematic.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=O8FQZIPkgZM"><span><b>Deconstructing the Circuit Board Sandwich</b><span>(Joe Grand, DEF CON 22). How a multilayer board is taken apart and read.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=18U25M8h7l4"><span><b>Printed Circuit Board Deconstruction Techniques</b><span>(USENIX WOOT ’14). A conference talk on the same reconstruction problem.</span></span><i>Video</i></a>
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 <li>Kleber, Nölscher, and Kargl, “Automated PCB Reverse Engineering,” USENIX Workshop on Offensive Technologies (WOOT), 2017.</li>
 <li>Tehranipoor, Guin, and Bhunia, “Invasion of the Hardware Snatchers,” <em>IEEE Spectrum</em>, vol. 54, no. 5, pp. 36–41, 2017. Why a cloned or altered board is a supply-chain problem. This lab stops at identification.</li>
-</ul>
-<h3>Videos</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=BsftxTbs7MA">PCB Reverse Engineering: Eric Schlaepfer</a> (Hackaday). A working engineer walking a board with no schematic.</li>
-<li><a href="https://www.youtube.com/watch?v=O8FQZIPkgZM">Deconstructing the Circuit Board Sandwich</a> (Joe Grand, DEF CON 22). How a multilayer board is taken apart and read.</li>
-<li><a href="https://www.youtube.com/watch?v=18U25M8h7l4">Printed Circuit Board Deconstruction Techniques</a> (USENIX WOOT ’14). A conference talk on the same reconstruction problem.</li>
 </ul>
 
 <h2>The exercise</h2>
@@ -107,7 +106,7 @@
       <a href="../about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>
 <script src="../js/site.js"></script>
 </body>

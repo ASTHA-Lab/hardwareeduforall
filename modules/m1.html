@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../index.html">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg></span>
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -26,14 +26,13 @@
     <p class="crumb"><a href="../catalog.html">Modules</a> / M1</p>
     <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></p>
     <h1>Binary reverse engineering</h1>
-    <p class="lede">Recover a room-temperature controller from an AT89C51 binary that ships with no source.</p>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Binary reverse engineering recovers what a compiled program does when the source is gone. On a small microcontroller, that work is how a student shows they can read the instruction set, the memory map, and a disassembly.</p>
+<p>Students learn how to figure out what a program does when they have the compiled file and not the source. Many small devices are shipped that way.</p>
 <h2>Where it belongs</h2>
-<div class="callout"><p>Embedded systems. Assign this after the class has covered the compilation flow, the instruction set, addressing modes, and the split between code memory and data memory. The last homework question also uses the stack pointer. At the University of Kansas this module ran in EECS 388.</p></div>
-<h2>Materials and how to use them</h2>
-<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes across the two sittings, then assign the homework. Lecture recordings from Spring 2023 stay in the instructor packet.</p>
+<div class="callout"><p><strong>Course:</strong> Embedded systems. At KU this was EECS 388.<br><strong>Teach this after:</strong> compilation, the instruction set, addressing modes, and the difference between code memory and data memory. The last question also uses the stack pointer.</p></div>
+<h2>Files and how to use them</h2>
+<p>Use the two slide decks as the class lectures. Then assign the homework and the binary. Older lecture recordings are not posted here.</p>
 <ul>
   <li><strong>Lecture, part 1.</strong> Use in class before anyone opens the binary. Motivation, the 8051 instruction set and registers, and a Keil walkthrough.</li>
   <li><strong>Lecture, part 2.</strong> Use in class after part 1 and still before the homework. The memory map, addressing modes, and the disassembly and memory windows.</li>
@@ -46,24 +45,22 @@
   <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
   <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
 </div>
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+<a class="download" href="https://www.youtube.com/watch?v=9tZmSFjoOm4"><span><b>Reverse Engineering</b><span>(Computerphile). What a binary still reveals after compilation. The examples use desktop tools, not the AT89C51.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=a5PwvIRrh9M"><span><b>Mohammad Tehranipoor on Integrated Circuit Security</b><span>(UConn). A short faculty talk on why the chip is part of the security problem. Broader than this homework.</span></span><i>Video</i></a>
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 <li>Rostami, Koushanfar, and Karri, “A Primer on Hardware Security: Models, Methods, and Metrics,” <em>Proceedings of the IEEE</em>, vol. 102, no. 8, pp. 1283–1295, 2014.</li>
 <li>Azriel, Speith, Albartus, Ginosar, Shamir, and Paar, “A Survey of Algorithmic Methods in IC Reverse Engineering,” <em>Journal of Cryptographic Engineering</em>, vol. 11, pp. 299–315, 2021. Chip imaging and netlist recovery. This module stops at a firmware binary.</li>
-</ul>
-<h3>Videos</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=9tZmSFjoOm4">Reverse Engineering</a> (Computerphile). What a binary still reveals after compilation. The examples use desktop tools, not the AT89C51.</li>
-<li><a href="https://www.youtube.com/watch?v=a5PwvIRrh9M">Mohammad Tehranipoor on Integrated Circuit Security</a> (UConn). A short faculty talk on why the chip is part of the security problem. Broader than this homework.</li>
 </ul>
 
 <h2>The exercise</h2>
 <p>The program behind the binary keeps a hospital room at a stable temperature. It reads a sensor value from external memory six times an hour, folds each sample into a running average with the previous average, compares that average with a threshold, and drives a port pin from the result. Students receive the binary and the part number, the Microchip AT89C51. They do not receive the source.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student recovers the sampling rate, the stored temperatures and their addresses, the threshold, and the output port, and explains what happens if the conditional jump that returns to the start of the program is replaced by a call.</p></div>
-<h2>What the lecture sets up</h2>
-<p>Two decks. The first is why reverse engineering shows up in embedded work, a short tour of the 8051 instruction set and registers, and a Keil walkthrough. The second is the memory map: internal memory, special-function registers, addressing modes, and the disassembly and memory windows the homework depends on.</p>
 <h2>The ten questions</h2>
 <p>The Spring 2024 handout, worth two points, asks the student to work only from the disassembly window.</p>
 <ol>
@@ -112,7 +109,7 @@
       <a href="../about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>
 <script src="../js/site.js"></script>
 </body>

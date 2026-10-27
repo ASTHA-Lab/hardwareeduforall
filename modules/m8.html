@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../index.html">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg></span>
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -26,14 +26,13 @@
     <p class="crumb"><a href="../catalog.html">Modules</a> / M8</p>
     <p class="pills"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></p>
     <h1>Sequential logic locking</h1>
-    <p class="lede">Lock a UART transmitter in its state machine, so the key arrives over several clocks.</p>
     <div class="layout">
       <article class="prose"><h2>The topic</h2>
-<p>Sequential locking hides the key in the state machine, so the secret arrives over several clocks instead of as one combinational input. A wrong value sends the machine into a state that does not return to the transmitter.</p>
+<p>Students lock a UART transmitter inside its state machine. The key arrives one byte per clock. A wrong byte sends the machine to a state it can leave only by reset.</p>
 <h2>Where it belongs</h2>
-<div class="callout"><p>Digital logic. Assign this after the class has covered finite-state machines, reset and next-state behavior, and the UART frame. Students should already be able to simulate a state machine. This lab does not require the adder labs. It is written and has not yet been graded.</p></div>
-<h2>Materials and how to use them</h2>
-<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students simulate the unlocked transmitter first, then add the lock where the starter leaves task markers.</p>
+<div class="callout"><p><strong>Course:</strong> Digital logic.<br><strong>Teach this after:</strong> finite-state machines and the UART frame. Students should already be able to simulate a state machine. This lab does not need the adder labs. It is written and has not been graded yet.</p></div>
+<h2>Files and how to use them</h2>
+<p>There is no slide deck. The manual is the assignment. Students simulate the transmitter first, then add the lock.</p>
 <ul>
   <li><strong>Lab manual.</strong> The frame figure, the report checklist, and the discussion questions. Use it as the in-class handout. It states the verification sequence the testbench has to cover.</li>
   <li><strong>UART.vhdl.</strong> A working transmitter. Idle, start bit, data bits, and stop bit are already there.</li>
@@ -44,17 +43,17 @@
   <a class="download" href="../materials/m8/UART.vhdl"><span><b>Transmitter starter</b><span>Unlocked FSM, task markers in comments</span></span><i>VHDL</i></a>
   <a class="download" href="../materials/m8/UART_tb.vhdl"><span><b>Testbench starter</b><span>Extend it for the four key cases</span></span><i>VHDL</i></a>
 </div>
+<h3>Video lectures</h3>
+<p>These are links, not files stored with the module. Play one in class, or send the link to students.</p>
+<div class="downloads">
+<a class="download" href="https://www.youtube.com/watch?v=ke7WHIyElkE"><span><b>Module 2 — Logic Locking Fundamentals</b><span>(Ozgur Sinanoglu). The combinational case, so the class can see what changes when the key moves into the state machine.</span></span><i>Video</i></a>
+<a class="download" href="https://www.youtube.com/watch?v=OtLrM2Y8ecQ"><span><b>Lec 38: Attacks on RTL Logic Locking</b><span>(NPTEL, IIT Guwahati). What an attacker does with a locked RTL design. This lab has the student build the lock.</span></span><i>Video</i></a>
+</div>
 <h2>Further reading</h2>
-<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
-<h3>Papers</h3>
+<p>Optional papers for the instructor, or for a student who wants to read past the assignment.</p>
 <ul>
 <li>Chakraborty and Bhunia, “HARPOON: An Obfuscation-Based SoC Design Methodology for Hardware Protection,” <em>IEEE Transactions on Computer-Aided Design</em>, vol. 28, no. 10, pp. 1493–1502, 2009. Sequential obfuscation by adding states. This lab is the UART-sized version of that idea.</li>
 <li>Hoque, Chakraborty, and Bhunia, “Hardware Obfuscation and Logic Locking: A Tutorial Introduction,” <em>IEEE Design &amp; Test</em>, vol. 37, no. 3, pp. 59–77, 2020. The tutorial this lab was adapted from. The PDF is not redistributed here.</li>
-</ul>
-<h3>Videos</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=ke7WHIyElkE">Module 2 — Logic Locking Fundamentals</a> (Ozgur Sinanoglu). The combinational case, so the class can see what changes when the key moves into the state machine.</li>
-<li><a href="https://www.youtube.com/watch?v=OtLrM2Y8ecQ">Lec 38: Attacks on RTL Logic Locking</a> (NPTEL, IIT Guwahati). What an attacker does with a locked RTL design. This lab has the student build the lock.</li>
 </ul>
 
 <h2>The exercise</h2>
@@ -105,7 +104,7 @@
       <a href="../about.html">People and paper</a>
     </div>
   </div>
-  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+  <div class="wrap footer-base"><p>Instructor solutions and lecture recordings are not in this public bundle.</p></div>
 </footer>
 <script src="../js/site.js"></script>
 </body>
