@@ -28,7 +28,38 @@
     <h1>Binary reverse engineering</h1>
     <p class="lede">Recover a room-temperature controller from an AT89C51 binary that ships with no source.</p>
     <div class="layout">
-      <article class="prose">
+      <article class="prose"><h2>The topic</h2>
+<p>Binary reverse engineering recovers what a compiled program does when the source is gone. On a small microcontroller, that work is how a student shows they can read the instruction set, the memory map, and a disassembly.</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>Embedded systems. Assign this after the class has covered the compilation flow, the instruction set, addressing modes, and the split between code memory and data memory. The last homework question also uses the stack pointer. At the University of Kansas this module ran in EECS 388.</p></div>
+<h2>Materials and how to use them</h2>
+<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes across the two sittings, then assign the homework. Lecture recordings from Spring 2023 stay in the instructor packet.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use in class before anyone opens the binary. Motivation, the 8051 instruction set and registers, and a Keil walkthrough.</li>
+  <li><strong>Lecture, part 2.</strong> Use in class after part 1 and still before the homework. The memory map, addressing modes, and the disassembly and memory windows.</li>
+  <li><strong>Homework handout.</strong> The graded assignment. Spring 2024 scored it at two points. Hand it out after both lectures.</li>
+  <li><strong>unknown-1.</strong> The binary named in the handout. Students load it in Keil. Keep the source out of the student bundle.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m1/Module1_RE_part1.pptx"><span><b>Lecture, part 1</b><span>Motivation, 8051, Keil</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m1/Module1_RE_part2.pptx"><span><b>Lecture, part 2</b><span>Memory map and disassembly</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
+</div>
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+<li>Rostami, Koushanfar, and Karri, “A Primer on Hardware Security: Models, Methods, and Metrics,” <em>Proceedings of the IEEE</em>, vol. 102, no. 8, pp. 1283–1295, 2014.</li>
+<li>Azriel, Speith, Albartus, Ginosar, Shamir, and Paar, “A Survey of Algorithmic Methods in IC Reverse Engineering,” <em>Journal of Cryptographic Engineering</em>, vol. 11, pp. 299–315, 2021. Chip imaging and netlist recovery. This module stops at a firmware binary.</li>
+</ul>
+<h3>Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=9tZmSFjoOm4">Reverse Engineering</a> (Computerphile). What a binary still reveals after compilation. The examples use desktop tools, not the AT89C51.</li>
+<li><a href="https://www.youtube.com/watch?v=a5PwvIRrh9M">Mohammad Tehranipoor on Integrated Circuit Security</a> (UConn). A short faculty talk on why the chip is part of the security problem. Broader than this homework.</li>
+</ul>
+
+<h2>The exercise</h2>
 <p>The program behind the binary keeps a hospital room at a stable temperature. It reads a sensor value from external memory six times an hour, folds each sample into a running average with the previous average, compares that average with a threshold, and drives a port pin from the result. Students receive the binary and the part number, the Microchip AT89C51. They do not receive the source.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student recovers the sampling rate, the stored temperatures and their addresses, the threshold, and the output port, and explains what happens if the conditional jump that returns to the start of the program is replaced by a call.</p></div>
 <h2>What the lecture sets up</h2>
@@ -48,13 +79,6 @@
   <li>At <code>C:0x034D</code> the program returns to <code>START</code> with <code>JNZ</code>. What happens if that opcode is replaced by <code>ACALL</code>.</li>
 </ol>
 <p>The last question is the stack. A call pushes a return address and this loop never executes a return, so return addresses accumulate until they disturb the rest of internal memory. The module stops there. It does not teach a countermeasure.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
-  <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
-  <a class="download" href="../materials/m1/Module1_RE_part1.pptx"><span><b>Lecture, part 1</b><span>Motivation, 8051, Keil</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m1/Module1_RE_part2.pptx"><span><b>Lecture, part 2</b><span>Memory map and disassembly</span></span><i>PPTX</i></a>
-</div>
 </article>
       <aside class="rail">
   <dl class="facts">

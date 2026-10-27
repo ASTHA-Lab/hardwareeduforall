@@ -28,7 +28,36 @@
     <h1>Sequential logic locking</h1>
     <p class="lede">Lock a UART transmitter in its state machine, so the key arrives over several clocks.</p>
     <div class="layout">
-      <article class="prose">
+      <article class="prose"><h2>The topic</h2>
+<p>Sequential locking hides the key in the state machine, so the secret arrives over several clocks instead of as one combinational input. A wrong value sends the machine into a state that does not return to the transmitter.</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>Digital logic. Assign this after the class has covered finite-state machines, reset and next-state behavior, and the UART frame. Students should already be able to simulate a state machine. This lab does not require the adder labs. It is written and has not yet been graded.</p></div>
+<h2>Materials and how to use them</h2>
+<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students simulate the unlocked transmitter first, then add the lock where the starter leaves task markers.</p>
+<ul>
+  <li><strong>Lab manual.</strong> The frame figure, the report checklist, and the discussion questions. Use it as the in-class handout. It states the verification sequence the testbench has to cover.</li>
+  <li><strong>UART.vhdl.</strong> A working transmitter. Idle, start bit, data bits, and stop bit are already there.</li>
+  <li><strong>UART_tb.vhdl.</strong> The testbench starter. Students extend it for the correct sequence and a wrong value in each position.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m8/UART_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Frame figure, report checklist, discussion questions</span></span><i>DOCX</i></a>
+  <a class="download" href="../materials/m8/UART.vhdl"><span><b>Transmitter starter</b><span>Unlocked FSM, task markers in comments</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m8/UART_tb.vhdl"><span><b>Testbench starter</b><span>Extend it for the four key cases</span></span><i>VHDL</i></a>
+</div>
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+<li>Chakraborty and Bhunia, “HARPOON: An Obfuscation-Based SoC Design Methodology for Hardware Protection,” <em>IEEE Transactions on Computer-Aided Design</em>, vol. 28, no. 10, pp. 1493–1502, 2009. Sequential obfuscation by adding states. This lab is the UART-sized version of that idea.</li>
+<li>Hoque, Chakraborty, and Bhunia, “Hardware Obfuscation and Logic Locking: A Tutorial Introduction,” <em>IEEE Design &amp; Test</em>, vol. 37, no. 3, pp. 59–77, 2020. The tutorial this lab was adapted from. The PDF is not redistributed here.</li>
+</ul>
+<h3>Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ke7WHIyElkE">Module 2 — Logic Locking Fundamentals</a> (Ozgur Sinanoglu). The combinational case, so the class can see what changes when the key moves into the state machine.</li>
+<li><a href="https://www.youtube.com/watch?v=OtLrM2Y8ecQ">Lec 38: Attacks on RTL Logic Locking</a> (NPTEL, IIT Guwahati). What an attacker does with a locked RTL design. This lab has the student build the lock.</li>
+</ul>
+
+<h2>The exercise</h2>
 <p>The starter is a working UART transmitter. Its state machine has idle, start bit, data bits, and stop bit. The line idles high, the start bit pulls it low, eight data bits leave least-significant bit first, and a stop bit returns the line high. There is no parity bit in this lab. Students simulate that machine first. They then add a lock in front of it.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value on the way enters a locked state that holds the transmit line high and has no exit except reset. The student can say why a key spread over several clocks is a different object from the single combinational key in the adder lab, and why the locked state is a black hole.</p></div>
 <h2>Part I. The unlocked transmitter</h2>
@@ -43,12 +72,6 @@
   <li>Wrong third key: S0, S1, S2, then locked.</li>
 </ul>
 <p>Waveforms show <code>key_valid</code>, <code>key_seq</code>, <code>state_track</code>, <code>data_in</code>, and <code>tx_start</code>. The starter leaves commented task markers where the states, the key constants, the new ports, and the testbench changes belong. <code>BAUD_DIV</code> is 868 in the starter, which is the divider the supplied transmitter already uses.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m8/UART.vhdl"><span><b>Transmitter starter</b><span>Unlocked FSM, task markers in comments</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m8/UART_tb.vhdl"><span><b>Testbench starter</b><span>Extend it for the four key cases</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m8/UART_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Frame figure, report checklist, discussion questions</span></span><i>DOCX</i></a>
-</div>
 </article>
       <aside class="rail">
   <dl class="facts">

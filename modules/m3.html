@@ -28,7 +28,38 @@
     <h1>Timing side channel</h1>
     <p class="lede">Measure an early-exit password check on the logic analyzer, then make the comparison constant-time.</p>
     <div class="layout">
-      <article class="prose">
+      <article class="prose"><h2>The topic</h2>
+<p>A timing side channel leaks information through how long a program runs. An early-exit password check is the case this course can measure: a wrong first character finishes sooner than a wrong later character.</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>Embedded systems. Assign this after the class has covered the timer peripheral, cycle counting, and serial-port setup. The comparison uses the data-dependent branch the course already teaches. At the University of Kansas this was the third EECS 388 module.</p></div>
+<h2>Materials and how to use them</h2>
+<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students time the check on the logic analyzer built into the Keil debugger.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use in class after the timer lecture. Five emissions an attacker can measure, the data dependence of CMOS switching energy, and Kocher’s timing attack reduced to a string comparison.</li>
+  <li><strong>Lecture, part 2.</strong> Use in class before the homework. How the lab instruments the comparison, and the demonstration cycle counts below.</li>
+  <li><strong>Homework handout.</strong> The graded assignment. Spring 2024 scored it at two points. It uses its own password and its own guesses.</li>
+  <li><strong>sca_sp24.c.</strong> The starter students build. It contains the early-exit check they measure, then replace.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part1.pptx"><span><b>Lecture, part 1</b><span>Emissions, power, Kocher</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part2.pptx"><span><b>Lecture, part 2</b><span>The string comparison, measured</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m3/Module1_Homework_SCA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m3/sca_sp24.c"><span><b>Starter program</b><span>UART password check</span></span><i>C</i></a>
+</div>
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+<li>Kocher, “Timing Attacks on Implementations of Diffie–Hellman, RSA, DSS, and Other Systems,” Advances in Cryptology (CRYPTO), pp. 104–113, 1996. The lecture reduces this attack to the string comparison in the lab.</li>
+<li>Kocher, Jaffe, and Jun, “Differential Power Analysis,” Advances in Cryptology (CRYPTO), pp. 388–397, 1999. The power channel. This module measures time.</li>
+</ul>
+<h3>Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=p0AuTPmFjTY">Timing Attack on PIN-Protected Hard Drive</a> (Colin O’Flynn). A measured timing leak outside a microcontroller course. Same idea as the early-exit check: a wrong guess can finish early.</li>
+<li><a href="https://www.youtube.com/watch?v=OlX-p4AGhWs">Introduction to Side-Channel Power Analysis</a> (Colin O’Flynn). The power channel named in the first lecture. The graded work in this module is the timer measurement, not a power trace.</li>
+</ul>
+
+<h2>The exercise</h2>
 <p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so a wrong first character finishes sooner than a wrong later character. The lecture derives that dependence from CMOS switching energy, names five emissions an attacker can use, and reduces Kocher’s timing attack on exponentiation to this string comparison. The lab then measures the comparison the course can actually instrument.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
 <h2>How the time is taken</h2>
@@ -53,13 +84,6 @@
       <tr><td>Iykyk</td><td>291</td></tr>
     </tbody>
   </table>
-</div>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m3/Module1_Homework_SCA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
-  <a class="download" href="../materials/m3/sca_sp24.c"><span><b>Starter program</b><span>UART password check</span></span><i>C</i></a>
-  <a class="download" href="../materials/m3/Module3_TimingSCA_part1.pptx"><span><b>Lecture, part 1</b><span>Emissions, power, Kocher</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m3/Module3_TimingSCA_part2.pptx"><span><b>Lecture, part 2</b><span>The string comparison, measured</span></span><i>PPTX</i></a>
 </div>
 </article>
       <aside class="rail">

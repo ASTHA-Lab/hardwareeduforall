@@ -221,6 +221,8 @@ tbody tr:nth-child(even) td { background: rgba(26, 25, 22, 0.025); }
 
 .layout { display: grid; grid-template-columns: minmax(0, 1fr) 18.5rem; gap: 1.6rem; align-items: start; }
 .prose h2 { scroll-margin-top: 5.5rem; }
+.prose h2:first-child { margin-top: 0.3rem; }
+.prose ul li { margin: 0.28rem 0; }
 .prose .outcome {
   border: 1.5px solid var(--ink); border-radius: 0.7rem; overflow: hidden; margin: 1.2rem 0 1.4rem; background: var(--card);
 }
@@ -289,6 +291,8 @@ tbody tr:nth-child(even) td { background: rgba(26, 25, 22, 0.025); }
 .callout {
   background: var(--blue-soft); border-radius: 0.9rem; padding: 1rem 1.1rem; color: var(--ink);
 }
+.callout p:last-child { margin-bottom: 0; }
+.prose h3 { font-family: var(--sans); font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
 .callout strong { font-family: var(--sans); }
 .note {
   font-family: var(--sans); font-size: 0.88rem; color: var(--muted); border-left: 3px solid var(--line); padding-left: 0.8rem;

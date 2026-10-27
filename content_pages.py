@@ -5,6 +5,28 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def intro(topic, place, materials, papers, videos):
+    paper_items = "\n".join(f"<li>{item}</li>" for item in papers)
+    video_items = "\n".join(f"<li>{item}</li>" for item in videos)
+    return f'''<h2>The topic</h2>
+<p>{topic}</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>{place}</p></div>
+<h2>Materials and how to use them</h2>
+{materials}
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+{paper_items}
+</ul>
+<h3>Videos</h3>
+<ul>
+{video_items}
+</ul>
+'''
+
+
 def falstad_links():
     assign = (ROOT / r"md\NSF SaTC Education\All modules 2026\Power Side Channel Analysis\Power Side Channel Attack Assignment.md").read_text(encoding="utf-8")
     unknown = re.search(r"\((https://www\.falstad\.com/circuit/[^)]+)\)", assign).group(1)
@@ -470,7 +492,32 @@ def emit(page, module_page, modules, pills):
 </div>
 ''')
 
-    module_page(by_id["M1"], '''
+    module_page(by_id["M1"], intro(
+        "Binary reverse engineering recovers what a compiled program does when the source is gone. On a small microcontroller, that work is how a student shows they can read the instruction set, the memory map, and a disassembly.",
+        "Embedded systems. Assign this after the class has covered the compilation flow, the instruction set, addressing modes, and the split between code memory and data memory. The last homework question also uses the stack pointer. At the University of Kansas this module ran in EECS 388.",
+        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes across the two sittings, then assign the homework. Lecture recordings from Spring 2023 stay in the instructor packet.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use in class before anyone opens the binary. Motivation, the 8051 instruction set and registers, and a Keil walkthrough.</li>
+  <li><strong>Lecture, part 2.</strong> Use in class after part 1 and still before the homework. The memory map, addressing modes, and the disassembly and memory windows.</li>
+  <li><strong>Homework handout.</strong> The graded assignment. Spring 2024 scored it at two points. Hand it out after both lectures.</li>
+  <li><strong>unknown-1.</strong> The binary named in the handout. Students load it in Keil. Keep the source out of the student bundle.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m1/Module1_RE_part1.pptx"><span><b>Lecture, part 1</b><span>Motivation, 8051, Keil</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m1/Module1_RE_part2.pptx"><span><b>Lecture, part 2</b><span>Memory map and disassembly</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
+</div>''',
+        [
+            "Rostami, Koushanfar, and Karri, “A Primer on Hardware Security: Models, Methods, and Metrics,” <em>Proceedings of the IEEE</em>, vol. 102, no. 8, pp. 1283–1295, 2014.",
+            "Azriel, Speith, Albartus, Ginosar, Shamir, and Paar, “A Survey of Algorithmic Methods in IC Reverse Engineering,” <em>Journal of Cryptographic Engineering</em>, vol. 11, pp. 299–315, 2021. Chip imaging and netlist recovery. This module stops at a firmware binary.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=9tZmSFjoOm4">Reverse Engineering</a> (Computerphile). What a binary still reveals after compilation. The examples use desktop tools, not the AT89C51.',
+            '<a href="https://www.youtube.com/watch?v=a5PwvIRrh9M">Mohammad Tehranipoor on Integrated Circuit Security</a> (UConn). A short faculty talk on why the chip is part of the security problem. Broader than this homework.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>The program behind the binary keeps a hospital room at a stable temperature. It reads a sensor value from external memory six times an hour, folds each sample into a running average with the previous average, compares that average with a threshold, and drives a port pin from the result. Students receive the binary and the part number, the Microchip AT89C51. They do not receive the source.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student recovers the sampling rate, the stored temperatures and their addresses, the threshold, and the output port, and explains what happens if the conditional jump that returns to the start of the program is replaced by a call.</p></div>
 <h2>What the lecture sets up</h2>
@@ -490,16 +537,35 @@ def emit(page, module_page, modules, pills):
   <li>At <code>C:0x034D</code> the program returns to <code>START</code> with <code>JNZ</code>. What happens if that opcode is replaced by <code>ACALL</code>.</li>
 </ol>
 <p>The last question is the stack. A call pushes a return address and this loop never executes a return, so return addresses accumulate until they disturb the rest of internal memory. The module stops there. It does not teach a countermeasure.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
-  <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
-  <a class="download" href="../materials/m1/Module1_RE_part1.pptx"><span><b>Lecture, part 1</b><span>Motivation, 8051, Keil</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m1/Module1_RE_part2.pptx"><span><b>Lecture, part 2</b><span>Memory map and disassembly</span></span><i>PPTX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M2"], '''
+    module_page(by_id["M2"], intro(
+        "A buffer overflow writes past the end of a buffer into neighboring memory. On this microcontroller the calling convention and the saved return address become visible, because the desktop defenses students may have heard of are not on the chip.",
+        "Embedded systems. Assign this after the class has covered the stack frame, the calling convention, and where a return address is saved. At the University of Kansas it followed binary reverse engineering in EECS 388. From Spring 2024 the homework is required. Treat it as required if you adopt it.",
+        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students build and debug the starter in Keil.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use in class after the calling-convention lecture. The stack, the saved return address, and how an overrun reaches them.</li>
+  <li><strong>Lecture, part 2.</strong> Use in class before the homework. The 8051 memory map, and how the lab is scored.</li>
+  <li><strong>Homework handout.</strong> The graded assignment. Spring 2024 scored it at two points.</li>
+  <li><strong>vulnerable_program.c.</strong> The starter students compile. The handout is written against this file.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m2/Module2_BufferOverflow_part1.pptx"><span><b>Lecture, part 1</b><span>Stack, calling convention, the attack</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m2/Module2_BufferOverflow_part2.pptx"><span><b>Lecture, part 2</b><span>The 8051 memory map and the lab</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m2/Module1_Homework_BOA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m2/vulnerable_program.c"><span><b>Starter program</b><span>8051 C, Keil</span></span><i>C</i></a>
+</div>''',
+        [
+            '<a href="https://phrack.org/issues/49/14.html">Smashing the Stack for Fun and Profit</a>, Aleph One, <em>Phrack</em>, vol. 7, no. 49, 1996. The classic account of a stack overrun on a desktop. This lab is the same idea on a machine with 256 bytes of internal data memory.',
+            "Cowan, Pu, Maier, and others, “StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks,” USENIX Security Symposium, pp. 63–78, 1998.",
+            "Szekeres, Payer, Wei, and Song, “SoK: Eternal War in Memory,” IEEE Symposium on Security and Privacy, pp. 48–62, 2013.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=1S0aBV-Waeo">Running a Buffer Overflow Attack</a> (Computerphile). A desktop demonstration of an overrun. The repair in this module has to be a property of the program, because the AT89C51 supplies neither a stack canary nor address-space randomization.',
+            '<a href="https://www.youtube.com/watch?v=ldq8ZMjoXpM">Buffer overflow: how do cybercriminals take over your computer?</a> (Frank Stajano, security@cambridge). A short classroom explanation of the same idea.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>A lookup program returns a stored secret when a supplied date matches a record. The copy into the input buffer does not stop at the end of the buffer. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the entire internal data memory is 256 bytes, the register banks sit low in that map, and constants are copied out of code memory at startup. The standard named defenses do not exist here.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student leaks successive secrets through R7, then rewrites the copy so it cannot leave the buffer, and explains why that rewrite holds on this processor.</p></div>
 <h2>What the student does</h2>
@@ -510,16 +576,34 @@ def emit(page, module_page, modules, pills):
 </ol>
 <p>The lecture names stack canaries and address-space layout randomization, then the lab takes both away. The repair has to be a property of this program, because the platform will not supply one. Partial credit follows how far the leak gets, so a student who understands the layout but does not finish every secret still has something to show.</p>
 <p>In Spring 2023 this assignment was a bonus. From Spring 2024 it is required. Treat it as required if you adopt it. Students who skip a bonus still meet the calling convention on the exam.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m2/Module1_Homework_BOA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
-  <a class="download" href="../materials/m2/vulnerable_program.c"><span><b>Starter program</b><span>8051 C, Keil</span></span><i>C</i></a>
-  <a class="download" href="../materials/m2/Module2_BufferOverflow_part1.pptx"><span><b>Lecture, part 1</b><span>Stack, calling convention, the attack</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m2/Module2_BufferOverflow_part2.pptx"><span><b>Lecture, part 2</b><span>The 8051 memory map and the lab</span></span><i>PPTX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M3"], '''
+    module_page(by_id["M3"], intro(
+        "A timing side channel leaks information through how long a program runs. An early-exit password check is the case this course can measure: a wrong first character finishes sooner than a wrong later character.",
+        "Embedded systems. Assign this after the class has covered the timer peripheral, cycle counting, and serial-port setup. The comparison uses the data-dependent branch the course already teaches. At the University of Kansas this was the third EECS 388 module.",
+        '''<p>This bundle has no overview video. The two decks are the class lectures. Plan about 30 to 40 minutes, then assign the homework. Students time the check on the logic analyzer built into the Keil debugger.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use in class after the timer lecture. Five emissions an attacker can measure, the data dependence of CMOS switching energy, and Kocher’s timing attack reduced to a string comparison.</li>
+  <li><strong>Lecture, part 2.</strong> Use in class before the homework. How the lab instruments the comparison, and the demonstration cycle counts below.</li>
+  <li><strong>Homework handout.</strong> The graded assignment. Spring 2024 scored it at two points. It uses its own password and its own guesses.</li>
+  <li><strong>sca_sp24.c.</strong> The starter students build. It contains the early-exit check they measure, then replace.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part1.pptx"><span><b>Lecture, part 1</b><span>Emissions, power, Kocher</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part2.pptx"><span><b>Lecture, part 2</b><span>The string comparison, measured</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m3/Module1_Homework_SCA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m3/sca_sp24.c"><span><b>Starter program</b><span>UART password check</span></span><i>C</i></a>
+</div>''',
+        [
+            "Kocher, “Timing Attacks on Implementations of Diffie–Hellman, RSA, DSS, and Other Systems,” Advances in Cryptology (CRYPTO), pp. 104–113, 1996. The lecture reduces this attack to the string comparison in the lab.",
+            "Kocher, Jaffe, and Jun, “Differential Power Analysis,” Advances in Cryptology (CRYPTO), pp. 388–397, 1999. The power channel. This module measures time.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=p0AuTPmFjTY">Timing Attack on PIN-Protected Hard Drive</a> (Colin O’Flynn). A measured timing leak outside a microcontroller course. Same idea as the early-exit check: a wrong guess can finish early.',
+            '<a href="https://www.youtube.com/watch?v=OlX-p4AGhWs">Introduction to Side-Channel Power Analysis</a> (Colin O’Flynn). The power channel named in the first lecture. The graded work in this module is the timer measurement, not a power trace.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so a wrong first character finishes sooner than a wrong later character. The lecture derives that dependence from CMOS switching energy, names five emissions an attacker can use, and reduces Kocher’s timing attack on exponentiation to this string comparison. The lab then measures the comparison the course can actually instrument.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
 <h2>How the time is taken</h2>
@@ -545,16 +629,30 @@ def emit(page, module_page, modules, pills):
     </tbody>
   </table>
 </div>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m3/Module1_Homework_SCA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
-  <a class="download" href="../materials/m3/sca_sp24.c"><span><b>Starter program</b><span>UART password check</span></span><i>C</i></a>
-  <a class="download" href="../materials/m3/Module3_TimingSCA_part1.pptx"><span><b>Lecture, part 1</b><span>Emissions, power, Kocher</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m3/Module3_TimingSCA_part2.pptx"><span><b>Lecture, part 2</b><span>The string comparison, measured</span></span><i>PPTX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M4"], '''
+    module_page(by_id["M4"], intro(
+        "Board reverse engineering rebuilds an undocumented circuit from the parts soldered to it. A bill of materials and a block diagram are the first artifacts someone produces before they can copy the board or trust it.",
+        "Embedded systems. Assign this after the class has covered microcontroller interfacing, serial protocols, power distribution, and how to read a datasheet against a board. The lab is written for that course and has not yet been assigned. Run it in a period that already has a multimeter.",
+        '''<p>This bundle has no lecture deck and no overview video. The lab specification is the class handout. Walk the safety notes in it before any powered measurement. Required work fits one lab period. Optional work needs a second sitting or a longer period.</p>
+<ul>
+  <li><strong>Lab specification.</strong> Give this to students at the start of the period. It states the required identification work, the optional measurement work, the deliverables, and the evaluation.</li>
+  <li>Students need a populated board with no schematic, and a digital multimeter. A logic analyzer is optional and is used only if the course already has one.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
+</div>''',
+        [
+            "Kleber, Nölscher, and Kargl, “Automated PCB Reverse Engineering,” USENIX Workshop on Offensive Technologies (WOOT), 2017.",
+            "Tehranipoor, Guin, and Bhunia, “Invasion of the Hardware Snatchers,” <em>IEEE Spectrum</em>, vol. 54, no. 5, pp. 36–41, 2017. Why a cloned or altered board is a supply-chain problem. This lab stops at identification.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=BsftxTbs7MA">PCB Reverse Engineering: Eric Schlaepfer</a> (Hackaday). A working engineer walking a board with no schematic.',
+            '<a href="https://www.youtube.com/watch?v=O8FQZIPkgZM">Deconstructing the Circuit Board Sandwich</a> (Joe Grand, DEF CON 22). How a multilayer board is taken apart and read.',
+            '<a href="https://www.youtube.com/watch?v=18U25M8h7l4">Printed Circuit Board Deconstruction Techniques</a> (USENIX WOOT ’14). A conference talk on the same reconstruction problem.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>The student receives a populated board and no schematic. The required work is the first thing a cloner produces: a bill of materials and a reasoned guess at what each region of the board is for. Optional work moves from identification to measurement.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>A bill of materials with part numbers, a high-level block diagram, and a functional hypothesis for each section of the board. The lab specifies no defensive deliverable.</p></div>
 <h2>Required</h2>
@@ -573,13 +671,26 @@ def emit(page, module_page, modules, pills):
 </ul>
 <h2>What is graded</h2>
 <p>Accuracy of the identification, quality of the reconstruction, and whether the reasoning connects a datasheet application circuit to the region of the board in front of the student. Safety notes in the lab specification cover powered measurement. Read them before the section.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M5"], f'''
+    module_page(by_id["M5"], intro(
+        "A power side channel is the supply current of a gate when its output switches. The spike can show that the output changed. It does not show which way the output went.",
+        "Digital logic. Assign this after the class has covered CMOS switching, output transitions, and truth tables. An early form ran as embedded-systems homework in Spring 2022. The catalog places it in digital logic, after the switching lecture. The module asks for no defense.",
+        '''<p>This bundle has no lecture deck, no handout file, and no overview video. The instrument is a browser circuit simulator the course can open in class.</p>
+<ul>
+  <li><strong>Unknown circuit.</strong> Use this in class, after the CMOS lecture. Students step the inputs, record the voltage plot, and build the transition table. The link sits with the steps below.</li>
+  <li><strong>Labeled gates.</strong> Leave these closed until students have committed to an answer. They are for the discussion afterward.</li>
+</ul>''',
+        [
+            "Kocher, Jaffe, and Jun, “Differential Power Analysis,” Advances in Cryptology (CRYPTO), pp. 388–397, 1999.",
+            "Mangard, Oswald, and Popp, <em>Power Analysis Attacks: Revealing the Secrets of Smart Cards</em>, Springer, 2007. The book-length treatment. This lab is one gate and one sense resistor.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=OlX-p4AGhWs">Introduction to Side-Channel Power Analysis</a> (Colin O’Flynn). What a supply-current measurement can reveal, and the equipment a research lab uses. This module needs only the browser simulator.',
+            '<a href="https://www.youtube.com/watch?v=UhEOC3RRBhw">Lecture 48: Side Channel Attacks (Part II)</a> (NPTEL, IIT Kharagpur). A course lecture on side-channel attacks, for an instructor preparing the session.',
+        ],
+    ) + f'''
+<h2>The exercise</h2>
 <p>An unknown two-input gate sits in a box. The attacker can see inputs A and B and the supply pin. The output is hidden. A resistor between the supply pin and the source turns switching current into a voltage. A large change means the output changed. A small bump does not. The direction of the change is not in the trace.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The transient reports that an output transition happened and not which way it went. A gate and its complement produce the same transition table. The student names both candidates and explains why the measurement cannot separate them. The module asks for no defense. That ambiguity is the entrance to masking.</p></div>
 <h2>The work</h2>
@@ -597,7 +708,28 @@ def emit(page, module_page, modules, pills):
 </details>
 ''')
 
-    module_page(by_id["M6"], '''
+    module_page(by_id["M6"], intro(
+        "Logic locking makes a circuit produce the right result only for a secret key. On a ripple-carry adder, locking the carries shows why a wrong key does not stay in one bit: the error propagates.",
+        "Digital logic. Assign this after the class has covered the ripple-carry adder, carry propagation, and hierarchical design by instantiating a component. Students should already be able to simulate a VHDL adder before they insert the lock. The lab is written and has not yet been run for a grade.",
+        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Give students the manual and the full-adder file together, after the adder lectures. Any VHDL simulator that can show a waveform will do. The manual assumes Vivado. Use the simulator the course already teaches.</p>
+<ul>
+  <li><strong>Lab manual.</strong> Objectives, figures, and the report checklist. A short in-class introduction can come from those figures, about 30 to 40 minutes, once the unlocked adder works.</li>
+  <li><strong>FullAdder.vhdl.</strong> The only source students receive. They build the 4-bit adder from it, simulate, then add the lock.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m6/Combinational_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Objectives, figures, report checklist</span></span><i>DOCX</i></a>
+  <a class="download" href="../materials/m6/FullAdder.vhdl"><span><b>Full-adder starter</b><span>The only source students receive</span></span><i>VHDL</i></a>
+</div>''',
+        [
+            "Hoque, Chakraborty, and Bhunia, “Hardware Obfuscation and Logic Locking: A Tutorial Introduction,” <em>IEEE Design &amp; Test</em>, vol. 37, no. 3, pp. 59–77, 2020. This lab was adapted from that tutorial. The tutorial PDF is not redistributed here.",
+            "Rajendran et al., “Fault Analysis-Based Logic Encryption,” <em>IEEE Transactions on Computers</em>, vol. 64, no. 2, pp. 410–424, 2015.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=ke7WHIyElkE">Module 2 — Logic Locking Fundamentals</a> (Ozgur Sinanoglu). A course lecture on what a key-controlled circuit is.',
+            '<a href="https://www.youtube.com/watch?v=IcsxUS3o_Io">Lec 36: Introduction to Hardware Security</a> (NPTEL, IIT Guwahati). Includes logic locking in a first hardware-security lecture.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>Students receive one file: a full-adder entity. They build a 4-bit ripple-carry adder out of four instances, simulate it, and only then insert a lock on the carries between stages. The adder is correct only for the key they designed. An incorrect key corrupts a carry, and the error ripples into the higher bits.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>Under the right key the adder matches binary addition across the input space the testbench covers. Under a wrong key the two lock styles fail differently. XOR and XNOR invert one or more carries. A multiplexer substitutes some other signal into the carry chain. The student compares the styles and says how the key could be made longer.</p></div>
 <h2>Part I. The adder, unlocked</h2>
@@ -611,14 +743,34 @@ def emit(page, module_page, modules, pills):
 <h2>Part III. Show both worlds</h2>
 <p>Sweep the inputs under the correct key and under at least one incorrect key. Capture A, B, the sum, and carry-out only. The report holds the unlocked sources and schematic, the locked sources and schematic, the testbench, both waveforms, and the discussion questions in the manual. Those questions ask why a carry is a useful place to lock, how the two styles differ, and what would make the key space larger.</p>
 <p>Software assumed by the manual is Vivado. Any VHDL simulator that can show a waveform will serve if the course already uses it. The instrument-reuse rule prefers the tool the course already teaches.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m6/FullAdder.vhdl"><span><b>Full-adder starter</b><span>The only source students receive</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m6/Combinational_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Objectives, figures, report checklist</span></span><i>DOCX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M7"], '''
+    module_page(by_id["M7"], intro(
+        "A hardware Trojan is extra logic that stays quiet on ordinary inputs and changes the result on one chosen input. The lab makes the student write that logic as two pieces: a trigger, and a payload.",
+        "Digital logic. Assign this after the class has covered decoding one input combination, conditional assignment, and behavioral simulation. If combinational locking is in the same term, run this lab after that one. The starter is already a locked adder. The lab is written and has not yet been graded.",
+        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students leave the full adder and the locking equations alone and write only in the marked region of the locked adder.</p>
+<ul>
+  <li><strong>Lab manual.</strong> The five parts of the report and the questions. Use it as the in-class handout.</li>
+  <li><strong>FullAdder.vhdl.</strong> Provided so the design compiles. Students do not modify it.</li>
+  <li><strong>4BitAdder_Key.vhdl.</strong> The locked adder. The trigger and the payload go where the file marks the spot. That region is empty in the starter.</li>
+  <li><strong>tb_4BitAdder.vhdl.</strong> The testbench students simulate. The manual names the file <code>tb_4BitAdder_Key.vhdl</code>. The file in this bundle is <code>tb_4BitAdder.vhdl</code>.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m7/Hardware_Trojan_Insertion_Lab_Manual.docx"><span><b>Lab manual</b><span>Parts, questions, report checklist</span></span><i>DOCX</i></a>
+  <a class="download" href="../materials/m7/FullAdder.vhdl"><span><b>Full adder</b><span>Do not modify</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m7/4BitAdder_Key.vhdl"><span><b>Locked adder</b><span>Insert the trigger and payload where marked</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m7/tb_4BitAdder.vhdl"><span><b>Testbench</b><span>Carry-in fixed, key fixed, operands swept</span></span><i>VHDL</i></a>
+</div>''',
+        [
+            "Bhunia, Hsiao, Banga, and Narasimhan, “Hardware Trojan Attacks: Threat Analysis and Countermeasures,” <em>Proceedings of the IEEE</em>, vol. 102, no. 8, pp. 1229–1247, 2014.",
+            "Xiao, Forte, Jin, Karri, Bhunia, and Tehranipoor, “Hardware Trojans: Lessons Learned After One Decade of Research,” <em>ACM Transactions on Design Automation of Electronic Systems</em>, vol. 22, no. 1, 2016.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=YVbvil6LjN0">Hardware Trojans</a> (NPTEL, IIT Madras, Information Security). A course lecture on triggers, payloads, and where a Trojan can sit.',
+            '<a href="https://www.youtube.com/watch?v=WLHw8TdIqt4">Hardware Trojans vs. Logic Locking</a> (Dominik Šišejković, hardwear.io). How a Trojan and a lock interact. Useful if this lab follows the locking lab.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>Students receive the adder already locked. They do not modify the full adder and they do not modify the locking equations. The work is a trigger and a payload. The trigger is combinational, looks only at the two operands, and asserts on a single combination the student chooses. The payload runs only while the trigger is asserted and changes at least one bit of the key before that key reaches the locking gates. For every other input the adder still behaves as the lock intends.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The sum is correct everywhere except the trigger combination, where the altered key corrupts the carry chain. The student explains why the Trojan is invisible on every other input, and how a one-bit change in the key becomes a fault that ripples into the higher bits.</p></div>
 <h2>The five parts of the report</h2>
@@ -630,16 +782,32 @@ def emit(page, module_page, modules, pills):
   <li><strong>Explain the hiding.</strong> Which key bit changed, how that change moves through the carry chain, and why every other input still looks like a correct, locked adder.</li>
 </ol>
 <p>The starter file marks the region where the trigger and payload belong and does not contain them. Completing that region is the lab.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m7/FullAdder.vhdl"><span><b>Full adder</b><span>Do not modify</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m7/4BitAdder_Key.vhdl"><span><b>Locked adder</b><span>Insert the trigger and payload where marked</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m7/tb_4BitAdder.vhdl"><span><b>Testbench</b><span>Carry-in fixed, key fixed, operands swept</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m7/Hardware_Trojan_Insertion_Lab_Manual.docx"><span><b>Lab manual</b><span>Parts, questions, report checklist</span></span><i>DOCX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M8"], '''
+    module_page(by_id["M8"], intro(
+        "Sequential locking hides the key in the state machine, so the secret arrives over several clocks instead of as one combinational input. A wrong value sends the machine into a state that does not return to the transmitter.",
+        "Digital logic. Assign this after the class has covered finite-state machines, reset and next-state behavior, and the UART frame. Students should already be able to simulate a state machine. This lab does not require the adder labs. It is written and has not yet been graded.",
+        '''<p>This bundle has no lecture deck and no overview video. The lab manual is the assignment. Students simulate the unlocked transmitter first, then add the lock where the starter leaves task markers.</p>
+<ul>
+  <li><strong>Lab manual.</strong> The frame figure, the report checklist, and the discussion questions. Use it as the in-class handout. It states the verification sequence the testbench has to cover.</li>
+  <li><strong>UART.vhdl.</strong> A working transmitter. Idle, start bit, data bits, and stop bit are already there.</li>
+  <li><strong>UART_tb.vhdl.</strong> The testbench starter. Students extend it for the correct sequence and a wrong value in each position.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m8/UART_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Frame figure, report checklist, discussion questions</span></span><i>DOCX</i></a>
+  <a class="download" href="../materials/m8/UART.vhdl"><span><b>Transmitter starter</b><span>Unlocked FSM, task markers in comments</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m8/UART_tb.vhdl"><span><b>Testbench starter</b><span>Extend it for the four key cases</span></span><i>VHDL</i></a>
+</div>''',
+        [
+            "Chakraborty and Bhunia, “HARPOON: An Obfuscation-Based SoC Design Methodology for Hardware Protection,” <em>IEEE Transactions on Computer-Aided Design</em>, vol. 28, no. 10, pp. 1493–1502, 2009. Sequential obfuscation by adding states. This lab is the UART-sized version of that idea.",
+            "Hoque, Chakraborty, and Bhunia, “Hardware Obfuscation and Logic Locking: A Tutorial Introduction,” <em>IEEE Design &amp; Test</em>, vol. 37, no. 3, pp. 59–77, 2020. The tutorial this lab was adapted from. The PDF is not redistributed here.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=ke7WHIyElkE">Module 2 — Logic Locking Fundamentals</a> (Ozgur Sinanoglu). The combinational case, so the class can see what changes when the key moves into the state machine.',
+            '<a href="https://www.youtube.com/watch?v=OtLrM2Y8ecQ">Lec 38: Attacks on RTL Logic Locking</a> (NPTEL, IIT Guwahati). What an attacker does with a locked RTL design. This lab has the student build the lock.',
+        ],
+    ) + '''
+<h2>The exercise</h2>
 <p>The starter is a working UART transmitter. Its state machine has idle, start bit, data bits, and stop bit. The line idles high, the start bit pulls it low, eight data bits leave least-significant bit first, and a stop bit returns the line high. There is no parity bit in this lab. Students simulate that machine first. They then add a lock in front of it.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The correct sequence walks three key states and enters idle, and the transmitter runs. Any wrong value on the way enters a locked state that holds the transmit line high and has no exit except reset. The student can say why a key spread over several clocks is a different object from the single combinational key in the adder lab, and why the locked state is a black hole.</p></div>
 <h2>Part I. The unlocked transmitter</h2>
@@ -654,25 +822,37 @@ def emit(page, module_page, modules, pills):
   <li>Wrong third key: S0, S1, S2, then locked.</li>
 </ul>
 <p>Waveforms show <code>key_valid</code>, <code>key_seq</code>, <code>state_track</code>, <code>data_in</code>, and <code>tx_start</code>. The starter leaves commented task markers where the states, the key constants, the new ports, and the testbench changes belong. <code>BAUD_DIV</code> is 868 in the starter, which is the divider the supplied transmitter already uses.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m8/UART.vhdl"><span><b>Transmitter starter</b><span>Unlocked FSM, task markers in comments</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m8/UART_tb.vhdl"><span><b>Testbench starter</b><span>Extend it for the four key cases</span></span><i>VHDL</i></a>
-  <a class="download" href="../materials/m8/UART_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Frame figure, report checklist, discussion questions</span></span><i>DOCX</i></a>
-</div>
 ''')
 
-    module_page(by_id["M9"], '''
+    module_page(by_id["M9"], intro(
+        "A cache side channel reads another program from the timing of a hit and a miss. The hierarchy a computer-architecture course already teaches for speed is shared, and the cycle gap is wide enough to tell the two cases apart.",
+        "Computer architecture. Assign the second lecture only after the class has covered the cache hierarchy, associativity, line size, and set indexing, and students can already explain a hit and a miss. Part 1 can sit in that same week. No course number is fixed here. At Kansas the lecture ran in Fall 2024, with no survey.",
+        '''<p>This bundle has no overview video and no graded write-up. The two decks are the class lectures. Plan about 30 to 40 minutes of new material in part 2. The probe series in that deck is a recorded demonstration, not a student deliverable.</p>
+<ul>
+  <li><strong>Lecture, part 1.</strong> Use with the cache unit, or immediately after it. Hierarchy, the parameters that define a cache, and the geometry of the student’s own machine.</li>
+  <li><strong>Lecture, part 2.</strong> Use only after part 1. Flush and reload, prime and probe, and the recorded hit and miss times.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m9/cache_side-channel_Part1.pptx"><span><b>Lecture, part 1</b><span>Hierarchy, geometry of the local machine</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m9/cache_side-channel_Part2.pptx"><span><b>Lecture, part 2</b><span>Flush and reload, prime and probe, the measurement</span></span><i>PPTX</i></a>
+</div>''',
+        [
+            '<a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-yarom.pdf">FLUSH+RELOAD: A High Resolution, Low Noise, L3 Cache Side-Channel Attack</a>, Yarom and Falkner, USENIX Security Symposium, 2014. The attack the second lecture walks through.',
+            "Yan, Fletcher, and Torrellas, “Cache Telepathy: Leveraging Shared Resource Attacks to Learn DNN Architectures,” USENIX Security Symposium, pp. 2003–2020, 2020. A later use of the same kind of shared-cache leak.",
+            "Hill, Masters, Ranganathan, Turner, and Hennessy, “On the Spectre and Meltdown Processor Security Vulnerabilities,” <em>IEEE Micro</em>, vol. 39, no. 2, pp. 9–19, 2019.",
+        ],
+        [
+            '<a href="https://www.youtube.com/watch?v=6JpLD3PUAZk">Why do CPUs Need Caches?</a> (Computerphile). A short refresher on the structure the host course has to teach before this module.',
+            '<a href="https://www.youtube.com/watch?v=px7Fy6Ehj2s">FLUSH+RELOAD: A High Resolution, Low Noise, L3 Cache Side-Channel Attack</a> (USENIX Security ’14). The conference talk behind the second lecture.',
+            '<a href="https://www.youtube.com/watch?v=I5mRwzVvFGE">Spectre and Meltdown</a> (Computerphile). Why a cache timing gap became a processor-security problem.',
+        ],
+    ) + '''
+<h2>The lecture</h2>
 <p>The course has already taught the cache as a performance structure. This module teaches the same structure as a channel. A hit and a miss on a shared last-level line take different numbers of cycles, and the gap is wide enough to read another process.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The lecture closes on a recorded probe-time series. Across 90 probes, hits fall between 96 and 104 cycles and misses fall between 144 and 168. A threshold at 110 sits in a gap of about 40 cycles. No graded assignment is stated in the materials, and no survey was given.</p></div>
 <h2>Part 1. The cache as the course already draws it</h2>
 <p>Hierarchy from registers to main memory, the parameters that define a cache, and the three associativity arrangements. Students read the sizes, associativity, and line size of their own machine from the operating system and from a topology tool.</p>
 <h2>Part 2. The same structure as a channel</h2>
 <p>A flush-and-reload attack needs four things: memory shared with the victim, a high-resolution cycle counter, an instruction that evicts a chosen line, and a last-level cache shared across cores. The lecture walks the sequence. Flush a shared line, let the victim run, reload the line and time the access. The flush is the cache-line flush intrinsic with fences on both sides. The reload is timed between two reads of the timestamp counter. When no memory is shared, the lecture turns to prime-and-probe, which fills a set and times the later access to see whether the victim evicted a line.</p>
-<p>Fall 2024 is the offering in which this lecture entered the computer architecture course. The slide decks below are the two parts.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m9/cache_side-channel_Part1.pptx"><span><b>Lecture, part 1</b><span>Hierarchy, geometry of the local machine</span></span><i>PPTX</i></a>
-  <a class="download" href="../materials/m9/cache_side-channel_Part2.pptx"><span><b>Lecture, part 2</b><span>Flush and reload, prime and probe, the measurement</span></span><i>PPTX</i></a>
-</div>
+<p>Fall 2024 is the offering in which this lecture entered the computer architecture course. The two decks are listed above.</p>
 ''')

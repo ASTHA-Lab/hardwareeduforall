@@ -28,7 +28,34 @@
     <h1>Board reverse engineering</h1>
     <p class="lede">Take a populated board with no schematic and produce a bill of materials and a block diagram.</p>
     <div class="layout">
-      <article class="prose">
+      <article class="prose"><h2>The topic</h2>
+<p>Board reverse engineering rebuilds an undocumented circuit from the parts soldered to it. A bill of materials and a block diagram are the first artifacts someone produces before they can copy the board or trust it.</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>Embedded systems. Assign this after the class has covered microcontroller interfacing, serial protocols, power distribution, and how to read a datasheet against a board. The lab is written for that course and has not yet been assigned. Run it in a period that already has a multimeter.</p></div>
+<h2>Materials and how to use them</h2>
+<p>This bundle has no lecture deck and no overview video. The lab specification is the class handout. Walk the safety notes in it before any powered measurement. Required work fits one lab period. Optional work needs a second sitting or a longer period.</p>
+<ul>
+  <li><strong>Lab specification.</strong> Give this to students at the start of the period. It states the required identification work, the optional measurement work, the deliverables, and the evaluation.</li>
+  <li>Students need a populated board with no schematic, and a digital multimeter. A logic analyzer is optional and is used only if the course already has one.</li>
+</ul>
+<div class="downloads">
+  <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
+</div>
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+<li>Kleber, Nölscher, and Kargl, “Automated PCB Reverse Engineering,” USENIX Workshop on Offensive Technologies (WOOT), 2017.</li>
+<li>Tehranipoor, Guin, and Bhunia, “Invasion of the Hardware Snatchers,” <em>IEEE Spectrum</em>, vol. 54, no. 5, pp. 36–41, 2017. Why a cloned or altered board is a supply-chain problem. This lab stops at identification.</li>
+</ul>
+<h3>Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=BsftxTbs7MA">PCB Reverse Engineering: Eric Schlaepfer</a> (Hackaday). A working engineer walking a board with no schematic.</li>
+<li><a href="https://www.youtube.com/watch?v=O8FQZIPkgZM">Deconstructing the Circuit Board Sandwich</a> (Joe Grand, DEF CON 22). How a multilayer board is taken apart and read.</li>
+<li><a href="https://www.youtube.com/watch?v=18U25M8h7l4">Printed Circuit Board Deconstruction Techniques</a> (USENIX WOOT ’14). A conference talk on the same reconstruction problem.</li>
+</ul>
+
+<h2>The exercise</h2>
 <p>The student receives a populated board and no schematic. The required work is the first thing a cloner produces: a bill of materials and a reasoned guess at what each region of the board is for. Optional work moves from identification to measurement.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>A bill of materials with part numbers, a high-level block diagram, and a functional hypothesis for each section of the board. The lab specifies no defensive deliverable.</p></div>
 <h2>Required</h2>
@@ -47,10 +74,6 @@
 </ul>
 <h2>What is graded</h2>
 <p>Accuracy of the identification, quality of the reconstruction, and whether the reasoning connects a datasheet application circuit to the region of the board in front of the student. Safety notes in the lab specification cover powered measurement. Read them before the section.</p>
-<h2>Files</h2>
-<div class="downloads">
-  <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
-</div>
 </article>
       <aside class="rail">
   <dl class="facts">

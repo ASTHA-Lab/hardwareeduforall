@@ -28,7 +28,30 @@
     <h1>Power side channel</h1>
     <p class="lede">Infer an unknown gate from supply-current spikes, and see what the measurement cannot tell you.</p>
     <div class="layout">
-      <article class="prose">
+      <article class="prose"><h2>The topic</h2>
+<p>A power side channel is the supply current of a gate when its output switches. The spike can show that the output changed. It does not show which way the output went.</p>
+<h2>Where it belongs</h2>
+<div class="callout"><p>Digital logic. Assign this after the class has covered CMOS switching, output transitions, and truth tables. An early form ran as embedded-systems homework in Spring 2022. The catalog places it in digital logic, after the switching lecture. The module asks for no defense.</p></div>
+<h2>Materials and how to use them</h2>
+<p>This bundle has no lecture deck, no handout file, and no overview video. The instrument is a browser circuit simulator the course can open in class.</p>
+<ul>
+  <li><strong>Unknown circuit.</strong> Use this in class, after the CMOS lecture. Students step the inputs, record the voltage plot, and build the transition table. The link sits with the steps below.</li>
+  <li><strong>Labeled gates.</strong> Leave these closed until students have committed to an answer. They are for the discussion afterward.</li>
+</ul>
+<h2>Further reading</h2>
+<p>These sit outside the assignment. Use them to prepare the lecture, or hand them to a student who wants the work behind the exercise. They are not a walkthrough of the handout.</p>
+<h3>Papers</h3>
+<ul>
+<li>Kocher, Jaffe, and Jun, “Differential Power Analysis,” Advances in Cryptology (CRYPTO), pp. 388–397, 1999.</li>
+<li>Mangard, Oswald, and Popp, <em>Power Analysis Attacks: Revealing the Secrets of Smart Cards</em>, Springer, 2007. The book-length treatment. This lab is one gate and one sense resistor.</li>
+</ul>
+<h3>Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=OlX-p4AGhWs">Introduction to Side-Channel Power Analysis</a> (Colin O’Flynn). What a supply-current measurement can reveal, and the equipment a research lab uses. This module needs only the browser simulator.</li>
+<li><a href="https://www.youtube.com/watch?v=UhEOC3RRBhw">Lecture 48: Side Channel Attacks (Part II)</a> (NPTEL, IIT Kharagpur). A course lecture on side-channel attacks, for an instructor preparing the session.</li>
+</ul>
+
+<h2>The exercise</h2>
 <p>An unknown two-input gate sits in a box. The attacker can see inputs A and B and the supply pin. The output is hidden. A resistor between the supply pin and the source turns switching current into a voltage. A large change means the output changed. A small bump does not. The direction of the change is not in the trace.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The transient reports that an output transition happened and not which way it went. A gate and its complement produce the same transition table. The student names both candidates and explains why the measurement cannot separate them. The module asks for no defense. That ambiguity is the entrance to masking.</p></div>
 <h2>The work</h2>
