@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="473.726" height="96.908" viewBox="0 0 473.726 96.908">
+  <title>Figure1.svg</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <path d="M2.182 5 L5.932 6 L9.682 5 L9.682 11 L5.932 12 L2.182 11 Z M5.932 6 L5.932 12" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g>
+        <path d="M115.682 3.5 L119.182 4.9 L119.182 7.5 C119.182 9.9 117.582 11.5 115.682 12.5 C113.782 11.5 112.182 9.9 112.182 7.5 L112.182 4.9 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M114.182 7.9 L115.382 9.1 L117.382 6.7" fill="none" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M226.282 5.5 L230.082 5.5 C230.413 5.5 230.682 5.768 230.682 6.1 L230.682 9.9 C230.682 10.231 230.413 10.5 230.082 10.5 L226.282 10.5 C225.95 10.5 225.682 10.231 225.682 9.9 L225.682 6.1 C225.682 5.768 225.95 5.5 226.282 5.5 Z" fill="#8a8880" fill-opacity="0.2" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M227.182 4 L227.182 5.5 M229.182 4 L229.182 5.5 M227.182 10.5 L227.182 12 M229.182 10.5 L229.182 12 M224.182 7 L225.682 7 M224.182 9 L225.682 9 M230.682 7 L232.182 7 M230.682 9 L232.182 9" fill="none" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M370.182 12 L378.182 12" fill="none" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M371.382 8.5 L372.982 8.5 L372.982 12 L371.382 12 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M373.582 5 L375.182 5 L375.182 12 L373.582 12 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M375.782 7 L377.382 7 L377.382 12 L375.782 12 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <g>
+      <text transform="matrix(1 0 0 1 13.182 8)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">Core design courses</tspan></text>
+      <text transform="matrix(1 0 0 1 123.182 8)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">Security concepts</tspan></text>
+      <text transform="matrix(1 0 0 1 235.182 8)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">Course-specific modules</tspan></text>
+      <text transform="matrix(1 0 0 1 381.182 8)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">Assessment</tspan></text>
+    </g>
+    <g>
+      <path d="M3.932 15 L90.682 15 C91.51 15 92.182 15.671 92.182 16.5 L92.182 28.5 C92.182 29.328 91.51 30 90.682 30 L3.932 30 C3.103 30 2.432 29.328 2.432 28.5 L2.432 16.5 C2.432 15.671 3.103 15 3.932 15 Z" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M3.932 34 L90.682 34 C91.51 34 92.182 34.671 92.182 35.5 L92.182 47.5 C92.182 48.328 91.51 49 90.682 49 L3.932 49 C3.103 49 2.432 48.328 2.432 47.5 L2.432 35.5 C2.432 34.671 3.103 34 3.932 34 Z" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M3.932 53 L90.682 53 C91.51 53 92.182 53.671 92.182 54.5 L92.182 66.5 C92.182 67.328 91.51 68 90.682 68 L3.932 68 C3.103 68 2.432 67.328 2.432 66.5 L2.432 54.5 C2.432 53.671 3.103 53 3.932 53 Z" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M3.932 72 L90.682 72 C91.51 72 92.182 72.671 92.182 73.5 L92.182 85.5 C92.182 86.328 91.51 87 90.682 87 L3.932 87 C3.103 87 2.432 86.328 2.432 85.5 L2.432 73.5 C2.432 72.671 3.103 72 3.932 72 Z" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.45" stroke-width="0.5"/>
+    </g>
+    <g>
+      <g>
+        <path d="M7.682 19.5 L10.182 19.5 C11.838 19.5 13.182 20.843 13.182 22.5 C13.182 24.156 11.838 25.5 10.182 25.5 L7.682 25.5 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6.182 21 L7.682 21 M6.182 24 L7.682 24 M13.182 22.5 L14.182 22.5" fill="none" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M7.082 38.3 L12.882 38.3 C13.213 38.3 13.482 38.568 13.482 38.9 L13.482 44.7 C13.482 45.031 13.213 45.3 12.882 45.3 L7.082 45.3 C6.75 45.3 6.482 45.031 6.482 44.7 L6.482 38.9 C6.482 38.568 6.75 38.3 7.082 38.3 Z" fill="none" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.682 39.5 L9.682 39.5 L9.682 41.5 L7.682 41.5 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.282 39.5 L12.282 39.5 L12.282 41.5 L10.282 41.5 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.682 42.1 L9.682 42.1 L9.682 44.1 L7.682 44.1 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.282 42.1 L12.282 42.1 L12.282 44.1 L10.282 44.1 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M8.082 58 L11.882 58 C12.213 58 12.482 58.268 12.482 58.6 L12.482 62.4 C12.482 62.731 12.213 63 11.882 63 L8.082 63 C7.75 63 7.482 62.731 7.482 62.4 L7.482 58.6 C7.482 58.268 7.75 58 8.082 58 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.882 60.5 C10.882 60.997 10.479 61.4 9.982 61.4 C9.484 61.4 9.082 60.997 9.082 60.5 C9.082 60.003 9.484 59.6 9.982 59.6 C10.479 59.6 10.882 60.003 10.882 60.5 Z" fill="none" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.982 56.7 L8.982 58 M10.982 56.7 L10.982 58 M8.982 63 L8.982 64.3 M10.982 63 L10.982 64.3 M6.182 59.5 L7.482 59.5 M6.182 61.5 L7.482 61.5 M12.482 59.5 L13.782 59.5 M12.482 61.5 L13.782 61.5" fill="none" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M9.982 76.1 L13.582 77.8 L9.982 79.5 L6.382 77.8 Z" fill="#2a78d6" fill-opacity="0.2" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6.382 79.7 L9.982 81.4 L13.582 79.7 M6.382 81.6 L9.982 83.3 L13.582 81.6" fill="none" stroke="#2a78d6" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <g>
+      <text transform="matrix(1 0 0 1 17.182 22.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Digital Logic Design</tspan></text>
+      <text transform="matrix(1 0 0 1 17.182 41.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Digital Systems</tspan></text>
+      <text transform="matrix(1 0 0 1 17.182 60.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Embedded Systems</tspan></text>
+      <text transform="matrix(1 0 0 1 17.182 79.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Computer Architecture</tspan></text>
+    </g>
+    <path d="M113.682 15 L202.682 15 C203.51 15 204.182 15.671 204.182 16.5 L204.182 85.5 C204.182 86.328 203.51 87 202.682 87 L113.682 87 C112.853 87 112.182 86.328 112.182 85.5 L112.182 16.5 C112.182 15.671 112.853 15 113.682 15 Z" fill="#2a78d6" fill-opacity="0.18" stroke="#2a78d6" stroke-opacity="0.55" stroke-width="0.5"/>
+    <g>
+      <g>
+        <path d="M123.182 21.5 C123.182 22.715 122.197 23.7 120.982 23.7 C119.766 23.7 118.782 22.715 118.782 21.5 C118.782 20.285 119.766 19.3 120.982 19.3 C122.197 19.3 123.182 20.285 123.182 21.5 Z" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M122.582 23.1 L124.982 25.5" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M118.982 33.1 L124.382 33.1 C124.658 33.1 124.882 33.323 124.882 33.6 L124.882 39.6 C124.882 39.876 124.658 40.1 124.382 40.1 L118.982 40.1 C118.705 40.1 118.482 39.876 118.482 39.6 L118.482 33.6 C118.482 33.323 118.705 33.1 118.982 33.1 Z" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M118.482 35.43 L124.882 35.43 M118.482 37.77 L124.882 37.77" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path d="M118.182 53.5 L119.582 53.5 L119.582 48.5 L121.682 48.5 L121.682 53.5 L123.782 53.5 L123.782 48.5 L125.182 48.5" fill="none" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g>
+        <path d="M119.382 64.8 L123.982 64.8 C124.313 64.8 124.582 65.068 124.582 65.4 L124.582 68.4 C124.582 68.731 124.313 69 123.982 69 L119.382 69 C119.05 69 118.782 68.731 118.782 68.4 L118.782 65.4 C118.782 65.068 119.05 64.8 119.382 64.8 Z" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M120.182 64.8 L120.182 63.6 C120.182 62.771 120.853 62.1 121.682 62.1 C122.51 62.1 123.182 62.771 123.182 63.6 L123.182 64.8" fill="none" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M123.482 80.6 C123.482 81.925 122.676 83 121.682 83 C120.687 83 119.882 81.925 119.882 80.6 C119.882 79.274 120.687 78.2 121.682 78.2 C122.676 78.2 123.482 79.274 123.482 80.6 Z" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M122.582 77.4 C122.582 77.897 122.179 78.3 121.682 78.3 C121.184 78.3 120.782 77.897 120.782 77.4 C120.782 76.903 121.184 76.5 121.682 76.5 C122.179 76.5 122.582 76.903 122.582 77.4 Z" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M119.882 79.6 L118.482 78.8 M119.882 81 L118.382 81 M119.982 82.3 L118.682 83.3 M123.482 79.6 L124.882 78.8 M123.482 81 L124.982 81 M123.382 82.3 L124.682 83.3" fill="#2a78d6" fill-opacity="0.25" stroke="#2a78d6" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <g>
+      <text transform="matrix(1 0 0 1 129.182 22.2)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Reverse engineering</tspan></text>
+      <text transform="matrix(1 0 0 1 129.182 36.6)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Memory safety</tspan></text>
+      <text transform="matrix(1 0 0 1 129.182 51)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Side-channel analysis</tspan></text>
+      <text transform="matrix(1 0 0 1 129.182 65.4)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Logic locking</tspan></text>
+      <text transform="matrix(1 0 0 1 129.182 79.8)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Hardware Trojan</tspan></text>
+    </g>
+    <g>
+      <path d="M225.682 15 L348.682 15 C349.51 15 350.182 15.671 350.182 16.5 L350.182 27.5 C350.182 28.328 349.51 29 348.682 29 L225.682 29 C224.853 29 224.182 28.328 224.182 27.5 L224.182 16.5 C224.182 15.671 224.853 15 225.682 15 Z" fill="#8a8880" fill-opacity="0.12" stroke="#8a8880" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M225.682 32.33 L348.682 32.33 C349.51 32.33 350.182 33.001 350.182 33.83 L350.182 44.83 C350.182 45.658 349.51 46.33 348.682 46.33 L225.682 46.33 C224.853 46.33 224.182 45.658 224.182 44.83 L224.182 33.83 C224.182 33.001 224.853 32.33 225.682 32.33 Z" fill="#8a8880" fill-opacity="0.12" stroke="#8a8880" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M225.682 49.67 L348.682 49.67 C349.51 49.67 350.182 50.341 350.182 51.17 L350.182 68.17 C350.182 68.998 349.51 69.67 348.682 69.67 L225.682 69.67 C224.853 69.67 224.182 68.998 224.182 68.17 L224.182 51.17 C224.182 50.341 224.853 49.67 225.682 49.67 Z" fill="#8a8880" fill-opacity="0.12" stroke="#8a8880" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M225.682 73 L348.682 73 C349.51 73 350.182 73.671 350.182 74.5 L350.182 85.5 C350.182 86.328 349.51 87 348.682 87 L225.682 87 C224.853 87 224.182 86.328 224.182 85.5 L224.182 74.5 C224.182 73.671 224.853 73 225.682 73 Z" fill="#8a8880" fill-opacity="0.12" stroke="#8a8880" stroke-opacity="0.45" stroke-width="0.5"/>
+    </g>
+    <g>
+      <g>
+        <path d="M234.182 21.3 C234.182 22.515 233.197 23.5 231.982 23.5 C230.766 23.5 229.782 22.515 229.782 21.3 C229.782 20.085 230.766 19.1 231.982 19.1 C233.197 19.1 234.182 20.085 234.182 21.3 Z" fill="#8a8880" fill-opacity="0.25" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M233.582 22.9 L235.982 25.3" fill="#8a8880" fill-opacity="0.25" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M229.982 35.83 L235.382 35.83 C235.658 35.83 235.882 36.053 235.882 36.33 L235.882 42.33 C235.882 42.606 235.658 42.83 235.382 42.83 L229.982 42.83 C229.705 42.83 229.482 42.606 229.482 42.33 L229.482 36.33 C229.482 36.053 229.705 35.83 229.982 35.83 Z" fill="#8a8880" fill-opacity="0.25" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M229.482 38.16 L235.882 38.16 M229.482 40.5 L235.882 40.5" fill="#8a8880" fill-opacity="0.25" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path d="M229.182 62.17 L230.582 62.17 L230.582 57.17 L232.682 57.17 L232.682 62.17 L234.782 62.17 L234.782 57.17 L236.182 57.17" fill="none" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g>
+        <path d="M230.382 79.27 L234.982 79.27 C235.313 79.27 235.582 79.538 235.582 79.87 L235.582 82.87 C235.582 83.201 235.313 83.47 234.982 83.47 L230.382 83.47 C230.05 83.47 229.782 83.201 229.782 82.87 L229.782 79.87 C229.782 79.538 230.05 79.27 230.382 79.27 Z" fill="#8a8880" fill-opacity="0.25" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M231.182 79.27 L231.182 78.07 C231.182 77.241 231.853 76.57 232.682 76.57 C233.51 76.57 234.182 77.241 234.182 78.07 L234.182 79.27" fill="none" stroke="#5e5d58" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <g>
+      <text transform="matrix(1 0 0 1 240.182 22)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">M1</tspan><tspan x="9.724" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Binary RE, </tspan><tspan x="42.407" y="0">M4</tspan><tspan x="52.131" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Board RE</tspan></text>
+      <text transform="matrix(1 0 0 1 240.182 39.33)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">M2</tspan><tspan x="9.724" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Buffer overflow</tspan></text>
+      <text transform="matrix(1 0 0 1 240.182 55.67)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">M3</tspan><tspan x="9.724" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Timing SCA, </tspan><tspan x="47.566" y="0">M5</tspan><tspan x="57.29" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Power SCA,</tspan></text>
+      <text transform="matrix(1 0 0 1 240.182 63.67)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">M9</tspan><tspan x="9.724" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Cache SCA</tspan></text>
+      <text transform="matrix(1 0 0 1 240.182 80)" x="0" y="0" xml:space="preserve" font-family="Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#1d1d1b"><tspan x="0" y="0">M6, M8</tspan><tspan x="23.338" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Logic locking, </tspan><tspan x="66.15" y="0">M7</tspan><tspan x="75.874" y="0" font-family="&apos;Source Sans 3&apos;, sans-serif" font-weight="normal"> Trojan</tspan></text>
+    </g>
+    <g>
+      <path d="M371.682 15 L468.432 15 C469.26 15 469.932 15.671 469.932 16.5 L469.932 31.5 C469.932 32.328 469.26 33 468.432 33 L371.682 33 C370.853 33 370.182 32.328 370.182 31.5 L370.182 16.5 C370.182 15.671 370.853 15 371.682 15 Z" fill="#e34948" fill-opacity="0.08" stroke="#e34948" stroke-opacity="0.45" stroke-width="0.5"/>
+      <path d="M371.682 37 L468.432 37 C469.26 37 469.932 37.671 469.932 38.5 L469.932 61.5 C469.932 62.328 469.26 63 468.432 63 L371.682 63 C370.853 63 370.182 62.328 370.182 61.5 L370.182 38.5 C370.182 37.671 370.853 37 371.682 37 Z" fill="#e34948" fill-opacity="0.08" stroke="#e34948" stroke-opacity="0.45" stroke-width="0.5"/>
+    </g>
+    <g>
+      <g>
+        <path d="M375.582 21 L379.982 21 C380.313 21 380.582 21.268 380.582 21.6 L380.582 27.2 C380.582 27.531 380.313 27.8 379.982 27.8 L375.582 27.8 C375.25 27.8 374.982 27.531 374.982 27.2 L374.982 21.6 C374.982 21.268 375.25 21 375.582 21 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M376.882 20.2 L378.682 20.2 C378.902 20.2 379.082 20.379 379.082 20.6 L379.082 21.4 C379.082 21.62 378.902 21.8 378.682 21.8 L376.882 21.8 C376.661 21.8 376.482 21.62 376.482 21.4 L376.482 20.6 C376.482 20.379 376.661 20.2 376.882 20.2 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M376.382 23.8 L379.182 23.8 M376.382 25.6 L379.182 25.6" fill="none" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <path d="M381.082 49.8 C381.082 51.622 379.604 53.1 377.782 53.1 C375.959 53.1 374.482 51.622 374.482 49.8 C374.482 47.977 375.959 46.5 377.782 46.5 C379.604 46.5 381.082 47.977 381.082 49.8 Z" fill="#e34948" fill-opacity="0.2" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M376.182 49.9 L377.382 51.1 L379.482 48.7" fill="none" stroke="#e34948" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <g>
+      <text transform="matrix(1 0 0 1 385.182 24)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">Course survey, 2023</tspan></text>
+      <text transform="matrix(1 0 0 1 385.182 50)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" fill="#1d1d1b"><tspan x="0" y="0">External evaluation, 2024</tspan></text>
+    </g>
+    <g>
+      <path d="M92.182 22.5 L101.182 22.5 M92.182 41.5 L101.182 41.5 M92.182 60.5 L101.182 60.5 M92.182 79.5 L101.182 79.5 M101.182 22.5 L101.182 79.5 M101.182 51 L109.682 51" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M204.182 51 L214.182 51 M214.182 22 L214.182 80 M214.182 22 L221.682 22 M214.182 39.33 L221.682 39.33 M214.182 59.67 L221.682 59.67 M214.182 80 L221.682 80" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M350.182 22 L367.682 22" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M350.182 39.33 L353.182 39.33 L364.182 29 L367.682 29" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M350.182 22 L353.182 22 L364.182 43 L367.682 43" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M350.182 39.33 L353.182 39.33 L364.182 49 L367.682 49" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M350.182 59.67 L367.682 59.67" fill="none" stroke="#8a8880" stroke-width="0.6" stroke-linejoin="round"/>
+    </g>
+    <g>
+      <path d="M109.182 49.4 L112.182 51 L109.182 52.6 Z" fill="#8a8880"/>
+      <path d="M221.182 20.4 L224.182 22 L221.182 23.6 Z" fill="#8a8880"/>
+      <path d="M221.182 37.73 L224.182 39.33 L221.182 40.93 Z" fill="#8a8880"/>
+      <path d="M221.182 58.07 L224.182 59.67 L221.182 61.27 Z" fill="#8a8880"/>
+      <path d="M221.182 78.4 L224.182 80 L221.182 81.6 Z" fill="#8a8880"/>
+      <path d="M367.182 20.4 L370.182 22 L367.182 23.6 Z" fill="#8a8880"/>
+      <path d="M367.182 27.4 L370.182 29 L367.182 30.6 Z" fill="#8a8880"/>
+      <path d="M367.182 41.4 L370.182 43 L367.182 44.6 Z" fill="#8a8880"/>
+      <path d="M367.182 47.4 L370.182 49 L367.182 50.6 Z" fill="#8a8880"/>
+      <path d="M367.182 58.07 L370.182 59.67 L367.182 61.27 Z" fill="#8a8880"/>
+    </g>
+    <path d="M376.182 63 L376.182 93.908 L302.182 93.908 L302.182 90.5" fill="none" stroke="#e34948" stroke-width="0.7" stroke-linejoin="round"/>
+    <path d="M300.582 90 L302.182 87 L303.782 90 Z" fill="#e34948"/>
+    <g>
+      <text transform="matrix(1 0 0 1 380.182 72.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" font-style="italic" fill="#c23b3a"><tspan x="0" y="0">assessment feeds</tspan></text>
+      <text transform="matrix(1 0 0 1 380.182 80.5)" x="0" y="0" xml:space="preserve" font-family="&apos;Source Sans 3&apos;, sans-serif" font-size="7" font-style="italic" fill="#c23b3a"><tspan x="0" y="0">revision of the modules</tspan></text>
+    </g>
+  </g>
+</svg>

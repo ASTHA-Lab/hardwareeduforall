@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M4 Board reverse engineering · Hardware Security for All</title>
+<meta name="description" content="Take a populated board with no schematic and produce a bill of materials and a block diagram.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M4</p>
+    <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ready">Written material</span></p>
+    <h1>Board reverse engineering</h1>
+    <p class="lede">Take a populated board with no schematic and produce a bill of materials and a block diagram.</p>
+    <div class="layout">
+      <article class="prose">
+<p>The student receives a populated board and no schematic. The required work is the first thing a cloner produces: a bill of materials and a reasoned guess at what each region of the board is for. Optional work moves from identification to measurement.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>A bill of materials with part numbers, a high-level block diagram, and a functional hypothesis for each section of the board. The lab specifies no defensive deliverable.</p></div>
+<h2>Required</h2>
+<ol class="steps">
+  <li>Identify components from the ICs down to passives and test points. Capacitor markings can be skipped when the marking is not recoverable.</li>
+  <li>Build a bill of materials: description, part number, and value, with datasheets for the ICs.</li>
+  <li>Hypothesize what each region does, and write the reason.</li>
+  <li>Draw a high-level block diagram once the parts are known.</li>
+</ol>
+<p>If the board is dense, restrict the required work to one or two chips. The lab period is the constraint the design rule is written for.</p>
+<h2>Optional, if the period or a second sitting allows it</h2>
+<ul>
+  <li>Continuity-map one non-trivial part, such as a sensor or a memory, back to the microcontroller, and redraw that cone in KiCad or a similar tool.</li>
+  <li>Power the board and measure rails and regulators. Record what buttons, switches, or sensors do when the board is on.</li>
+  <li>Identify a UART, SPI, or I²C link. Confirm it with a logic analyzer when one is on the bench.</li>
+</ul>
+<h2>What is graded</h2>
+<p>Accuracy of the identification, quality of the reconstruction, and whether the reasoning connects a datasheet application circuit to the region of the board in front of the student. Safety notes in the lab specification cover powered measurement. Read them before the section.</p>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m4/Hardware_Reverse_Engineering_Lab_Specification.docx"><span><b>Lab specification</b><span>Required and optional work, deliverables, evaluation</span></span><i>DOCX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Embedded systems</dd></div>
+    <div><dt>Status</dt><dd>Written material</dd></div>
+    <div><dt>Threat origin</dt><dd>Field</dd></div>
+    <div><dt>Platform</dt><dd>Undocumented board and a digital multimeter</dd></div>
+    <div><dt>Design concept</dt><dd>Microcontroller interfacing, serial protocols, power distribution, datasheets</dd></div>
+    <div><dt>Graded evidence</dt><dd>Bill of materials and block diagram; a schematic and a protocol if time allows</dd></div>
+    <div><dt>Countermeasure</dt><dd>None specified. The deliverable is the first artifact a cloner produces.</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html" aria-current="page"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardware Security for All</title>
+<meta name="description" content="Nine hands-on hardware security modules for undergraduate embedded systems, digital logic, and computer architecture.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Overview</a><a href="framework.html">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><span>University of Kansas</span> · University of Florida · Florida International University</p>
+      <h1>Hardware security, taught inside the courses students already take.</h1>
+      <p class="lede">Cybersecurity courses still treat the chip as a root of trust. These modules do not add a new elective. Each one uses a security problem to exercise a design idea the host course already has to teach.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="catalog.html">Open the nine modules</a>
+        <a class="btn btn-ghost" href="framework.html">Read the design rules</a>
+      </div>
+    </div>
+    <ol class="toc"><li><a href="modules/m1.html"><span>M1</span><b>Binary reverse engineering</b><em>Embedded systems</em></a></li>
+<li><a href="modules/m2.html"><span>M2</span><b>Buffer overflow</b><em>Embedded systems</em></a></li>
+<li><a href="modules/m3.html"><span>M3</span><b>Timing side channel</b><em>Embedded systems</em></a></li>
+<li><a href="modules/m4.html"><span>M4</span><b>Board reverse engineering</b><em>Embedded systems</em></a></li>
+<li><a href="modules/m5.html"><span>M5</span><b>Power side channel</b><em>Digital logic</em></a></li>
+<li><a href="modules/m6.html"><span>M6</span><b>Combinational logic locking</b><em>Digital logic</em></a></li>
+<li><a href="modules/m7.html"><span>M7</span><b>Hardware Trojan insertion</b><em>Digital logic</em></a></li>
+<li><a href="modules/m8.html"><span>M8</span><b>Sequential logic locking</b><em>Digital logic</em></a></li>
+<li><a href="modules/m9.html"><span>M9</span><b>Cache side channel</b><em>Computer architecture</em></a></li></ol>
+  </div>
+</section>
+<section class="wrap" aria-label="At a glance">
+  <div class="stat-row">
+    <div><b>9</b><span>modules across three core courses</span></div>
+    <div><b>5</b><span>security concepts in the coverage model</span></div>
+    <div><b>25</b><span>survey responses from three offerings</span></div>
+    <div><b>3</b><span>modules at most in one semester</span></div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>A separate course does not reach the students who need this.</h2>
+    </div>
+    <div class="cards-3">
+      <article class="card">
+        <p class="num">Limited reach</p>
+        <h3>The elective is taken by a few.</h3>
+        <p>At the University of Florida, fewer than 7% of undergraduate electrical and computer engineering students register for the introductory hardware security course in a given year. Students who never planned a security career do not see the material, and the students missing from that room are missing from the workforce that follows.</p>
+      </article>
+      <article class="card">
+        <p class="num">Cost</p>
+        <h3>A new course is expensive to keep.</h3>
+        <p>A dedicated course needs an instructor who already knows the subject, a lab of special equipment, and a slot in a crowded curriculum. Teaching-focused departments compete for a hire they are unlikely to make. A course taken by a small fraction of the majors is hard to justify.</p>
+      </article>
+      <article class="card">
+        <p class="num">Fragmented view</p>
+        <h3>The attack gets separated from the design choice.</h3>
+        <p>Many of these failures start in implementation. A side channel is a property of how a gate switches, not a story told later in a security elective. A student who meets the attack apart from the circuit learns a fragment.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="principle">
+      <p>A security concept earns its place when it gives the student a reason to use a design concept the course already has to teach. Performing the attack is how the student works the design topic.</p>
+      <span>The selection principle</span>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Nine modules</h2>
+      <p>Three have survey data from embedded systems. Two more have been taught. Four are written and ready to run. Pick at most three in a term.</p>
+    </div>
+    <div class="mod-grid"><a class="mod-card" href="modules/m1.html">
+          <span class="id">M1</span>
+          <h3>Binary reverse engineering</h3>
+          <p>Recover a room-temperature controller from an AT89C51 binary that ships with no source.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div>
+        </a>
+<a class="mod-card" href="modules/m2.html">
+          <span class="id">M2</span>
+          <h3>Buffer overflow</h3>
+          <p>Overrun a fixed buffer on an 8051, watch a secret return through R7, then repair the copy.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div>
+        </a>
+<a class="mod-card" href="modules/m3.html">
+          <span class="id">M3</span>
+          <h3>Timing side channel</h3>
+          <p>Measure an early-exit password check on the logic analyzer, then make the comparison constant-time.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div>
+        </a>
+<a class="mod-card" href="modules/m4.html">
+          <span class="id">M4</span>
+          <h3>Board reverse engineering</h3>
+          <p>Take a populated board with no schematic and produce a bill of materials and a block diagram.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ready">Written material</span></div>
+        </a>
+<a class="mod-card" href="modules/m5.html">
+          <span class="id">M5</span>
+          <h3>Power side channel</h3>
+          <p>Infer an unknown gate from supply-current spikes, and see what the measurement cannot tell you.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Digital logic</span><span class="pill pill-taught">Delivered, no survey</span></div>
+        </a>
+<a class="mod-card" href="modules/m6.html">
+          <span class="id">M6</span>
+          <h3>Combinational logic locking</h3>
+          <p>Build a 4-bit ripple-carry adder, then lock the carry chain with a key.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div>
+        </a>
+<a class="mod-card" href="modules/m7.html">
+          <span class="id">M7</span>
+          <h3>Hardware Trojan insertion</h3>
+          <p>Leave the locked adder alone, and add a trigger and a payload that corrupt it on one input.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div>
+        </a>
+<a class="mod-card" href="modules/m8.html">
+          <span class="id">M8</span>
+          <h3>Sequential logic locking</h3>
+          <p>Lock a UART transmitter in its state machine, so the key arrives over several clocks.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div>
+        </a>
+<a class="mod-card" href="modules/m9.html">
+          <span class="id">M9</span>
+          <h3>Cache side channel</h3>
+          <p>Treat the cache the course already teaches as a channel another process can read.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Computer architecture</span><span class="pill pill-taught">Delivered, no survey</span></div>
+        </a></div>
+  </div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where they sit</h2>
+      <p>The module enters in the week the host course already covers the underlying idea. It reuses the debugger, the vendor tools, and the bench instruments the lab already owns.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course-card">
+        <p class="where">Embedded systems · EECS 388</p>
+        <h3>Firmware and the board</h3>
+        <ol>
+          <li><a href="modules/m1.html">Binary reverse engineering</a></li>
+          <li><a href="modules/m2.html">Buffer overflow</a></li>
+          <li><a href="modules/m3.html">Timing side channel</a></li>
+          <li><a href="modules/m4.html">Board reverse engineering</a></li>
+        </ol>
+      </article>
+      <article class="course-card">
+        <p class="where">Digital logic</p>
+        <h3>Gates, adders, and state machines</h3>
+        <ol>
+          <li><a href="modules/m5.html">Power side channel</a></li>
+          <li><a href="modules/m6.html">Combinational logic locking</a></li>
+          <li><a href="modules/m7.html">Hardware Trojan insertion</a></li>
+          <li><a href="modules/m8.html">Sequential logic locking</a></li>
+        </ol>
+      </article>
+      <article class="course-card">
+        <p class="where">Computer architecture</p>
+        <h3>The memory hierarchy as a channel</h3>
+        <ol>
+          <li><a href="modules/m9.html">Cache side channel</a></li>
+        </ol>
+        <p>Each module adds about 30 to 40 minutes of lecture. The rest replaces a lab or homework the course already assigned.</p>
+      </article>
+    </div>
+    <p style="margin-top:1.4rem"><a class="btn btn-ghost" href="courses.html">See the course map</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M7 Hardware Trojan insertion · Hardware Security for All</title>
+<meta name="description" content="Leave the locked adder alone, and add a trigger and a payload that corrupt it on one input.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M7</p>
+    <p class="pills"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></p>
+    <h1>Hardware Trojan insertion</h1>
+    <p class="lede">Leave the locked adder alone, and add a trigger and a payload that corrupt it on one input.</p>
+    <div class="layout">
+      <article class="prose">
+<p>Students receive the adder already locked. They do not modify the full adder and they do not modify the locking equations. The work is a trigger and a payload. The trigger is combinational, looks only at the two operands, and asserts on a single combination the student chooses. The payload runs only while the trigger is asserted and changes at least one bit of the key before that key reaches the locking gates. For every other input the adder still behaves as the lock intends.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The sum is correct everywhere except the trigger combination, where the altered key corrupts the carry chain. The student explains why the Trojan is invisible on every other input, and how a one-bit change in the key becomes a fault that ripples into the higher bits.</p></div>
+<h2>The five parts of the report</h2>
+<ol class="steps">
+  <li><strong>Read the lock.</strong> Explain the key port and both locking styles. The provided architecture uses XOR and XNOR on the masked carries. A multiplexer version is left in comments.</li>
+  <li><strong>Design the trigger.</strong> Pick one pair of operand values. Implement it as combinational logic on a signal named <code>trigger</code>. Say why that pair is rare.</li>
+  <li><strong>Design the payload.</strong> Build a modified key that differs from the real key only when <code>trigger</code> is 1, and only in at least one bit. Leave the obfuscation equations alone.</li>
+  <li><strong>Simulate both cases.</strong> The supplied testbench holds carry-in at 0, drives the key port with <code>010</code>, and walks the operand space. Find the activation in the waveform. Show A, B, the sum, and carry-out in unsigned decimal.</li>
+  <li><strong>Explain the hiding.</strong> Which key bit changed, how that change moves through the carry chain, and why every other input still looks like a correct, locked adder.</li>
+</ol>
+<p>The starter file marks the region where the trigger and payload belong and does not contain them. Completing that region is the lab.</p>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m7/FullAdder.vhdl"><span><b>Full adder</b><span>Do not modify</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m7/4BitAdder_Key.vhdl"><span><b>Locked adder</b><span>Insert the trigger and payload where marked</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m7/tb_4BitAdder.vhdl"><span><b>Testbench</b><span>Carry-in fixed, key fixed, operands swept</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m7/Hardware_Trojan_Insertion_Lab_Manual.docx"><span><b>Lab manual</b><span>Parts, questions, report checklist</span></span><i>DOCX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Digital logic</dd></div>
+    <div><dt>Status</dt><dd>Written material</dd></div>
+    <div><dt>Threat origin</dt><dd>Supply chain</dd></div>
+    <div><dt>Platform</dt><dd>VHDL and the locked adder from the locking lab</dd></div>
+    <div><dt>Design concept</dt><dd>Rare-condition decoding, conditional assignment, behavioral simulation</dd></div>
+    <div><dt>Graded evidence</dt><dd>Trigger and payload code, plus waveforms while dormant and while active</dd></div>
+    <div><dt>Countermeasure</dt><dd>The module teaches the attack. Detection is the analysis half of the report.</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html" aria-current="page"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

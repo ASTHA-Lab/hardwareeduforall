@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courses · Hardware Security for All</title>
+<meta name="description" content="How the modules attach to embedded systems, digital logic, and computer architecture, and how the suite grew from 2022 to 2024.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="catalog.html">Modules</a><a href="courses.html" aria-current="page">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="page">
+  <div class="wrap page-intro">
+    <p class="kicker">Host courses</p>
+    <h1>The modules are a component of a course, not a course of their own.</h1>
+    <p class="lede">Each host course keeps its syllabus, exams, and grading. The security work replaces an assignment the course would have given anyway, in the week that assignment belongs.</p>
+  </div>
+  <div class="wrap">
+    <div class="course-grid">
+      <article class="course-card">
+        <p class="where">EECS 388 · University of Kansas</p>
+        <h3>Embedded systems</h3>
+        <p>Target is the Microchip AT89C51, programmed and debugged in Keil. Spring 2024 ran M1, M2, and M3 as required work, two points each. Spring 2023 ran M1 as homework and M2 as a bonus. M4 is specified for the same course and has not been assigned.</p>
+        <ol>
+          <li><a href="modules/m1.html">M1 Binary reverse engineering</a></li>
+          <li><a href="modules/m2.html">M2 Buffer overflow</a></li>
+          <li><a href="modules/m3.html">M3 Timing side channel</a></li>
+          <li><a href="modules/m4.html">M4 Board reverse engineering</a></li>
+        </ol>
+      </article>
+      <article class="course-card">
+        <p class="where">Digital logic design</p>
+        <h3>From gates to a UART</h3>
+        <p>M5 has an earlier life as a simulator homework. M6, M7, and M8 are VHDL laboratories adapted from hardware-security lab material and from a published tutorial on obfuscation and logic locking. They introduce a register-transfer flow the microcontroller modules never reach. They have not yet been surveyed.</p>
+        <ol>
+          <li><a href="modules/m5.html">M5 Power side channel</a></li>
+          <li><a href="modules/m6.html">M6 Combinational locking</a></li>
+          <li><a href="modules/m7.html">M7 Hardware Trojan</a></li>
+          <li><a href="modules/m8.html">M8 Sequential locking</a></li>
+        </ol>
+      </article>
+      <article class="course-card">
+        <p class="where">Computer architecture · Fall 2024</p>
+        <h3>Cache timing</h3>
+        <p>M9 ran as two lecture parts with a recorded measurement on a commodity x86 machine. No survey was given, and the source notes do not state a graded assignment.</p>
+        <ol>
+          <li><a href="modules/m9.html">M9 Cache side channel</a></li>
+        </ol>
+      </article>
+    </div>
+
+    <h2>How the suite grew</h2>
+    <div class="timeline">
+      <article class="time"><b>Spring 2022</b><p>Side-channel content as a paper and simulator exercise. An early form of the power module.</p></article>
+      <article class="time"><b>Spring 2023</b><p>Binary reverse engineering required. Buffer overflow offered as a bonus. Internal survey, 13 responses.</p></article>
+      <article class="time"><b>Spring 2024</b><p>M1, M2, and M3 each have a two-part lecture and a required assignment. External evaluation, 8 of 13 students.</p></article>
+      <article class="time"><b>Fall 2024</b><p>The same three embedded modules again, plus the cache lecture in computer architecture. External evaluation, 4 responses.</p></article>
+      <article class="time"><b>Prepared</b><p>Board reverse engineering, both locking labs, and the Trojan lab. Written, not yet surveyed.</p></article>
+    </div>
+    <h2>What changed in the grade book</h2>
+    <p>In Spring 2023 the reverse-engineering homework carried 10.5 points and the overflow bonus carried 20. In Spring 2024 each of the three assignments carried 2 points. One student skipped the bonus and was surprised to meet the material on the final. A module chosen because it exercises a core concept is examinable by construction. Leaving it optional sends two signals at once.</p>
+    <p>The cap is three modules in a semester, so the security work does not become a second course hiding inside the first.</p>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

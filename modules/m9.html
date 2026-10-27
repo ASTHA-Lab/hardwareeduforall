@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M9 Cache side channel · Hardware Security for All</title>
+<meta name="description" content="Treat the cache the course already teaches as a channel another process can read.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M9</p>
+    <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Computer architecture</span><span class="pill pill-taught">Delivered, no survey</span></p>
+    <h1>Cache side channel</h1>
+    <p class="lede">Treat the cache the course already teaches as a channel another process can read.</p>
+    <div class="layout">
+      <article class="prose">
+<p>The course has already taught the cache as a performance structure. This module teaches the same structure as a channel. A hit and a miss on a shared last-level line take different numbers of cycles, and the gap is wide enough to read another process.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The lecture closes on a recorded probe-time series. Across 90 probes, hits fall between 96 and 104 cycles and misses fall between 144 and 168. A threshold at 110 sits in a gap of about 40 cycles. No graded assignment is stated in the materials, and no survey was given.</p></div>
+<h2>Part 1. The cache as the course already draws it</h2>
+<p>Hierarchy from registers to main memory, the parameters that define a cache, and the three associativity arrangements. Students read the sizes, associativity, and line size of their own machine from the operating system and from a topology tool.</p>
+<h2>Part 2. The same structure as a channel</h2>
+<p>A flush-and-reload attack needs four things: memory shared with the victim, a high-resolution cycle counter, an instruction that evicts a chosen line, and a last-level cache shared across cores. The lecture walks the sequence. Flush a shared line, let the victim run, reload the line and time the access. The flush is the cache-line flush intrinsic with fences on both sides. The reload is timed between two reads of the timestamp counter. When no memory is shared, the lecture turns to prime-and-probe, which fills a set and times the later access to see whether the victim evicted a line.</p>
+<p>Fall 2024 is the offering in which this lecture entered the computer architecture course. The slide decks below are the two parts.</p>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m9/cache_side-channel_Part1.pptx"><span><b>Lecture, part 1</b><span>Hierarchy, geometry of the local machine</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m9/cache_side-channel_Part2.pptx"><span><b>Lecture, part 2</b><span>Flush and reload, prime and probe, the measurement</span></span><i>PPTX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Computer architecture</dd></div>
+    <div><dt>Status</dt><dd>Delivered, no survey</dd></div>
+    <div><dt>Threat origin</dt><dd>Field</dd></div>
+    <div><dt>Platform</dt><dd>A commodity x86 machine and its cycle counter</dd></div>
+    <div><dt>Design concept</dt><dd>Hierarchy, associativity, line size, set indexing, cycle-accurate timing</dd></div>
+    <div><dt>Graded evidence</dt><dd>A recorded probe-time series. No graded assignment was stated.</dd></div>
+    <div><dt>Countermeasure</dt><dd>None in the delivered lecture. The point is that the hit-miss gap is readable.</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html" aria-current="page"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

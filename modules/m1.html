@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M1 Binary reverse engineering · Hardware Security for All</title>
+<meta name="description" content="Recover a room-temperature controller from an AT89C51 binary that ships with no source.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M1</p>
+    <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></p>
+    <h1>Binary reverse engineering</h1>
+    <p class="lede">Recover a room-temperature controller from an AT89C51 binary that ships with no source.</p>
+    <div class="layout">
+      <article class="prose">
+<p>The program behind the binary keeps a hospital room at a stable temperature. It reads a sensor value from external memory six times an hour, folds each sample into a running average with the previous average, compares that average with a threshold, and drives a port pin from the result. Students receive the binary and the part number, the Microchip AT89C51. They do not receive the source.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The student recovers the sampling rate, the stored temperatures and their addresses, the threshold, and the output port, and explains what happens if the conditional jump that returns to the start of the program is replaced by a call.</p></div>
+<h2>What the lecture sets up</h2>
+<p>Two decks. The first is why reverse engineering shows up in embedded work, a short tour of the 8051 instruction set and registers, and a Keil walkthrough. The second is the memory map: internal memory, special-function registers, addressing modes, and the disassembly and memory windows the homework depends on.</p>
+<h2>The ten questions</h2>
+<p>The Spring 2024 handout, worth two points, asks the student to work only from the disassembly window.</p>
+<ol>
+  <li>Address of the <code>START</code> label.</li>
+  <li>Initial return address of the first call.</li>
+  <li>How many times the program reads external memory.</li>
+  <li>Last hour’s temperature, in decimal, before averaging.</li>
+  <li>The mean temperature after averaging.</li>
+  <li>The threshold, in decimal.</li>
+  <li>The temperature values stored in external memory, and their locations.</li>
+  <li>Which port carries the output signal.</li>
+  <li>Whether that signal is actually driven from the temperatures found in memory.</li>
+  <li>At <code>C:0x034D</code> the program returns to <code>START</code> with <code>JNZ</code>. What happens if that opcode is replaced by <code>ACALL</code>.</li>
+</ol>
+<p>The last question is the stack. A call pushes a return address and this loop never executes a return, so return addresses accumulate until they disturb the rest of internal memory. The module stops there. It does not teach a countermeasure.</p>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m1/Module1_Homework_BRE.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m1/unknown-1"><span><b>Binary to analyze</b><span>File name from the handout: unknown-1</span></span><i>BIN</i></a>
+  <a class="download" href="../materials/m1/Module1_RE_part1.pptx"><span><b>Lecture, part 1</b><span>Motivation, 8051, Keil</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m1/Module1_RE_part2.pptx"><span><b>Lecture, part 2</b><span>Memory map and disassembly</span></span><i>PPTX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Embedded systems</dd></div>
+    <div><dt>Status</dt><dd>Delivered, surveyed</dd></div>
+    <div><dt>Threat origin</dt><dd>Field</dd></div>
+    <div><dt>Platform</dt><dd>AT89C51 and Keil µVision</dd></div>
+    <div><dt>Design concept</dt><dd>Compilation flow, instruction set, addressing modes, code and data spaces, stack pointer</dd></div>
+    <div><dt>Graded evidence</dt><dd>Ten answers from the disassembly and the memory windows</dd></div>
+    <div><dt>Countermeasure</dt><dd>None. The module is a literacy exercise and says so.</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html" aria-current="page"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

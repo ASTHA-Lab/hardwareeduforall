@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence · Hardware Security for All</title>
+<meta name="description" content="Survey results from three offerings of the embedded-systems modules, including what the instruments cannot support.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html" aria-current="page">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="page">
+  <div class="wrap page-intro">
+    <p class="kicker">Deployment record</p>
+    <h1>What 25 students reported, and what that does not prove.</h1>
+    <p class="lede">Three modules have enough offerings to talk about student response. The cohorts were not randomized, no section ran without the modules, and the knowledge ratings are self-reported. Counts this small support a deployment report. They do not support a statistical claim.</p>
+  </div>
+  <div class="wrap">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Cohort</th><th>Term</th><th>Survey</th><th>Modules</th><th>Enrolled</th><th>Responses</th></tr></thead>
+        <tbody>
+          <tr><td>C1</td><td>Spring 2023</td><td>Internal</td><td>M1, M2</td><td>Not recorded</td><td>13</td></tr>
+          <tr><td>C2</td><td>Spring 2024</td><td>External evaluator</td><td>M1, M2, M3</td><td>13</td><td>8 (62%)</td></tr>
+          <tr><td>C3</td><td>Fall 2024</td><td>External evaluator</td><td>M1, M2, M3</td><td>Not recorded</td><td>4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The instrument changed between the 2024 offerings, so the cohorts are not directly comparable. A response rate is known only for Spring 2024. Spring 2024 respondents were 63% male and 38% female, and 75% identified as Hispanic or Latino. Fall 2024 respondents were all male.</p>
+
+    <h2>Self-reported knowledge, Fall 2024</h2>
+    <p>Four-point scale. One is no knowledge and four is strong knowledge. The gain is a perception of gain. There is no validated concept inventory behind it.</p>
+    <div class="legend"><span><i class="swatch before"></i>Before</span><span><i class="swatch after"></i>After</span></div>
+    <div class="bars">
+      <div class="bar-row"><span>Binary reverse engineering</span><div class="track"><i class="before" style="--w:32.5"></i><i class="after" style="--w:62.5"></i></div></div>
+      <div class="bar-row"><span>Buffer overflow</span><div class="track"><i class="before" style="--w:45"></i><i class="after" style="--w:62.5"></i></div></div>
+      <div class="bar-row"><span>Side channel</span><div class="track"><i class="before" style="--w:25"></i><i class="after" style="--w:50"></i></div></div>
+    </div>
+    <p>Read as 1.3 to 2.5 for binary reverse engineering, 1.8 to 2.5 for buffer overflow, and 1.0 to 2.0 for side channels. Interest in hardware security on a ten-point scale moved from 2.8 to 4.5 in this cohort. Spring 2024 reported 9.1 at the end and has no matching start value, so that figure is a terminal value, not a gain.</p>
+
+    <h2>Spring 2023 usefulness ratings</h2>
+    <p>Five-point scale. The midpoint is 3. Means sat below it. Students were not enthusiastic about the early handouts, which is part of why later versions added worked structure.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Mean</th><th>SD</th><th>N</th></tr></thead>
+        <tbody>
+          <tr><td>M1 usefulness for learning binary reverse engineering</td><td>2.77</td><td>1.25</td><td>13</td></tr>
+          <tr><td>M1 contribution to assembly and instruction encoding</td><td>2.69</td><td>1.20</td><td>13</td></tr>
+          <tr><td>M1 adequacy of materials and lecture</td><td>2.83</td><td>1.14</td><td>12</td></tr>
+          <tr><td>M2 usefulness for learning buffer overflow</td><td>2.73</td><td>1.21</td><td>11</td></tr>
+          <tr><td>M2 usefulness for a prior understanding of memory layout</td><td>2.36</td><td>1.23</td><td>11</td></tr>
+          <tr><td>M2 adequacy of materials and lecture</td><td>2.55</td><td>1.50</td><td>11</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What students said the modules did</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Spring 2024</th><th>Fall 2024</th></tr></thead>
+        <tbody>
+          <tr><td>More hands-on work than in other courses</td><td>87% yes</td><td>100% yes</td></tr>
+          <tr><td>Modules helped with embedded-systems fundamentals</td><td>87% yes</td><td>25% yes</td></tr>
+          <tr><td>Changed interest in a graduate degree</td><td>75% yes</td><td>0% yes</td></tr>
+          <tr><td>Sought a hardware-security internship</td><td>100% yes</td><td>Not asked</td></tr>
+          <tr><td>Wants a career in hardware security</td><td>50% yes</td><td>Not asked</td></tr>
+          <tr><td>Wants more hardware-security modules</td><td>50% yes</td><td>Not asked</td></tr>
+          <tr><td>Needs more time to finish the assignments</td><td>75% yes</td><td>25%</td></tr>
+          <tr><td>Workload against similar courses</td><td>63% more</td><td>75% about the same</td></tr>
+          <tr><td>Overall experience, ten-point scale</td><td>7.6</td><td>Not asked</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported not attempting the assignments. The number is small, and it is not a reason to average the two cohorts into one success story.</p>
+
+    <h2>Barriers they named</h2>
+    <p>The closed item offered worked examples, lecture, study materials, time, and teaching-assistant support. It did not offer equipment. Within those options, students pointed at instructional support.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Barrier</th><th>C1, M1 share of selections</th><th>C1, M2 share of selections</th><th>C3 share of respondents</th></tr></thead>
+        <tbody>
+          <tr><td>Worked examples</td><td>33.3%</td><td>28.6%</td><td>0%</td></tr>
+          <tr><td>Class lecture</td><td>29.2%</td><td>33.3%</td><td>25%</td></tr>
+          <tr><td>Study materials</td><td>16.7%</td><td>19.0%</td><td>25%</td></tr>
+          <tr><td>More time</td><td>12.5%</td><td>14.3%</td><td>25%</td></tr>
+          <tr><td>Teaching-assistant support</td><td>8.3%</td><td>4.8%</td><td>50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>C1 rests on 24 selections for M1 and 21 for M2. C3 rests on 4 people. Spring 2024 was not asked this item.</p>
+
+    <h2>Four lessons for the next offering</h2>
+    <div class="rule-list">
+      <article class="rule"><b>1</b><div><h3>The repair is where the comments get specific.</h3><p>One Spring 2023 student called the overflow assignment among the most interesting and rewarding work in the program, and described working out where execution had to go so that further secrets would return. M1, which has no defense, drew requests for context: a good introduction that did not say what the technique is for.</p></div></article>
+      <article class="rule"><b>2</b><div><h3>A desktop mitigation does not survive the move to an 8051.</h3><p>The lecture names stack canaries and address-space layout randomization. Neither exists on this target. The repair the student writes has to hold on the bare machine. A mitigation is a property of a platform.</p></div></article>
+      <article class="rule"><b>3</b><div><h3>Scaffolding binds harder than equipment.</h3><p>The 2024 overflow handout adds a partial-credit ladder and procedural hints. Both are cheaper than a second course, and both answer the barrier the surveys actually recorded.</p></div></article>
+      <article class="rule"><b>4</b><div><h3>The toolchain has to run on the machines students have.</h3><p>Free responses include a student who could not run the vendor tools on a personal machine. The three deployed embedded modules share one 8-bit target and one vendor environment. Whether the same ideas carry to a 32-bit core is untested.</p></div></article>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

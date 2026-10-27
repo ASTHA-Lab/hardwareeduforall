@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M3 Timing side channel · Hardware Security for All</title>
+<meta name="description" content="Measure an early-exit password check on the logic analyzer, then make the comparison constant-time.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M3</p>
+    <p class="pills"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></p>
+    <h1>Timing side channel</h1>
+    <p class="lede">Measure an early-exit password check on the logic analyzer, then make the comparison constant-time.</p>
+    <div class="layout">
+      <article class="prose">
+<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so a wrong first character finishes sooner than a wrong later character. The lecture derives that dependence from CMOS switching energy, names five emissions an attacker can use, and reduces Kocher’s timing attack on exponentiation to this string comparison. The lab then measures the comparison the course can actually instrument.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
+<h2>How the time is taken</h2>
+<ol class="steps">
+  <li>Configure the UART. The starter targets 9600 baud on a 12 MHz crystal, Timer 1 in mode 2.</li>
+  <li>Set the timer run bit before the password check and clear it after. Read the interval between those edges on the logic analyzer in the debugger. The handout asks for five guesses, terminated with a period.</li>
+  <li>Rewrite the comparison so every character is examined regardless of the first mismatch. Repeat the five guesses on the same instrument.</li>
+</ol>
+<h2>A lecture demonstration, not the graded passwords</h2>
+<p>The lecture deck reports eight guesses against a demonstration password. Cycle counts rise as the matching prefix gets longer. The graded assignment uses a different password and a different list of guesses. The figure below is the lecture measurement.</p>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Guess</th><th>Machine cycles</th></tr></thead>
+    <tbody>
+      <tr><td>Howareyou</td><td>122</td></tr>
+      <tr><td>Baaaa</td><td>143</td></tr>
+      <tr><td>Aaaaa</td><td>152</td></tr>
+      <tr><td>Hello</td><td>152</td></tr>
+      <tr><td>Iello</td><td>181</td></tr>
+      <tr><td>Iaaaa</td><td>188</td></tr>
+      <tr><td>Iykpp</td><td>240</td></tr>
+      <tr><td>Iykyk</td><td>291</td></tr>
+    </tbody>
+  </table>
+</div>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m3/Module1_Homework_SCA.pdf"><span><b>Homework handout</b><span>Spring 2024, two points</span></span><i>PDF</i></a>
+  <a class="download" href="../materials/m3/sca_sp24.c"><span><b>Starter program</b><span>UART password check</span></span><i>C</i></a>
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part1.pptx"><span><b>Lecture, part 1</b><span>Emissions, power, Kocher</span></span><i>PPTX</i></a>
+  <a class="download" href="../materials/m3/Module3_TimingSCA_part2.pptx"><span><b>Lecture, part 2</b><span>The string comparison, measured</span></span><i>PPTX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Embedded systems</dd></div>
+    <div><dt>Status</dt><dd>Delivered, surveyed</dd></div>
+    <div><dt>Threat origin</dt><dd>Field</dd></div>
+    <div><dt>Platform</dt><dd>AT89C51 and the debugger logic analyzer</dd></div>
+    <div><dt>Design concept</dt><dd>Timer peripheral, cycle counting, serial-port setup, data-dependent branching</dd></div>
+    <div><dt>Graded evidence</dt><dd>Timing tables for the vulnerable check and the repaired check</dd></div>
+    <div><dt>Countermeasure</dt><dd>A comparison that touches every character, re-measured on the same instrument</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html" aria-current="page"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

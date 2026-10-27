@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module catalog · Hardware Security for All</title>
+<meta name="description" content="Catalog of nine hardware security modules, the design concept each one exercises, and the evidence a student turns in.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="catalog.html" aria-current="page">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="page">
+  <div class="wrap">
+    <div class="page-intro">
+      <p class="kicker">Catalog</p>
+      <h1>Nine modules, each tied to a design concept.</h1>
+      <p class="lede">Status follows the deployment record. Surveyed means student survey data exist. Taught means the module ran without a survey. Written material means the lab is specified and has not yet been run for a grade.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by course">
+      <button type="button" data-filter="course" data-value="all" aria-pressed="true">All courses</button>
+      <button type="button" data-filter="course" data-value="es" aria-pressed="false">Embedded systems</button>
+      <button type="button" data-filter="course" data-value="dl" aria-pressed="false">Digital logic</button>
+      <button type="button" data-filter="course" data-value="ca" aria-pressed="false">Computer architecture</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by status">
+      <button type="button" data-filter="status" data-value="all" aria-pressed="true">Any status</button>
+      <button type="button" data-filter="status" data-value="surveyed" aria-pressed="false">Surveyed</button>
+      <button type="button" data-filter="status" data-value="taught" aria-pressed="false">Taught</button>
+      <button type="button" data-filter="status" data-value="ready" aria-pressed="false">Written</button>
+    </div>
+    <div class="mod-grid"><a class="mod-card" data-course="es" data-status="surveyed" href="modules/m1.html">
+          <span class="id">M1</span><h3>Binary reverse engineering</h3><p>Recover a room-temperature controller from an AT89C51 binary that ships with no source.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div></a>
+<a class="mod-card" data-course="es" data-status="surveyed" href="modules/m2.html">
+          <span class="id">M2</span><h3>Buffer overflow</h3><p>Overrun a fixed buffer on an 8051, watch a secret return through R7, then repair the copy.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div></a>
+<a class="mod-card" data-course="es" data-status="surveyed" href="modules/m3.html">
+          <span class="id">M3</span><h3>Timing side channel</h3><p>Measure an early-exit password check on the logic analyzer, then make the comparison constant-time.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ok">Delivered, surveyed</span></div></a>
+<a class="mod-card" data-course="es" data-status="ready" href="modules/m4.html">
+          <span class="id">M4</span><h3>Board reverse engineering</h3><p>Take a populated board with no schematic and produce a bill of materials and a block diagram.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Embedded systems</span><span class="pill pill-ready">Written material</span></div></a>
+<a class="mod-card" data-course="dl" data-status="taught" href="modules/m5.html">
+          <span class="id">M5</span><h3>Power side channel</h3><p>Infer an unknown gate from supply-current spikes, and see what the measurement cannot tell you.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Digital logic</span><span class="pill pill-taught">Delivered, no survey</span></div></a>
+<a class="mod-card" data-course="dl" data-status="ready" href="modules/m6.html">
+          <span class="id">M6</span><h3>Combinational logic locking</h3><p>Build a 4-bit ripple-carry adder, then lock the carry chain with a key.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div></a>
+<a class="mod-card" data-course="dl" data-status="ready" href="modules/m7.html">
+          <span class="id">M7</span><h3>Hardware Trojan insertion</h3><p>Leave the locked adder alone, and add a trigger and a payload that corrupt it on one input.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div></a>
+<a class="mod-card" data-course="dl" data-status="ready" href="modules/m8.html">
+          <span class="id">M8</span><h3>Sequential logic locking</h3><p>Lock a UART transmitter in its state machine, so the key arrives over several clocks.</p>
+          <div class="meta"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></div></a>
+<a class="mod-card" data-course="ca" data-status="taught" href="modules/m9.html">
+          <span class="id">M9</span><h3>Cache side channel</h3><p>Treat the cache the course already teaches as a channel another process can read.</p>
+          <div class="meta"><span class="pill pill-field">Field</span><span class="pill">Computer architecture</span><span class="pill pill-taught">Delivered, no survey</span></div></a></div>
+    <h2>Full record</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Module</th><th>Course</th><th>Status</th><th>Design concept exercised</th><th>Platform</th><th>Graded evidence</th></tr></thead>
+        <tbody><tr>
+          <td><a href="modules/m1.html">M1</a></td>
+          <td>Binary reverse engineering</td>
+          <td>Embedded systems</td>
+          <td>Delivered, surveyed</td>
+          <td>Compilation flow, instruction set, addressing modes, code and data spaces, stack pointer</td>
+          <td>AT89C51 and Keil µVision</td>
+          <td>Ten answers from the disassembly and the memory windows</td>
+        </tr>
+<tr>
+          <td><a href="modules/m2.html">M2</a></td>
+          <td>Buffer overflow</td>
+          <td>Embedded systems</td>
+          <td>Delivered, surveyed</td>
+          <td>Stack frame, calling convention, saved return address, constant initialization</td>
+          <td>AT89C51, Keil debugger</td>
+          <td>Input length, secrets leaked, and a justified repair</td>
+        </tr>
+<tr>
+          <td><a href="modules/m3.html">M3</a></td>
+          <td>Timing side channel</td>
+          <td>Embedded systems</td>
+          <td>Delivered, surveyed</td>
+          <td>Timer peripheral, cycle counting, serial-port setup, data-dependent branching</td>
+          <td>AT89C51 and the debugger logic analyzer</td>
+          <td>Timing tables for the vulnerable check and the repaired check</td>
+        </tr>
+<tr>
+          <td><a href="modules/m4.html">M4</a></td>
+          <td>Board reverse engineering</td>
+          <td>Embedded systems</td>
+          <td>Written material</td>
+          <td>Microcontroller interfacing, serial protocols, power distribution, datasheets</td>
+          <td>Undocumented board and a digital multimeter</td>
+          <td>Bill of materials and block diagram; a schematic and a protocol if time allows</td>
+        </tr>
+<tr>
+          <td><a href="modules/m5.html">M5</a></td>
+          <td>Power side channel</td>
+          <td>Digital logic</td>
+          <td>Delivered, no survey</td>
+          <td>CMOS switching, output transitions, charge transfer, truth tables</td>
+          <td>Browser circuit simulator and a sense resistor</td>
+          <td>Voltage plot, transition table, and the candidate truth tables</td>
+        </tr>
+<tr>
+          <td><a href="modules/m6.html">M6</a></td>
+          <td>Combinational logic locking</td>
+          <td>Digital logic</td>
+          <td>Written material</td>
+          <td>Ripple-carry addition, carry propagation, hierarchical design, instantiation</td>
+          <td>VHDL and an FPGA design suite</td>
+          <td>Locked design, testbench, and waveforms for a correct key and a wrong key</td>
+        </tr>
+<tr>
+          <td><a href="modules/m7.html">M7</a></td>
+          <td>Hardware Trojan insertion</td>
+          <td>Digital logic</td>
+          <td>Written material</td>
+          <td>Rare-condition decoding, conditional assignment, behavioral simulation</td>
+          <td>VHDL and the locked adder from the locking lab</td>
+          <td>Trigger and payload code, plus waveforms while dormant and while active</td>
+        </tr>
+<tr>
+          <td><a href="modules/m8.html">M8</a></td>
+          <td>Sequential logic locking</td>
+          <td>Digital logic</td>
+          <td>Written material</td>
+          <td>Finite-state machines, reset and transition behavior, the UART frame</td>
+          <td>VHDL UART transmitter</td>
+          <td>Augmented state machine and waveforms for the right sequence and each wrong key</td>
+        </tr>
+<tr>
+          <td><a href="modules/m9.html">M9</a></td>
+          <td>Cache side channel</td>
+          <td>Computer architecture</td>
+          <td>Delivered, no survey</td>
+          <td>Hierarchy, associativity, line size, set indexing, cycle-accurate timing</td>
+          <td>A commodity x86 machine and its cycle counter</td>
+          <td>A recorded probe-time series. No graded assignment was stated.</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Framework · Hardware Security for All</title>
+<meta name="description" content="Five design rules for placing a hardware security module inside a core undergraduate design course.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html" aria-current="page">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="page">
+  <div class="wrap page-intro">
+    <p class="kicker">Method</p>
+    <h1>The contextual learning framework</h1>
+    <p class="lede">Security content stays in a core course only when it makes the student use something that course already teaches. A topic that needs new machinery is a new course in disguise.</p>
+  </div>
+  <div class="wrap">
+    <figure class="framework-fig">
+      <img src="assets/figure1.svg" alt="Diagram of the framework: core design courses connect to security concepts, then to course-specific modules, then to assessment.">
+    </figure>
+    <p class="note">Core courses connect to security concepts, those concepts become course-specific modules, and only some of those modules have been assessed. Of the nine modules here, M1 through M4 belong to embedded systems, M5 through M8 to digital logic, and M9 to computer architecture.</p>
+
+    <h2>Why integrate, instead of adding an elective</h2>
+    <div class="cards-3">
+      <article class="card"><p class="num">A1</p><h3>Security education for all</h3><p>Core design courses are required. The material reaches students who would never enroll in a hardware security elective, and it trains the faculty who already teach those courses.</p></article>
+      <article class="card"><p class="num">A2</p><h3>One picture, not two</h3><p>Attacks that begin in implementation make more sense next to the circuit or the calling convention that produced them.</p></article>
+      <article class="card"><p class="num">A3</p><h3>A cost a department can keep</h3><p>There is no new course to staff, equip, and defend at curriculum committee. The same pattern can later carry other topics a program needs, such as machine learning at the edge.</p></article>
+    </div>
+
+    <h2>Five rules a module has to meet</h2>
+    <div class="rule-list">
+      <article class="rule"><b>C1</b><div><h3>Concept coupling</h3><p>The security topic is chosen because it exercises a design concept already on the syllabus. Its fame in the research literature does not decide the question.</p></div></article>
+      <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor environment, a logic analyzer, a multimeter. New equipment is the cost that stops a module from traveling.</p></div></article>
+      <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space randomization. M3 re-measures a constant-time comparison on the same analyzer. M6 and M8 have the student build the protection. M1, M4, and M5 close without a defense, and the materials say so.</p></div></article>
+      <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept it exercises. A security lab that arrives after that unit’s exam has lost the coupling.</p></div></article>
+      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than the slot allows. The bench work stays in the lab. Identification, trace reading, and waveform interpretation can finish outside it. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
+    </div>
+
+    <h2>What the nine modules cover</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Security concept</th><th>Where the threat starts</th><th>Modules</th></tr></thead>
+        <tbody>
+          <tr><td>Reverse engineering</td><td>Field</td><td>M1, M4</td></tr>
+          <tr><td>Side-channel analysis</td><td>Field</td><td>M3, M5, M9</td></tr>
+          <tr><td>IP protection and obfuscation</td><td>Supply chain</td><td>M6, M8</td></tr>
+          <tr><td>Hardware Trojan</td><td>Supply chain</td><td>M7</td></tr>
+          <tr><td>Memory safety</td><td>Field, outside that split</td><td>M2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The suite does not yet reach fabrication-stage threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. The last of those needs decapsulation and imaging, which the instrument-reuse rule rules out. Breadth is not the goal. A course has room for a few modules, so a catalog is a menu.</p>
+
+    <h2>A topic that fails the test</h2>
+    <p>Fault injection on a cryptographic core needs a clock glitcher, a target with a crypto accelerator, and a treatment of the cipher. None of that is in a first embedded systems course, so the topic does not transfer. The same test rejected any module that would require a new instrument.</p>
+    <p><a class="btn btn-primary" href="catalog.html">Browse the catalog</a></p>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adopt a module · Hardware Security for All</title>
+<meta name="description" content="How an instructor chooses, places, and runs a module without standing up a new hardware security course.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html" aria-current="page">Adopt</a><a href="about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="page">
+  <div class="wrap page-intro">
+    <p class="kicker">For instructors</p>
+    <h1>Place one module in the week the concept is already taught.</h1>
+    <p class="lede">Start from the design topic on your syllabus, then pick the module that makes a student use it. Do not start from a list of famous attacks and look for a week to put them in.</p>
+  </div>
+  <div class="wrap">
+    <div class="rule-list">
+      <article class="rule"><b>1</b><div><h3>Choose at most three.</h3><p>That cap is deliberate. Spring 2024 ran binary reverse engineering, buffer overflow, and the timing side channel. A fourth module in the same term starts to feel like a second course.</p></div></article>
+      <article class="rule"><b>2</b><div><h3>Budget half a lecture, and reuse a lab slot.</h3><p>Plan 30 to 40 minutes of new lecture for each module. The student work replaces an existing homework or lab, it does not stack on top of one. For embedded systems, the natural slots are the weeks on the toolchain, the calling convention, and the timer and serial port.</p></div></article>
+      <article class="rule"><b>3</b><div><h3>Use instruments you already teach.</h3><p>M1 through M3 need Keil and an AT89C51 target or a faithful simulation of it, plus the logic analyzer built into the debugger for M3. M4 needs a populated board and a multimeter, and a logic analyzer only for the optional protocol check. M5 needs a browser. M6 through M8 need a VHDL simulator. M9 needs a student laptop.</p></div></article>
+      <article class="rule"><b>4</b><div><h3>Grade the repair when there is one.</h3><p>On M2 and M3 the second half is the point: a bounded copy, and a constant-time comparison measured again. On M6 and M8 the lock itself is the work. If you make the module extra credit, expect some students to skip it and then meet it on the exam.</p></div></article>
+      <article class="rule"><b>5</b><div><h3>Put the bench work and the write-up in different places.</h3><p>Board teardown needs the lab. Reading datasheets and drawing the block diagram does not. The same split helps a timing lab whose analyzer setup consumes the period.</p></div></article>
+    </div>
+
+    <h2>A reasonable first adoption</h2>
+    <div class="cards-3">
+      <article class="card"><p class="num">Embedded systems</p><h3>M1, then M2, then M3</h3><p>This is the sequence that has been taught and surveyed. Run them in that order. M2 assumes the student can already read the memory windows from M1. M3 assumes the timer and the serial port.</p></article>
+      <article class="card"><p class="num">Digital logic</p><h3>M6, then M7</h3><p>Students build the adder and lock it, then receive that locked design and add a Trojan without touching the lock. M8 can replace M7 if the course is about to teach state machines. M5 can stand alone in the week on CMOS power.</p></article>
+      <article class="card"><p class="num">Computer architecture</p><h3>M9 beside the cache lecture</h3><p>Two parts. The first reads the machine’s own cache geometry. The second treats a hit and a miss as a channel. There is a recorded measurement and no separate graded write-up in the archive.</p></article>
+    </div>
+
+    <h2>What this site publishes</h2>
+    <p>Student handouts, slide decks, starter VHDL, the C sources for the embedded labs, and the binary used in the reverse-engineering homework. Lab manuals for the three VHDL experiments are included as documents because they carry the figures.</p>
+    <div class="callout">
+      <strong>Solution archives are not in this bundle.</strong>
+      <p>Instructor guides, reference VHDL with completed Trojans and completed locks, and the solved homework from earlier offerings stay in the project archive. Lecture recordings from Spring 2023 are there too, and they are large enough that copying them into a site meant for later hosting would be the wrong default. Ask the KU group for the instructor packet.</p>
+    </div>
+    <p>Two further exclusions. The published tutorial on obfuscation and logic locking is cited from the VHDL labs and is not redistributed here. A gem5 cache configuration script that ships beside the cache slides is third-party teaching code and is not copied onto this site.</p>
+    <p><a class="btn btn-primary" href="about.html">Contact the project</a></p>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="catalog.html">Module catalog</a>
+      <a href="framework.html">Design rules</a>
+      <a href="adopt.html">Adopt a module</a>
+      <a href="about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

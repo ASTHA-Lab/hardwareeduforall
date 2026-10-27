@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M6 Combinational logic locking · Hardware Security for All</title>
+<meta name="description" content="Build a 4-bit ripple-carry adder, then lock the carry chain with a key.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#1a1916" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#1d4ed8" stroke-width="1.7"/></svg></span>
+      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page">
+  <div class="wrap">
+    <p class="crumb"><a href="../catalog.html">Modules</a> / M6</p>
+    <p class="pills"><span class="pill pill-supply">Supply chain</span><span class="pill">Digital logic</span><span class="pill pill-ready">Written material</span></p>
+    <h1>Combinational logic locking</h1>
+    <p class="lede">Build a 4-bit ripple-carry adder, then lock the carry chain with a key.</p>
+    <div class="layout">
+      <article class="prose">
+<p>Students receive one file: a full-adder entity. They build a 4-bit ripple-carry adder out of four instances, simulate it, and only then insert a lock on the carries between stages. The adder is correct only for the key they designed. An incorrect key corrupts a carry, and the error ripples into the higher bits.</p>
+<div class="outcome"><p class="outcome-title">Outcome</p><p>Under the right key the adder matches binary addition across the input space the testbench covers. Under a wrong key the two lock styles fail differently. XOR and XNOR invert one or more carries. A multiplexer substitutes some other signal into the carry chain. The student compares the styles and says how the key could be made longer.</p></div>
+<h2>Part I. The adder, unlocked</h2>
+<ol class="steps">
+  <li>Read <code>FullAdder.vhdl</code>. Sum is the XOR of the two bits and carry-in. Carry-out is the majority of those three.</li>
+  <li>Instantiate four full adders. Connect carry-out of one stage to carry-in of the next.</li>
+  <li>Write a testbench, simulate, and confirm ordinary addition. In Vivado, set the radix of A, B, the sum, and carry-out to unsigned decimal before taking the screenshot.</li>
+</ol>
+<h2>Part II. Lock the carry chain</h2>
+<p>Insert key-controlled logic between carry stages. Use either XOR and XNOR gates or multiplexers. Add a 3-bit key input. The design must add correctly for the key the student declares, and it must fail for other keys. The student chooses and documents that key. A reference convention used when this lab is discussed in the paper: a key bit of 0 passes a signal through an XOR and a key bit of 1 passes it through an XNOR.</p>
+<h2>Part III. Show both worlds</h2>
+<p>Sweep the inputs under the correct key and under at least one incorrect key. Capture A, B, the sum, and carry-out only. The report holds the unlocked sources and schematic, the locked sources and schematic, the testbench, both waveforms, and the discussion questions in the manual. Those questions ask why a carry is a useful place to lock, how the two styles differ, and what would make the key space larger.</p>
+<p>Software assumed by the manual is Vivado. Any VHDL simulator that can show a waveform will serve if the course already uses it. The instrument-reuse rule prefers the tool the course already teaches.</p>
+<h2>Files</h2>
+<div class="downloads">
+  <a class="download" href="../materials/m6/FullAdder.vhdl"><span><b>Full-adder starter</b><span>The only source students receive</span></span><i>VHDL</i></a>
+  <a class="download" href="../materials/m6/Combinational_Obfuscation_Lab_Manual.docx"><span><b>Lab manual</b><span>Objectives, figures, report checklist</span></span><i>DOCX</i></a>
+</div>
+</article>
+      <aside class="rail">
+  <dl class="facts">
+    <div><dt>Course</dt><dd>Digital logic</dd></div>
+    <div><dt>Status</dt><dd>Written material</dd></div>
+    <div><dt>Threat origin</dt><dd>Supply chain</dd></div>
+    <div><dt>Platform</dt><dd>VHDL and an FPGA design suite</dd></div>
+    <div><dt>Design concept</dt><dd>Ripple-carry addition, carry propagation, hierarchical design, instantiation</dd></div>
+    <div><dt>Graded evidence</dt><dd>Locked design, testbench, and waveforms for a correct key and a wrong key</dd></div>
+    <div><dt>Countermeasure</dt><dd>The student builds the lock.</dd></div>
+  </dl>
+  <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html" aria-current="page"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>
+</aside>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Hardware Security for All</strong>
+      <p>Hands-on hardware security placed inside undergraduate embedded systems, digital logic, and computer architecture. Doing the security work is how the student exercises the design topic.</p>
+    </div>
+    <div>
+      <p>University of Kansas, EECS<br>University of Florida, ECE<br>Florida International University, ECE</p>
+    </div>
+    <div>
+      <a href="../catalog.html">Module catalog</a>
+      <a href="../framework.html">Design rules</a>
+      <a href="../adopt.html">Adopt a module</a>
+      <a href="../about.html">People and paper</a>
+    </div>
+  </div>
+  <div class="wrap footer-base"><p>Local course site for later hosting. Instructor solution archives and lecture recordings stay out of this bundle.</p></div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>
