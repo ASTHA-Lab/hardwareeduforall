@@ -125,9 +125,6 @@ PILL = {
     "ready": "pill-ready",
 }
 
-MARK = '''<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" stroke="#111111" stroke-width="1.7"/><path d="M9 3.2v2.6M12 3.2v2.6M15 3.2v2.6M9 18.2v2.6M12 18.2v2.6M15 18.2v2.6M3.2 9H6M3.2 12H6M3.2 15H6M18 9h2.8M18 12h2.8M18 15h2.8" stroke="#0051BA" stroke-width="1.7"/></svg>'''
-
-
 def pills(m):
     return (
         f'<span class="pill {PILL[m["origin"]]}">{m["origin_label"]}</span>'
@@ -145,8 +142,8 @@ def header(base, active):
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="{base}index.html">
-      <span class="brand-mark">{MARK}</span>
-      <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
+      <img class="brand-logo" src="{base}assets/ku-signature-white.png" alt="The University of Kansas">
+      <span class="brand-name"><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="nav" aria-label="Primary">{''.join(links)}</nav>
