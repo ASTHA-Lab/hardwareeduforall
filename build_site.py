@@ -185,6 +185,9 @@ def page(filename, title, description, active, body, depth=0):
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="icon" href="{base}assets/favicon.svg">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/nhc5fun.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://use.typekit.net/nhc5fun.css"></noscript>
 <link rel="stylesheet" href="{base}css/site.css">
 </head>
 <body>
