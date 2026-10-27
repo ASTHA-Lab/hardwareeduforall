@@ -34,4 +34,4 @@ Student handouts, lecture decks, starter VHDL and C, the reverse-engineering bin
 
 ## What is left in the archive on purpose
 
-Instructor solution files, solved homework, the NSF proposal, raw evaluation reports, and the Spring 2023 lecture recordings. A published tutorial PDF and a third-party gem5 cache script are not redistributed. The Evidence and Adopt pages say this in plain language.
+Instructor solution files, solved homework, the NSF proposal, raw evaluation reports, and the Spring 2023 lecture recordings. A published tutorial PDF and a third-party gem5 cache script are not redistributed. The Results and Adopt pages say this in plain language.

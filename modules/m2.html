@@ -20,7 +20,7 @@
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Evidence</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../framework.html">Framework</a><a href="../catalog.html" aria-current="page">Modules</a><a href="../courses.html">Courses</a><a href="../assessment.html">Results</a><a href="../adopt.html">Adopt</a><a href="../about.html">About</a></nav>
   </div>
 </header>
 <main id="main">
@@ -63,7 +63,8 @@
 </ul>
 
 <h2>The exercise</h2>
-<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the internal data memory is 256 bytes, the register banks occupy the low addresses, and constants are copied out of code memory at startup. Stack canaries and address-space layout randomization are not on this target.</p>
+<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length.</p>
+<p>On a desktop, a saved frame pointer and a saved return address sit in separate words. On the AT89C51, internal data memory is 256 bytes. The register banks occupy the low addresses, and constants are copied from code memory at startup. This chip has no stack canary and no address-space layout randomization.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student leaks successive secrets through R7, then rewrites the copy so it cannot leave the buffer, and explains why that rewrite holds on this processor.</p></div>
 <h2>What the student does</h2>
 <ol class="steps">
@@ -78,10 +79,10 @@
   <dl class="facts">
     <div><dt>Course</dt><dd>Embedded systems</dd></div>
     <div><dt>Status</dt><dd>Delivered, surveyed</dd></div>
-    <div><dt>Threat origin</dt><dd>Field</dd></div>
+    <div><dt>Where it starts</dt><dd>Field</dd></div>
     <div><dt>Platform</dt><dd>AT89C51, Keil debugger</dd></div>
-    <div><dt>Design concept</dt><dd>Stack frame, calling convention, saved return address, constant initialization</dd></div>
-    <div><dt>Graded evidence</dt><dd>Input length, secrets leaked, and a justified repair</dd></div>
+    <div><dt>Design topic</dt><dd>Stack frame, calling convention, saved return address, constant initialization</dd></div>
+    <div><dt>Student work</dt><dd>Input length, secrets leaked, and a justified repair</dd></div>
     <div><dt>Countermeasure</dt><dd>A bounded copy the student writes for a bare-metal target</dd></div>
   </dl>
   <nav class="rail-nav" aria-label="Modules"><a href="m1.html"><strong>M1</strong> Binary reverse engineering</a><a href="m2.html" aria-current="page"><strong>M2</strong> Buffer overflow</a><a href="m3.html"><strong>M3</strong> Timing side channel</a><a href="m4.html"><strong>M4</strong> Board reverse engineering</a><a href="m5.html"><strong>M5</strong> Power side channel</a><a href="m6.html"><strong>M6</strong> Combinational logic locking</a><a href="m7.html"><strong>M7</strong> Hardware Trojan insertion</a><a href="m8.html"><strong>M8</strong> Sequential logic locking</a><a href="m9.html"><strong>M9</strong> Cache side channel</a></nav>

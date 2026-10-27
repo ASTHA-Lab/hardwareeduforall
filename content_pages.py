@@ -85,7 +85,7 @@ def emit(page, module_page, modules, pills):
 <section class="wrap" aria-label="At a glance">
   <div class="stat-row">
     <div><b>9</b><span>modules across three core courses</span></div>
-    <div><b>5</b><span>security concepts in the coverage model</span></div>
+    <div><b>5</b><span>security topics across the nine modules</span></div>
     <div><b>25</b><span>survey responses from three offerings</span></div>
     <div><b>3</b><span>modules at most in one semester</span></div>
   </div>
@@ -185,7 +185,7 @@ def emit(page, module_page, modules, pills):
     <figure class="framework-fig">
       <img src="assets/figure1.svg" alt="Diagram of the framework: core design courses connect to security concepts, then to course-specific modules, then to assessment.">
     </figure>
-    <p class="note">Core courses connect to security concepts, those concepts become course-specific modules, and only some of those modules have been assessed. Of the nine modules here, M1 through M4 belong to embedded systems, M5 through M8 to digital logic, and M9 to computer architecture.</p>
+    <p class="note">A core course supplies the design topic. A security topic is attached to that topic, and the result is a module for that course. Only some modules have survey results. M1 through M4 are embedded systems. M5 through M8 are digital logic. M9 is computer architecture.</p>
 
     <h2>Why integrate, instead of adding an elective</h2>
     <div class="cards-3">
@@ -200,7 +200,7 @@ def emit(page, module_page, modules, pills):
       <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor IDE, a logic analyzer, a multimeter. A new instrument is what keeps another department from adopting the module.</p></div></article>
       <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space layout randomization. M3 measures a constant-time comparison again on the same logic analyzer. M6 and M8 have the student build the lock. M1, M4, and M5 end with no countermeasure, and the materials say so.</p></div></article>
       <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept the lab uses. A security lab that comes after that unit’s exam no longer reinforces the design topic.</p></div></article>
-      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period allows. The measurement stays at the bench. Part identification, trace reading, and waveform interpretation can finish outside the lab. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
+      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period. Keep the measurement in the lab. Identifying parts, reading a trace, and interpreting a waveform can be finished afterward. In every surveyed class, students asked for worked examples and time. They did not ask for new equipment.</p></div></article>
     </div>
 
     <h2>What the nine modules cover</h2>
@@ -212,11 +212,11 @@ def emit(page, module_page, modules, pills):
           <tr><td>Side-channel analysis</td><td>Field</td><td>M3, M5, M9</td></tr>
           <tr><td>IP protection and obfuscation</td><td>Supply chain</td><td>M6, M8</td></tr>
           <tr><td>Hardware Trojan</td><td>Supply chain</td><td>M7</td></tr>
-          <tr><td>Memory safety</td><td>Field, outside the field / supply-chain split</td><td>M2</td></tr>
+          <tr><td>Memory safety</td><td>Outside field and supply chain</td><td>M2</td></tr>
         </tbody>
       </table>
     </div>
-    <p>The suite does not yet cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging, which the instrument-reuse rule excludes. A semester has room for at most three modules, so the catalog is a set of choices, not a syllabus.</p>
+    <p>The nine modules do not cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging. That needs equipment the course does not already have, so it is out. A semester holds at most three modules. The catalog is a set of choices, not a full syllabus.</p>
 
     <h2>A topic that fails the test</h2>
     <p>Fault injection on a cryptographic core needs a clock glitcher, a device with a crypto accelerator, and a lecture on the cipher. None of that is in a first embedded-systems course, so the topic stays out of these modules. The same test rejected any module that would require a new instrument.</p>
@@ -244,14 +244,14 @@ def emit(page, module_page, modules, pills):
         for m in modules
     )
     page("catalog.html", "Module catalog · Hardware Security for All",
-         "Catalog of nine hardware security modules, the design concept each one exercises, and the evidence a student turns in.",
+         "Nine hardware security modules, the design topic each one uses, and the work a student turns in.",
          "catalog", f'''
 <div class="page">
   <div class="wrap">
     <div class="page-intro">
       <p class="kicker">Catalog</p>
       <h1>Nine modules, each tied to a design concept.</h1>
-      <p class="lede">Status follows the deployment record. Surveyed means student survey data exist. Taught means the module ran without a survey. Written material means the lab is specified and has not yet been run for a grade.</p>
+      <p class="lede">Surveyed means students answered a survey. Taught means the module ran, and there was no survey. Written means the lab is ready and has not been graded yet.</p>
     </div>
     <div class="filters" role="group" aria-label="Filter by course">
       <button type="button" data-filter="course" data-value="all" aria-pressed="true">All courses</button>
@@ -269,7 +269,7 @@ def emit(page, module_page, modules, pills):
     <h2>Full record</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>Module</th><th>Course</th><th>Status</th><th>Design concept exercised</th><th>Platform</th><th>Graded evidence</th></tr></thead>
+        <thead><tr><th>#</th><th>Module</th><th>Course</th><th>Status</th><th>Design topic</th><th>Platform</th><th>Student work</th></tr></thead>
         <tbody>{rows}</tbody>
       </table>
     </div>
@@ -335,14 +335,14 @@ def emit(page, module_page, modules, pills):
 </div>
 ''')
 
-    page("assessment.html", "Evidence · Hardware Security for All",
-         "Survey results from three offerings of the embedded-systems modules, including what the instruments cannot support.",
+    page("assessment.html", "Results · Hardware Security for All",
+         "Survey results from three offerings of the embedded-systems modules, and what those surveys cannot show.",
          "assessment", '''
 <div class="page">
   <div class="wrap page-intro">
     <p class="kicker">Deployment record</p>
     <h1>What 25 students reported, and what that does not prove.</h1>
-    <p class="lede">Three modules have enough offerings to talk about student response. The cohorts were not randomized, no section ran without the modules, and the knowledge ratings are self-reported. Counts this small support a deployment report. They do not support a statistical claim.</p>
+    <p class="lede">Only M1, M2, and M3 have survey results. The classes were not randomized, and no class ran without the modules. The knowledge ratings are what students said about themselves. These counts are a deployment report. They are not a statistical result.</p>
   </div>
   <div class="wrap">
     <div class="table-wrap">
@@ -355,7 +355,8 @@ def emit(page, module_page, modules, pills):
         </tbody>
       </table>
     </div>
-    <p class="note">The instrument changed between the 2024 offerings, so the cohorts are not directly comparable. A response rate is known only for Spring 2024. Spring 2024 respondents were 63% male and 38% female, and 75% identified as Hispanic or Latino. Fall 2024 respondents were all male.</p>
+    <p class="note">C1, C2, and C3 in this table are the three classes. They are not the design rules C1 through C5.</p>
+    <p>The survey questions changed between Spring 2024 and Fall 2024, so those two classes should not be compared item by item. A response rate is known only for Spring 2024: 8 of 13 students. Of those eight, five were men, three were women, and six identified as Hispanic or Latino. All four Fall 2024 respondents were men, and one identified as Asian.</p>
 
     <h2>Self-reported knowledge, Fall 2024</h2>
     <p>Four-point scale. One is no knowledge and four is strong knowledge. These are self-reported ratings. There is no concept inventory behind them.</p>
@@ -403,10 +404,10 @@ def emit(page, module_page, modules, pills):
     <p>The split on fundamentals is the result to keep. Spring 2024 agreed that the modules helped them understand embedded systems. Fall 2024 mostly did not. Half of the Fall respondents reported that they did not attempt the assignments. The sample is small. The two cohorts should not be averaged into one success rate.</p>
 
     <h2>Barriers they named</h2>
-    <p>The closed item offered worked examples, lecture, study materials, time, and teaching-assistant support. It did not offer equipment. Within those options, students pointed at instructional support.</p>
+    <p>Students chose from a fixed list: worked examples, lecture, study materials, time, and teaching-assistant support. Equipment was not on the list. Their answers are about teaching, not about missing instruments.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Barrier</th><th>C1, M1 share of selections</th><th>C1, M2 share of selections</th><th>C3 share of respondents</th></tr></thead>
+        <thead><tr><th>Barrier</th><th>Spring 2023, M1, share of selections</th><th>Spring 2023, M2, share of selections</th><th>Fall 2024, share of respondents</th></tr></thead>
         <tbody>
           <tr><td>Worked examples</td><td>33.3%</td><td>28.6%</td><td>0%</td></tr>
           <tr><td>Class lecture</td><td>29.2%</td><td>33.3%</td><td>25%</td></tr>
@@ -416,7 +417,7 @@ def emit(page, module_page, modules, pills):
         </tbody>
       </table>
     </div>
-    <p>C1 rests on 24 selections for M1 and 21 for M2. C3 rests on 4 people. Spring 2024 was not asked this item.</p>
+    <p>The Spring 2023 shares come from 24 selections on M1 and 21 on M2. Fall 2024 is four people. Spring 2024 was not asked this question.</p>
 
     <h2>Four lessons for the next offering</h2>
     <div class="rule-list">
@@ -444,7 +445,7 @@ def emit(page, module_page, modules, pills):
       <article class="rule"><b>2</b><div><h3>Budget half a lecture, and reuse a lab slot.</h3><p>Plan 30 to 40 minutes of new lecture for each module. The student work replaces an existing homework or lab, it does not stack on top of one. For embedded systems, the natural slots are the weeks on the toolchain, the calling convention, and the timer and serial port.</p></div></article>
       <article class="rule"><b>3</b><div><h3>Use instruments you already teach.</h3><p>M1 through M3 need Keil and an AT89C51 target or a faithful simulation of it, plus the logic analyzer built into the debugger for M3. M4 needs a populated board and a multimeter, and a logic analyzer only for the optional protocol check. M5 needs a browser. M6 through M8 need a VHDL simulator. M9 needs a student laptop.</p></div></article>
       <article class="rule"><b>4</b><div><h3>Grade the repair when there is one.</h3><p>On M2 and M3 the second half is the point: a bounded copy, and a constant-time comparison measured again. On M6 and M8 the lock itself is the work. If you make the module extra credit, expect some students to skip it and then meet it on the exam.</p></div></article>
-      <article class="rule"><b>5</b><div><h3>Put the bench work and the write-up in different places.</h3><p>Board teardown needs the lab. Reading datasheets and drawing the block diagram does not. The same split helps a timing lab whose analyzer setup consumes the period.</p></div></article>
+      <article class="rule"><b>5</b><div><h3>Keep the bench work and the write-up apart.</h3><p>Taking the board apart needs the lab. Reading datasheets and drawing the block diagram does not. The same split helps M3 when setting up the logic analyzer takes the whole period.</p></div></article>
     </div>
 
     <h2>A reasonable first adoption</h2>
@@ -489,14 +490,15 @@ def emit(page, module_page, modules, pills):
     <p class="note">Email addresses follow the author block of the curriculum paper. For an instructor packet, write to the Kansas group.</p>
 
     <h2>The paper this site follows</h2>
-    <p>The structure of the site is the structure of the paper <em>Bringing Hardware Security Education to All: A Seamless Curriculum Integration Approach</em>, prepared for ISQED 2027. The paper states the three obstacles, the five design rules, the nine-module catalog, the deployment record, and the limits of the evidence. Where a lab manual and the paper disagree on a detail of procedure, the manual is what a student follows, and the paper is what this site uses for status, scope, and assessment.</p>
+    <p>This site follows the paper <em>Bringing Hardware Security Education to All: A Seamless Curriculum Integration Approach</em>, prepared for ISQED 2027. The paper states the three obstacles, the five design rules, the nine modules, where each one has been taught, and the limits of the survey results.</p>
+    <p>If a lab manual and the paper disagree on a step, students follow the manual. This site uses the paper for status, scope, and survey results.</p>
     <p>The paper also states the workforce context. An industry analysis projects growth in the U.S. semiconductor workforce from about 345,000 to about 460,000 positions by 2030, with a large share of new technical roles at risk of going unfilled. Employment of information security analysts is projected to grow much faster than employment overall. The required courses in the programs that train those graduates still skip hardware security.</p>
 
     <h2>What a department can take</h2>
     <ul>
       <li>The <a href="framework.html">selection principle and the five rules</a>, if you want to write a module of your own.</li>
       <li>The <a href="catalog.html">catalog</a>, if you want to drop an existing module into a course you already teach.</li>
-      <li>The <a href="assessment.html">evidence page</a>, if you need to know what has been tried and what is still only written down.</li>
+      <li>The <a href="assessment.html">results</a>, if you need to know what has been taught and what is still only written down.</li>
     </ul>
     <p>The site is a set of static pages. Nothing here needs a server-side application.</p>
   </div>
@@ -575,7 +577,8 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The exercise</h2>
-<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length. On a desktop the lecture can point at a saved frame pointer and a saved return address in separate words. On the AT89C51 the internal data memory is 256 bytes, the register banks occupy the low addresses, and constants are copied out of code memory at startup. Stack canaries and address-space layout randomization are not on this target.</p>
+<p>A lookup routine returns a stored secret when a supplied date matches a record. The copy into the input buffer does not check the buffer length.</p>
+<p>On a desktop, a saved frame pointer and a saved return address sit in separate words. On the AT89C51, internal data memory is 256 bytes. The register banks occupy the low addresses, and constants are copied from code memory at startup. This chip has no stack canary and no address-space layout randomization.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student leaks successive secrets through R7, then rewrites the copy so it cannot leave the buffer, and explains why that rewrite holds on this processor.</p></div>
 <h2>What the student does</h2>
 <ol class="steps">
@@ -613,7 +616,8 @@ def emit(page, module_page, modules, pills):
         ],
     ) + '''
 <h2>The exercise</h2>
-<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so the cycle count grows with the length of the correct prefix. The lecture ties that dependence to data-dependent execution, names five emissions an attacker can measure, and reduces Kocher’s timing attack on modular exponentiation to this string comparison. The lab measures the comparison with the timer and the logic analyzer.</p>
+<p>The program grants access when a typed password matches a stored one. The comparison returns at the first mismatch, so the cycle count grows with the length of the correct prefix.</p>
+<p>The lecture names five emissions an attacker can measure. One of them is the time this comparison takes. It reduces Kocher’s timing attack on modular exponentiation to that string comparison. The lab measures the comparison with the timer and the logic analyzer.</p>
 <div class="outcome"><p class="outcome-title">Outcome</p><p>The student turns in a timing table for the vulnerable check and a second table for a comparison that always walks the whole password, and discusses whether the leak is gone. This is the only module in which the defense is measured on the same instrument as the attack.</p></div>
 <h2>How the time is taken</h2>
 <ol class="steps">
@@ -862,6 +866,8 @@ def emit(page, module_page, modules, pills):
 <h2>Part 1. The cache as the course already draws it</h2>
 <p>Hierarchy from registers to main memory, the parameters that define a cache, and the three associativity arrangements. Students read the sizes, associativity, and line size of their own machine from the operating system and from a topology tool.</p>
 <h2>Part 2. The same structure as a channel</h2>
-<p>A flush-and-reload attack needs four things: memory shared with the victim, a high-resolution cycle counter, an instruction that evicts a chosen line, and a last-level cache shared across cores. The lecture walks the sequence. Flush a shared line, let the victim run, reload the line and time the access. The flush is the cache-line flush intrinsic with fences on both sides. The reload is timed between two reads of the timestamp counter. When no memory is shared, the lecture turns to prime-and-probe, which fills a set and times the later access to see whether the victim evicted a line.</p>
+<p>Flush+Reload needs four things: memory shared with the victim, a cycle counter, an instruction that evicts one cache line, and a last-level cache shared across cores.</p>
+<p>The lecture walks the sequence. Flush a shared line. Let the victim run. Reload the line and time the access. The flush is the cache-line flush instruction, with a fence on each side. The reload is timed between two reads of the timestamp counter.</p>
+<p>When the attacker and the victim do not share memory, the lecture uses Prime+Probe instead. The attacker fills a cache set, lets the victim run, and times a later access to see whether the victim evicted a line.</p>
 <p>Fall 2024 is the offering in which this lecture entered the computer architecture course. The two decks are listed above.</p>
 ''')

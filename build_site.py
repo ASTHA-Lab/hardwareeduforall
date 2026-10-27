@@ -10,7 +10,7 @@ NAV = [
     ("framework.html", "Framework", "framework"),
     ("catalog.html", "Modules", "catalog"),
     ("courses.html", "Courses", "courses"),
-    ("assessment.html", "Evidence", "assessment"),
+    ("assessment.html", "Results", "assessment"),
     ("adopt.html", "Adopt", "adopt"),
     ("about.html", "About", "about"),
 ]
@@ -216,10 +216,10 @@ def rail(current):
   <dl class="facts">
     <div><dt>Course</dt><dd>{m["course_label"]}</dd></div>
     <div><dt>Status</dt><dd>{m["status_label"]}</dd></div>
-    <div><dt>Threat origin</dt><dd>{m["origin_label"]}</dd></div>
+    <div><dt>Where it starts</dt><dd>{m["origin_label"]}</dd></div>
     <div><dt>Platform</dt><dd>{m["platform"]}</dd></div>
-    <div><dt>Design concept</dt><dd>{m["concept"]}</dd></div>
-    <div><dt>Graded evidence</dt><dd>{m["evidence"]}</dd></div>
+    <div><dt>Design topic</dt><dd>{m["concept"]}</dd></div>
+    <div><dt>Student work</dt><dd>{m["evidence"]}</dd></div>
     <div><dt>Countermeasure</dt><dd>{m["defense"]}</dd></div>
   </dl>
   <nav class="rail-nav" aria-label="Modules">{''.join(links)}</nav>

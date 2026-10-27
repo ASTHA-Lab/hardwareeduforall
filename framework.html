@@ -20,7 +20,7 @@
       <span><strong>Hardware Security for All</strong><em>Core-course modules</em></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html" aria-current="page">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Evidence</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
+    <nav id="site-nav" class="nav" aria-label="Primary"><a href="index.html">Overview</a><a href="framework.html" aria-current="page">Framework</a><a href="catalog.html">Modules</a><a href="courses.html">Courses</a><a href="assessment.html">Results</a><a href="adopt.html">Adopt</a><a href="about.html">About</a></nav>
   </div>
 </header>
 <main id="main">
@@ -35,7 +35,7 @@
     <figure class="framework-fig">
       <img src="assets/figure1.svg" alt="Diagram of the framework: core design courses connect to security concepts, then to course-specific modules, then to assessment.">
     </figure>
-    <p class="note">Core courses connect to security concepts, those concepts become course-specific modules, and only some of those modules have been assessed. Of the nine modules here, M1 through M4 belong to embedded systems, M5 through M8 to digital logic, and M9 to computer architecture.</p>
+    <p class="note">A core course supplies the design topic. A security topic is attached to that topic, and the result is a module for that course. Only some modules have survey results. M1 through M4 are embedded systems. M5 through M8 are digital logic. M9 is computer architecture.</p>
 
     <h2>Why integrate, instead of adding an elective</h2>
     <div class="cards-3">
@@ -50,7 +50,7 @@
       <article class="rule"><b>C2</b><div><h3>Instrument reuse</h3><p>The module uses tools the laboratory already owns and the course already teaches: the debugger, the vendor IDE, a logic analyzer, a multimeter. A new instrument is what keeps another department from adopting the module.</p></div></article>
       <article class="rule"><b>C3</b><div><h3>A paired countermeasure, where the target allows one</h3><p>M2 asks the student to repair the overflow on a machine that has no stack canary and no address-space layout randomization. M3 measures a constant-time comparison again on the same logic analyzer. M6 and M8 have the student build the lock. M1, M4, and M5 end with no countermeasure, and the materials say so.</p></div></article>
       <article class="rule"><b>C4</b><div><h3>Sequence alignment</h3><p>The module is placed in the week the course covers the concept the lab uses. A security lab that comes after that unit’s exam no longer reinforces the design topic.</p></div></article>
-      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period allows. The measurement stays at the bench. Part identification, trace reading, and waveform interpretation can finish outside the lab. Students in every surveyed cohort asked for worked examples and time, not for more equipment.</p></div></article>
+      <article class="rule"><b>C5</b><div><h3>Split acquisition and analysis</h3><p>Some labs need more time than one period. Keep the measurement in the lab. Identifying parts, reading a trace, and interpreting a waveform can be finished afterward. In every surveyed class, students asked for worked examples and time. They did not ask for new equipment.</p></div></article>
     </div>
 
     <h2>What the nine modules cover</h2>
@@ -62,11 +62,11 @@
           <tr><td>Side-channel analysis</td><td>Field</td><td>M3, M5, M9</td></tr>
           <tr><td>IP protection and obfuscation</td><td>Supply chain</td><td>M6, M8</td></tr>
           <tr><td>Hardware Trojan</td><td>Supply chain</td><td>M7</td></tr>
-          <tr><td>Memory safety</td><td>Field, outside the field / supply-chain split</td><td>M2</td></tr>
+          <tr><td>Memory safety</td><td>Outside field and supply chain</td><td>M2</td></tr>
         </tbody>
       </table>
     </div>
-    <p>The suite does not yet cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging, which the instrument-reuse rule excludes. A semester has room for at most three modules, so the catalog is a set of choices, not a syllabus.</p>
+    <p>The nine modules do not cover fabrication-time threats, physical unclonable functions, bus snooping, fault injection, or gate-level and device-level reverse engineering. Device-level reverse engineering needs decapsulation and imaging. That needs equipment the course does not already have, so it is out. A semester holds at most three modules. The catalog is a set of choices, not a full syllabus.</p>
 
     <h2>A topic that fails the test</h2>
     <p>Fault injection on a cryptographic core needs a clock glitcher, a device with a crypto accelerator, and a lecture on the cipher. None of that is in a first embedded-systems course, so the topic stays out of these modules. The same test rejected any module that would require a new instrument.</p>
