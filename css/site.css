@@ -306,7 +306,15 @@ details.fold p, details.fold ul { margin-top: 0.7rem; }
 .person b { display: block; font-family: var(--sans); }
 .person span { color: var(--muted); font-family: var(--sans); font-size: 0.88rem; }
 
-.site-footer { border-top: 3px solid var(--blue); padding: 2rem 0 1.4rem; margin-top: 1rem; background: #1a1a1a; color: #d5d5d5; }
+.ack { background: #fff; border-top: 1px solid var(--line); padding: 2.2rem 0 1.8rem; }
+.ack h2 { font-size: 1.45rem; margin: 0 0 0.7rem; }
+.ack p { max-width: 44rem; }
+.ack-logos { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem 2.2rem; margin: 1.3rem 0 0; padding: 0; }
+.ack-logos a { display: flex; align-items: center; line-height: 0; }
+.ack-logos img { height: 2.55rem; width: auto; max-width: none; object-fit: contain; }
+.ack-logos .logo-nsf { height: 4.4rem; }
+
+.site-footer { border-top: 3px solid var(--blue); padding: 2rem 0 1.4rem; margin-top: 0; background: #1a1a1a; color: #d5d5d5; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 1.5rem; }
 .site-footer strong { font-family: var(--sans); color: #fff; }
 .site-footer p, .site-footer a { font-family: var(--sans); font-size: 0.9rem; }
